@@ -72,7 +72,7 @@ class TimeZoneViewModel: ObservableObject {
     
     @MainActor
     func loadFromStorage() {
-        if let data = UserDefaults.standard.data(forKey: storageKey),
+        if let data = SharedDefaults.store.data(forKey: storageKey),
            let decoded = try? JSONDecoder().decode([TimeZoneItem].self, from: data) {
             timeZones = decoded
         } else {
@@ -90,7 +90,7 @@ class TimeZoneViewModel: ObservableObject {
     @MainActor
     func saveToStorage() {
         if let encoded = try? JSONEncoder().encode(timeZones) {
-            UserDefaults.standard.set(encoded, forKey: storageKey)
+            SharedDefaults.store.set(encoded, forKey: storageKey)
         }
     }
 }

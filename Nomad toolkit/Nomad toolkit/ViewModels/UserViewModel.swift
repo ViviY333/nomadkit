@@ -21,7 +21,7 @@ class UserViewModel: ObservableObject {
     
     // 计算累积天数
     var currentDay: Int {
-        guard let loginDate = UserDefaults.standard.object(forKey: loginDateKey) as? Date else {
+        guard let loginDate = SharedDefaults.store.object(forKey: loginDateKey) as? Date else {
             return 1 // 如果没有登录日期，默认为第1天
         }
         let calendar = Calendar.current
@@ -39,19 +39,19 @@ class UserViewModel: ObservableObject {
         isLoggedIn = true
         
         // 如果是首次登录，保存登录日期
-        if UserDefaults.standard.object(forKey: loginDateKey) == nil {
-            UserDefaults.standard.set(Date(), forKey: loginDateKey)
+        if SharedDefaults.store.object(forKey: loginDateKey) == nil {
+            SharedDefaults.store.set(Date(), forKey: loginDateKey)
         }
         
-        UserDefaults.standard.set(name, forKey: userNameKey)
-        UserDefaults.standard.set(email, forKey: userEmailKey)
-        UserDefaults.standard.set(true, forKey: isLoggedInKey)
+        SharedDefaults.store.set(name, forKey: userNameKey)
+        SharedDefaults.store.set(email, forKey: userEmailKey)
+        SharedDefaults.store.set(true, forKey: isLoggedInKey)
     }
     
     func loadUserInfo() {
-        userName = UserDefaults.standard.string(forKey: userNameKey) ?? ""
-        userEmail = UserDefaults.standard.string(forKey: userEmailKey) ?? ""
-        isLoggedIn = UserDefaults.standard.bool(forKey: isLoggedInKey)
+        userName = SharedDefaults.store.string(forKey: userNameKey) ?? ""
+        userEmail = SharedDefaults.store.string(forKey: userEmailKey) ?? ""
+        isLoggedIn = SharedDefaults.store.bool(forKey: isLoggedInKey)
     }
     
     func logout() {
@@ -59,9 +59,9 @@ class UserViewModel: ObservableObject {
         userEmail = ""
         isLoggedIn = false
         
-        UserDefaults.standard.removeObject(forKey: userNameKey)
-        UserDefaults.standard.removeObject(forKey: userEmailKey)
-        UserDefaults.standard.set(false, forKey: isLoggedInKey)
+        SharedDefaults.store.removeObject(forKey: userNameKey)
+        SharedDefaults.store.removeObject(forKey: userEmailKey)
+        SharedDefaults.store.set(false, forKey: isLoggedInKey)
         // 注意：不删除 loginDateKey，以便下次登录时继续累积天数
     }
 }

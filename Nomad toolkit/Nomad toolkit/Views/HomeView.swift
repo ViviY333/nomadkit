@@ -177,7 +177,7 @@ struct HomeView: View {
             }
             .onAppear {
                 // 加载保存的停留天数
-                if let savedStayDays = UserDefaults.standard.object(forKey: "passportStayDays") as? Int {
+                if let savedStayDays = SharedDefaults.store.object(forKey: "passportStayDays") as? Int {
                     stayDays = savedStayDays
                 }
                 
@@ -186,9 +186,9 @@ struct HomeView: View {
             }
             .onChange(of: stayDays) { oldValue, newValue in
                 if let newDays = newValue {
-                    UserDefaults.standard.set(newDays, forKey: "passportStayDays")
+                    SharedDefaults.store.set(newDays, forKey: "passportStayDays")
                 } else {
-                    UserDefaults.standard.removeObject(forKey: "passportStayDays")
+                    SharedDefaults.store.removeObject(forKey: "passportStayDays")
                 }
                 // 当停留天数改变时，重新检查是否需要显示警告
                 checkAndShowWarning()

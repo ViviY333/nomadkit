@@ -86,12 +86,12 @@ class TranslationViewModel: ObservableObject {
     
     @MainActor
     private func loadLastUsedLanguages() {
-        if let fromData = UserDefaults.standard.data(forKey: storageKeyFrom),
+        if let fromData = SharedDefaults.store.data(forKey: storageKeyFrom),
            let from = try? JSONDecoder().decode(Language.self, from: fromData) {
             fromLanguage = from
         }
         
-        if let toData = UserDefaults.standard.data(forKey: storageKeyTo),
+        if let toData = SharedDefaults.store.data(forKey: storageKeyTo),
            let to = try? JSONDecoder().decode(Language.self, from: toData) {
             toLanguage = to
         }
@@ -100,10 +100,10 @@ class TranslationViewModel: ObservableObject {
     @MainActor
     func saveLastUsedLanguages() {
         if let fromEncoded = try? JSONEncoder().encode(fromLanguage) {
-            UserDefaults.standard.set(fromEncoded, forKey: storageKeyFrom)
+            SharedDefaults.store.set(fromEncoded, forKey: storageKeyFrom)
         }
         if let toEncoded = try? JSONEncoder().encode(toLanguage) {
-            UserDefaults.standard.set(toEncoded, forKey: storageKeyTo)
+            SharedDefaults.store.set(toEncoded, forKey: storageKeyTo)
         }
     }
 }

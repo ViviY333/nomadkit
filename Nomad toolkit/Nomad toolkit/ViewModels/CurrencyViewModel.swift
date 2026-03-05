@@ -85,12 +85,12 @@ class CurrencyViewModel: ObservableObject {
     
     @MainActor
     private func loadLastUsedCurrencies() {
-        if let fromData = UserDefaults.standard.data(forKey: storageKeyFrom),
+        if let fromData = SharedDefaults.store.data(forKey: storageKeyFrom),
            let from = try? JSONDecoder().decode(Currency.self, from: fromData) {
             fromCurrency = from
         }
         
-        if let toData = UserDefaults.standard.data(forKey: storageKeyTo),
+        if let toData = SharedDefaults.store.data(forKey: storageKeyTo),
            let to = try? JSONDecoder().decode(Currency.self, from: toData) {
             toCurrency = to
         }
@@ -99,10 +99,10 @@ class CurrencyViewModel: ObservableObject {
     @MainActor
     private func saveLastUsedCurrencies() {
         if let fromEncoded = try? JSONEncoder().encode(fromCurrency) {
-            UserDefaults.standard.set(fromEncoded, forKey: storageKeyFrom)
+            SharedDefaults.store.set(fromEncoded, forKey: storageKeyFrom)
         }
         if let toEncoded = try? JSONEncoder().encode(toCurrency) {
-            UserDefaults.standard.set(toEncoded, forKey: storageKeyTo)
+            SharedDefaults.store.set(toEncoded, forKey: storageKeyTo)
         }
     }
     

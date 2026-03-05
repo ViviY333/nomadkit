@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct Nomad_toolkitApp: App {
     @StateObject private var userViewModel = UserViewModel()
-    
+    @State private var deepLinkDestination: String?
+
     init() {
     }
-    
+
     var body: some Scene {
         WindowGroup {
             Group {
@@ -37,6 +38,10 @@ struct Nomad_toolkitApp: App {
                 }
             }
             .preferredColorScheme(.light) // 强制白天模式
+            .onOpenURL { url in
+                deepLinkDestination = url.host()
+            }
+            .environment(\.deepLinkDestination, deepLinkDestination)
         }
     }
 }

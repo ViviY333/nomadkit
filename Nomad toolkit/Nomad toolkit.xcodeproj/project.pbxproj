@@ -7,23 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A869862F5A27F90063A556 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A869852F5A27F90063A556 /* WidgetKit.framework */; };
+		15A869882F5A27F90063A556 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A869872F5A27F90063A556 /* SwiftUI.framework */; };
+		15A869932F5A27FA0063A556 /* NomadWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15A869842F5A27F90063A556 /* NomadWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DDD9ABAF2F0404C8005D3B24 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9ABAE2F0404C8005D3B24 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		15A869912F5A27FA0063A556 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD70338E2EDB31FA008F322A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15A869832F5A27F90063A556;
+			remoteInfo = NomadWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15A869982F5A27FA0063A556 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				15A869932F5A27FA0063A556 /* NomadWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		15A869842F5A27F90063A556 /* NomadWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NomadWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		15A869852F5A27F90063A556 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		15A869872F5A27F90063A556 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		15A8699A2F5A2E740063A556 /* NomadWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NomadWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		DD7033962EDB31FA008F322A /* Nomad toolkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nomad toolkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD9ABAE2F0404C8005D3B24 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		15A869942F5A27FA0063A556 /* Exceptions for "NomadWidgets" folder in "NomadWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 15A869832F5A27F90063A556 /* NomadWidgetsExtension */;
+		};
+		15A8699C2F5A2ED80063A556 /* Exceptions for "Nomad toolkit" folder in "NomadWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Currency.swift,
+				Models/Language.swift,
+				Models/TimeZoneItem.swift,
+				Models/Weather.swift,
+				Services/WeatherService.swift,
+				Utilities/SharedDefaults.swift,
+			);
+			target = 15A869832F5A27F90063A556 /* NomadWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		15A869892F5A27F90063A556 /* NomadWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				15A869942F5A27FA0063A556 /* Exceptions for "NomadWidgets" folder in "NomadWidgetsExtension" target */,
+			);
+			path = NomadWidgets;
+			sourceTree = "<group>";
+		};
 		DD7033982EDB31FA008F322A /* Nomad toolkit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				15A8699C2F5A2ED80063A556 /* Exceptions for "Nomad toolkit" folder in "NomadWidgetsExtension" target */,
+			);
 			path = "Nomad toolkit";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		15A869812F5A27F90063A556 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15A869882F5A27F90063A556 /* SwiftUI.framework in Frameworks */,
+				15A869862F5A27F90063A556 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD7033932EDB31FA008F322A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,7 +111,9 @@
 		DD70338D2EDB31FA008F322A = {
 			isa = PBXGroup;
 			children = (
+				15A8699A2F5A2E740063A556 /* NomadWidgetsExtension.entitlements */,
 				DD7033982EDB31FA008F322A /* Nomad toolkit */,
+				15A869892F5A27F90063A556 /* NomadWidgets */,
 				DDD9ABAD2F0404C8005D3B24 /* Frameworks */,
 				DD7033972EDB31FA008F322A /* Products */,
 			);
@@ -48,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DD7033962EDB31FA008F322A /* Nomad toolkit.app */,
+				15A869842F5A27F90063A556 /* NomadWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				DDD9ABAE2F0404C8005D3B24 /* StoreKit.framework */,
+				15A869852F5A27F90063A556 /* WidgetKit.framework */,
+				15A869872F5A27F90063A556 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -63,6 +141,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		15A869832F5A27F90063A556 /* NomadWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15A869952F5A27FA0063A556 /* Build configuration list for PBXNativeTarget "NomadWidgetsExtension" */;
+			buildPhases = (
+				15A869802F5A27F90063A556 /* Sources */,
+				15A869812F5A27F90063A556 /* Frameworks */,
+				15A869822F5A27F90063A556 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				15A869892F5A27F90063A556 /* NomadWidgets */,
+			);
+			name = NomadWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = NomadWidgetsExtension;
+			productReference = 15A869842F5A27F90063A556 /* NomadWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DD7033952EDB31FA008F322A /* Nomad toolkit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD7033A12EDB31FB008F322A /* Build configuration list for PBXNativeTarget "Nomad toolkit" */;
@@ -70,10 +170,12 @@
 				DD7033922EDB31FA008F322A /* Sources */,
 				DD7033932EDB31FA008F322A /* Frameworks */,
 				DD7033942EDB31FA008F322A /* Resources */,
+				15A869982F5A27FA0063A556 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				15A869922F5A27FA0063A556 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DD7033982EDB31FA008F322A /* Nomad toolkit */,
@@ -92,9 +194,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
+				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					15A869832F5A27F90063A556 = {
+						CreatedOnToolsVersion = 26.3;
+					};
 					DD7033952EDB31FA008F322A = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
@@ -119,11 +224,19 @@
 			projectRoot = "";
 			targets = (
 				DD7033952EDB31FA008F322A /* Nomad toolkit */,
+				15A869832F5A27F90063A556 /* NomadWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		15A869822F5A27F90063A556 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD7033942EDB31FA008F322A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,6 +247,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		15A869802F5A27F90063A556 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD7033922EDB31FA008F322A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,7 +263,84 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		15A869922F5A27FA0063A556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15A869832F5A27F90063A556 /* NomadWidgetsExtension */;
+			targetProxy = 15A869912F5A27FA0063A556 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		15A869962F5A27FA0063A556 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NomadWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NomadWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NomadWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit.NomadWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		15A869972F5A27FA0063A556 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NomadWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NomadWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NomadWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit.NomadWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
 		DD70339F2EDB31FB008F322A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -265,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Nomad toolkit/Nomad toolkit.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -274,6 +472,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleURLTypes = "([{CFBundleURLSchemes = (nomadkit); }])";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to translate text from images";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nomad toolkit uses your location to show local weather";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -313,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Nomad toolkit/Nomad toolkit.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -322,6 +522,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleURLTypes = "([{CFBundleURLSchemes = (nomadkit); }])";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to translate text from images";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nomad toolkit uses your location to show local weather";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -359,6 +560,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		15A869952F5A27FA0063A556 /* Build configuration list for PBXNativeTarget "NomadWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15A869962F5A27FA0063A556 /* Debug */,
+				15A869972F5A27FA0063A556 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD7033912EDB31FA008F322A /* Build configuration list for PBXProject "Nomad toolkit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

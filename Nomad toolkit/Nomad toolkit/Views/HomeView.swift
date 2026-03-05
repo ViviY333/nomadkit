@@ -14,7 +14,8 @@ struct HomeView: View {
     @StateObject private var translationViewModel = TranslationViewModel()
     @StateObject private var packingListViewModel = PackingListViewModel()
     @EnvironmentObject var userViewModel: UserViewModel
-    
+    @Environment(\.deepLinkDestination) var deepLinkDestination
+
     @State private var stayDays: Int? = nil
     @State private var showPassportDaysInput = false
     @State private var showStayDaysWarning = false
@@ -44,29 +45,32 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
+            ScrollViewReader { proxy in
             ScrollView {
                 VStack(spacing: 16) { // 减小间距以匹配紧凑布局
                     // 顶部区域：天气 + 时区
                     HStack(spacing: 12) {
                         WeatherCardView(viewModel: weatherViewModel)
                             .frame(maxWidth: .infinity) // 占据一半宽度
-                        
+
                         TimeZoneCardView(viewModel: timeZoneViewModel)
                             .frame(maxWidth: .infinity) // 占据一半宽度
                     }
                     .frame(height: 180) // 缩小高度 (240 - 60)
-                    
+
                     // 打包清单 (未完成时显示在这里)
                     if !packingListViewModel.isAllSelected {
                         PackingListCardView(viewModel: packingListViewModel)
                     }
-                    
+
                     // 货币转换器卡片
                     CurrencyConverterCardView(viewModel: currencyViewModel)
-                    
+                        .id("currency")
+
                     // 翻译卡片
                     TranslationCardView(viewModel: translationViewModel)
-                    
+                        .id("translation")
+
                     // 打包清单 (全部完成后移动到这里)
                     if packingListViewModel.isAllSelected {
                         PackingListCardView(viewModel: packingListViewModel)
@@ -79,6 +83,12 @@ struct HomeView: View {
                 .animation(.spring(), value: packingListViewModel.isAllSelected)
             }
             .background(Color(.systemGroupedBackground))
+            .onChange(of: deepLinkDestination) { _, destination in
+                guard let destination else { return }
+                withAnimation {
+                    proxy.scrollTo(destination, anchor: .top)
+                }
+            }
             .navigationTitle(navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -197,6 +207,7 @@ struct HomeView: View {
                 // 当当前天数改变时，重新检查是否需要显示警告
                 checkAndShowWarning()
             }
+            } // ScrollViewReader
         }
     }
     

@@ -24,8 +24,13 @@ class WeatherViewModel: ObservableObject {
         Task { @MainActor in
             self.locationManager = LocationManager()
             self.setupLocationManager()
-            // 先加载默认城市作为占位，如果定位成功会更新
-            self.loadDefaultWeather()
+            // 先加载缓存天气作为占位，如果定位成功会更新
+            if let data = SharedDefaults.store.data(forKey: "lastWeather"),
+               let cached = try? JSONDecoder().decode(Weather.self, from: data) {
+                self.currentWeather = cached
+            } else {
+                self.loadDefaultWeather()
+            }
             // 请求定位
             self.locationManager?.requestLocation()
         }
@@ -63,6 +68,9 @@ class WeatherViewModel: ObservableObject {
                         countryCode: countryCode
                     )
                     self.currentWeather = weather
+                    if let encoded = try? JSONEncoder().encode(weather) {
+                        SharedDefaults.store.set(encoded, forKey: "lastWeather")
+                    }
                     self.isLoading = false
                 } catch {
                     self.errorMessage = error.localizedDescription
@@ -71,7 +79,7 @@ class WeatherViewModel: ObservableObject {
             }
         }
     }
-    
+
     @MainActor
     func loadDefaultWeather() {
         // 默认城市：Kuala Lumpur
@@ -87,6 +95,9 @@ class WeatherViewModel: ObservableObject {
             do {
                 let weather = try await weatherService.fetchWeather(for: cityName)
                 self.currentWeather = weather
+                if let encoded = try? JSONEncoder().encode(weather) {
+                    SharedDefaults.store.set(encoded, forKey: "lastWeather")
+                }
                 self.isLoading = false
             } catch {
                 self.errorMessage = error.localizedDescription

@@ -54,6 +54,7 @@ struct WeatherCardView: View {
                                 .foregroundColor(.white)
                                 .lineLimit(1) // 强制一行
                                 .minimumScaleFactor(0.7) // 允许自动缩小以适应一行
+                                .onTapGesture { viewModel.showCitySelection = true }
                         }
                     }
                     .padding(.top, 20)
@@ -118,6 +119,19 @@ struct WeatherCardView: View {
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
+                } else if viewModel.locationDenied {
+                    VStack(spacing: 8) {
+                        Image(systemName: "location.slash")
+                            .font(.system(size: 32))
+                            .foregroundColor(.white)
+                        Text("Tap to select a city")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .onTapGesture {
+                        viewModel.showCitySelection = true
+                    }
                 } else {
                     ProgressView()
                         .tint(.white)
@@ -126,6 +140,11 @@ struct WeatherCardView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity) // 确保填满父容器
+        .sheet(isPresented: $viewModel.showCitySelection) {
+            CitySelectionView(isPresented: $viewModel.showCitySelection) { name, lat, lon, countryCode in
+                viewModel.selectCity(name: name, latitude: lat, longitude: lon, countryCode: countryCode)
+            }
+        }
         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .onAppear {
             if let randomBg = bgImages.randomElement() {

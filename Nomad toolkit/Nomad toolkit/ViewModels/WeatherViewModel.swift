@@ -14,7 +14,9 @@ class WeatherViewModel: ObservableObject {
     @MainActor @Published var currentWeather: Weather?
     @MainActor @Published var isLoading = false
     @MainActor @Published var errorMessage: String?
-    
+    @MainActor @Published var showCitySelection = false
+    @MainActor @Published var locationDenied = false
+
     private let weatherService: WeatherService
     @MainActor private var locationManager: LocationManager?
     @MainActor private var cancellables = Set<AnyCancellable>()
@@ -45,6 +47,19 @@ class WeatherViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] location in
                 self?.fetchWeatherForLocation(location)
+            }
+            .store(in: &cancellables)
+
+        locationManager.$authorizationStatus
+            .compactMap { $0 }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] status in
+                if status == .denied || status == .restricted {
+                    self?.locationDenied = true
+                    if self?.currentWeather == nil {
+                        self?.showCitySelection = true
+                    }
+                }
             }
             .store(in: &cancellables)
     }
@@ -90,10 +105,34 @@ class WeatherViewModel: ObservableObject {
     func loadWeather(for cityName: String) {
         isLoading = true
         errorMessage = nil
-        
+
         Task {
             do {
                 let weather = try await weatherService.fetchWeather(for: cityName)
+                self.currentWeather = weather
+                if let encoded = try? JSONEncoder().encode(weather) {
+                    SharedDefaults.store.set(encoded, forKey: "lastWeather")
+                }
+                self.isLoading = false
+            } catch {
+                self.errorMessage = error.localizedDescription
+                self.isLoading = false
+            }
+        }
+    }
+
+    @MainActor
+    func selectCity(name: String, latitude: Double, longitude: Double, countryCode: String) {
+        SharedDefaults.store.set(name, forKey: "selectedCity")
+        isLoading = true
+        Task {
+            do {
+                let weather = try await weatherService.fetchWeather(
+                    latitude: latitude,
+                    longitude: longitude,
+                    cityName: name,
+                    countryCode: countryCode
+                )
                 self.currentWeather = weather
                 if let encoded = try? JSONEncoder().encode(weather) {
                     SharedDefaults.store.set(encoded, forKey: "lastWeather")

@@ -42,27 +42,51 @@ struct PassportDaysWidgetView: View {
     let entry: PassportEntry
 
     var body: some View {
-        VStack(spacing: 6) {
-            Image(systemName: "airplane.departure")
-                .font(.system(size: 20))
-                .foregroundStyle(.orange)
+        VStack(spacing: 4) {
+            Spacer()
 
-            Text("Day \(entry.currentDay)")
-                .font(.system(size: 24, weight: .bold, design: .rounded))
-
+            // Day counter matching nav bar style: "Day1(90)"
             if let stayDays = entry.stayDays {
+                Text("Day\(entry.currentDay)")
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .foregroundColor(.primary)
+
+                Text("(\(stayDays))")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.secondary)
+
                 let remaining = max(0, stayDays - entry.currentDay)
-                Text("\(remaining) days left")
-                    .font(.system(size: 12))
-                    .foregroundStyle(remaining <= 3 ? .red : .secondary)
+                HStack(spacing: 4) {
+                    Circle()
+                        .fill(remaining <= 3 ? Color.red : Color.green)
+                        .frame(width: 6, height: 6)
+                    Text("\(remaining) days left")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(remaining <= 3 ? .red : .secondary)
+                }
+                .padding(.top, 4)
+            } else {
+                Text("Day\(entry.currentDay)")
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .foregroundColor(.primary)
+
+                Text("Set stay days\nin app")
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
             }
 
+            Spacer()
+
+            // User name at bottom
             if let name = entry.userName, !name.isEmpty {
                 Text(name)
-                    .font(.system(size: 10))
-                    .foregroundStyle(.secondary)
+                    .font(.system(size: 10, weight: .medium))
+                    .foregroundColor(.secondary)
+                    .padding(.bottom, 4)
             }
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -72,10 +96,11 @@ struct PassportDaysWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PassportProvider()) { entry in
             PassportDaysWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.white, for: .widget)
         }
         .configurationDisplayName("Passport Days")
         .description("Track your travel day count")
         .supportedFamilies([.systemSmall])
+        .contentMarginsDisabled()
     }
 }

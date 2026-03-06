@@ -65,27 +65,47 @@ struct PackingListWidgetView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Packing List")
-                .font(.system(size: 13, weight: .semibold))
-                .padding(.bottom, 2)
-
-            ForEach(entry.items, id: \.id) { item in
-                Button(intent: TogglePackingItemIntent(itemID: item.id)) {
-                    HStack(spacing: 8) {
-                        Image(systemName: item.isSelected ? "checkmark.circle.fill" : "circle")
-                            .font(.system(size: 16))
-                            .foregroundStyle(item.isSelected ? .green : .secondary)
-                        Text(item.title)
-                            .font(.system(size: 13))
-                            .strikethrough(item.isSelected)
-                            .foregroundStyle(item.isSelected ? .secondary : .primary)
-                        Spacer()
+            // 3x2 grid of item images matching the app layout
+            VStack(spacing: 0) {
+                // Row 1
+                HStack(spacing: 0) {
+                    ForEach(Array(entry.items.prefix(3)), id: \.id) { item in
+                        packingItemView(item: item)
                     }
                 }
-                .buttonStyle(.plain)
+                // Row 2
+                HStack(spacing: 0) {
+                    ForEach(Array(entry.items.suffix(3)), id: \.id) { item in
+                        packingItemView(item: item)
+                    }
+                }
             }
         }
-        .padding()
+        .padding(.horizontal, 16)
+        .padding(.vertical, 6)
+    }
+
+    @ViewBuilder
+    private func packingItemView(item: (id: String, title: String, isSelected: Bool)) -> some View {
+        Button(intent: TogglePackingItemIntent(itemID: item.id)) {
+            ZStack {
+                Image(item.id)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 68)
+                    .saturation(item.isSelected ? 1 : 0)
+                    .opacity(item.isSelected ? 1 : 0.6)
+
+                if item.isSelected {
+                    Image("Vector")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
+                }
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.plain)
     }
 }
 
@@ -95,10 +115,11 @@ struct PackingListWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PackingProvider()) { entry in
             PackingListWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.white, for: .widget)
         }
         .configurationDisplayName("Packing List")
         .description("Check off your packing items")
         .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }

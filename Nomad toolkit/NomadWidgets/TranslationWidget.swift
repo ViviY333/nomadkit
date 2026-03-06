@@ -40,25 +40,63 @@ struct TranslationWidgetView: View {
     let entry: TranslationEntry
 
     var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "character.book.closed")
-                .font(.system(size: 24))
-                .foregroundStyle(.purple)
-
-            if let from = entry.fromLanguage, let to = entry.toLanguage {
-                Text("\(from.name) \u{2192} \(to.name)")
-                    .font(.system(size: 13, weight: .semibold))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-            } else {
+        VStack(alignment: .leading, spacing: 10) {
+            // Top row: title (left) + overlapping flags (right)
+            HStack {
                 Text("Translation")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: 16, weight: .bold))
+                Spacer()
+                if let from = entry.fromLanguage, let to = entry.toLanguage {
+                    ZStack {
+                        Text(to.flag)
+                            .font(.system(size: 28))
+                            .frame(width: 36, height: 36)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+                            .offset(x: 10, y: 10)
+
+                        Text(from.flag)
+                            .font(.system(size: 28))
+                            .frame(width: 36, height: 36)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+                    }
+                    .frame(width: 50, height: 50)
+                }
             }
 
-            Text("Tap to translate")
-                .font(.system(size: 11))
-                .foregroundStyle(.secondary)
+            // Placeholder text area
+            Text("Input the text...")
+                .font(.system(size: 16))
+                .foregroundColor(.gray)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+
+            Spacer()
+
+            // Bottom toolbar: camera, photo, mic icons + send button
+            HStack(spacing: 24) {
+                Image(systemName: "camera")
+                    .font(.system(size: 20))
+                    .foregroundColor(.gray)
+                Image(systemName: "photo")
+                    .font(.system(size: 20))
+                    .foregroundColor(.gray)
+                Image(systemName: "mic.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.gray)
+                Spacer()
+                Image(systemName: "arrow.up")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(width: 44, height: 44)
+                    .background(Color.black)
+                    .clipShape(Circle())
+            }
         }
+        .padding(16)
         .widgetURL(URL(string: "nomadkit://translation"))
     }
 }
@@ -69,10 +107,11 @@ struct TranslationWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TranslationProvider()) { entry in
             TranslationWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.white, for: .widget)
         }
         .configurationDisplayName("Translation")
         .description("Tap to open translator")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }

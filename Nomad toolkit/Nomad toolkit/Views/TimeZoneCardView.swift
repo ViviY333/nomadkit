@@ -117,12 +117,13 @@ struct TimeZoneChipView: View {
                 .foregroundColor(.gray)
                 .padding(.leading, 4)
                 .padding(.top, 5)
-            
+
             Spacer()
-            
-            // 国旗
-            Text(getCountryFlag(for: timeZone.countryCode))
-                .font(.system(size: 20))
+
+            Text(timeZoneValue.abbreviation() ?? timeZone.cityName)
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundColor(.white.opacity(0.8))
+                .lineLimit(1)
                 .padding(.trailing, 12)
         }
         .frame(height: 38) // 减小高度
@@ -140,14 +141,6 @@ struct TimeZoneChipView: View {
         }
     }
     
-    private func getCountryFlag(for countryCode: String) -> String {
-        let base: UInt32 = 127397
-        var s = ""
-        for v in countryCode.unicodeScalars {
-            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
-        }
-        return String(s)
-    }
 }
 
 struct DropViewDelegate: DropDelegate {

@@ -40,24 +40,84 @@ struct CurrencyWidgetView: View {
     let entry: CurrencyEntry
 
     var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "dollarsign.arrow.circlepath")
-                .font(.system(size: 24))
-                .foregroundStyle(.blue)
+        if let from = entry.fromCurrency, let to = entry.toCurrency {
+            ZStack {
+                VStack(spacing: 8) {
+                    // From row
+                    HStack {
+                        Text("0.00")
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .foregroundColor(.primary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Spacer()
+                        currencySelector(for: from)
+                    }
+                    .padding(12)
+                    .background(Color(white: 0.96))
+                    .cornerRadius(20)
 
-            if let from = entry.fromCurrency, let to = entry.toCurrency {
-                Text("\(from.id) \u{2192} \(to.id)")
-                    .font(.system(size: 15, weight: .semibold))
-            } else {
-                Text("Currency")
-                    .font(.system(size: 15, weight: .semibold))
+                    // To row
+                    HStack {
+                        Text("0.00")
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .foregroundColor(.primary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Spacer()
+                        currencySelector(for: to)
+                    }
+                    .padding(12)
+                    .background(Color(white: 0.96))
+                    .cornerRadius(20)
+                }
+
+                // Swap overlay
+                ZStack {
+                    Circle()
+                        .fill(Color(red: 0.2, green: 0.2, blue: 0.2))
+                        .frame(width: 36, height: 36)
+                        .shadow(radius: 2)
+                    Image(systemName: "arrow.up.arrow.down")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.white)
+                }
             }
-
-            Text("Tap to convert")
-                .font(.system(size: 11))
-                .foregroundStyle(.secondary)
+            .padding(14)
+        } else {
+            VStack {
+                Image(systemName: "coloncurrencysign.arrow.trianglehead.counterclockwise.rotate.90")
+                    .font(.system(size: 28))
+                    .foregroundColor(.secondary)
+                Text("Tap to convert")
+                    .font(.system(size: 13))
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .widgetURL(URL(string: "nomadkit://currency"))
+    }
+
+    @ViewBuilder
+    private func currencySelector(for currency: Currency) -> some View {
+        VStack(spacing: 2) {
+            if let iconName = currency.iconName {
+                Image(iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+            } else {
+                Text(currency.flag)
+                    .font(.system(size: 20))
+            }
+            Text(currency.id)
+                .font(.system(size: 12, weight: .bold))
+                .foregroundColor(.primary)
+        }
+        .padding(.vertical, 6)
+        .padding(.horizontal, 10)
+        .background(Color.white)
+        .cornerRadius(12)
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.2), lineWidth: 1))
     }
 }
 
@@ -67,10 +127,12 @@ struct CurrencyWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: CurrencyProvider()) { entry in
             CurrencyWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .widgetURL(URL(string: "nomadkit://currency"))
+                .containerBackground(.white, for: .widget)
         }
         .configurationDisplayName("Currency Converter")
         .description("Tap to open currency converter")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }

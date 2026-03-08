@@ -1,4 +1,4 @@
-# Nomad Toolkit
+# Nomadkit
 
 A SwiftUI iOS app for digital nomads. Weather, currency conversion (fiat + crypto), translation, time zone tracking, packing checklist, and passport stay-day tracking — all on a single scrollable home screen with card-based UI.
 

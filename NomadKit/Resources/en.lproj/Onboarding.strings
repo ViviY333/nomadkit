@@ -1,0 +1,57 @@
+"continue" = "Continue";
+"skip" = "Skip";
+
+"journey.title" = "Which stage best describes you?";
+"journey.accessibility" = "Travel stage selector";
+"journey.traveling" = "Currently traveling";
+"journey.preparing" = "Planning my next trip";
+"journey.notTraveling" = "No plans yet, just exploring";
+
+"destination.title" = "Where are you heading next?";
+"destination.subtitle" = "We'll prepare the tools you need for your next destination.";
+
+"location.title" = "Confirm your current location";
+"location.subtitle" = "We'll use it for weather, local resources, and nearby places to work.";
+"location.request" = "Use Current Location";
+"location.confirm" = "Confirm Location";
+"location.system" = "Use system location";
+"location.detected" = "Chiang Mai, Thailand";
+"location.usage" = "Used to recommend practical information for your current city";
+"location.confirmHint" = "Location found. Please confirm it is correct";
+"location.change" = "Choose another city";
+"location.searchPlaceholder" = "Search cities";
+"location.countryResult" = "Country or region";
+"cancel" = "Cancel";
+"back" = "Back";
+
+"stay.title" = "When are you staying here?";
+"stay.subtitle" = "This is a personal reminder, not a visa decision based on your passport.";
+"stay.reminder" = "Set stay dates";
+"stay.later" = "You can add a reminder later in Settings.";
+"stay.arrival" = "Arrival";
+"stay.departure" = "Departure";
+
+"departure.title" = "When do you expect to leave?";
+"departure.subtitle" = "An approximate date is fine. You can change it anytime.";
+
+"tools.title" = "What’s most useful\nto you right now?";
+"tool.visa" = "Visa & Stay";
+"tool.exchange" = "Exchange";
+"tool.coworking" = "Coworking";
+"tool.connectivity" = "eSIM / Wi-Fi";
+"tool.checklist" = "Check List";
+"tool.insurance" = "Insurance";
+"tool.weather" = "Weather";
+
+"visited.title" = "Where have you lived as a nomad?";
+"visited.popular" = "Popular with digital nomads";
+"visited.all" = "All countries and regions";
+"countries.search" = "Search countries";
+"countries.popular" = "Popular nomad destinations";
+
+"ready.button" = "Start Exploring";
+"ready.traveling" = "Your local living tools are ready";
+"ready.preparing" = "Everything for your trip is packed";
+"ready.notTraveling" = "Your nomad toolkit is ready";
+"ready.destination" = "Start with %@ and make nomad life work your way.";
+"ready.subtitle" = "Checklists, travel history, and city information will be ready when you need them.";

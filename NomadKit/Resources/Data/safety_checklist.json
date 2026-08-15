@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "id": "insurance",
+      "title": { "zhHans": "保险", "en": "Insurance" },
+      "summary": { "zhHans": "保单、紧急电话与理赔材料", "en": "Policy, emergency contacts, and claims" },
+      "symbol": "cross.case.fill",
+      "tone": "blue",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "insurance-policy-offline", "title": { "zhHans": "离线保存保单", "en": "Save the policy offline" }, "detail": { "zhHans": "保留 PDF、保单号和承保地区", "en": "Keep the PDF, policy number, and coverage region" } },
+        { "id": "insurance-emergency-number", "title": { "zhHans": "记录紧急电话", "en": "Record the emergency number" }, "detail": { "zhHans": "同时保存国际拨打格式和理赔邮箱", "en": "Save the international format and claims email" } }
+      ],
+      "channel": { "zhHans": "优先查看保险公司官方 App、保单邮件与 24 小时救援页面。", "en": "Use the insurer's official app, policy email, and 24-hour assistance page." },
+      "pitfall": { "zhHans": "不要只看保额；确认既往症、摩托车和极限运动是否承保。", "en": "Do not judge by coverage amount alone; verify exclusions and activities." }
+    },
+    {
+      "id": "connectivity",
+      "title": { "zhHans": "eSIM 与网络", "en": "eSIM & internet" },
+      "summary": { "zhHans": "主网络、备用方案与热点测试", "en": "Primary data, backup access, and hotspot tests" },
+      "symbol": "antenna.radiowaves.left.and.right",
+      "tone": "teal",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "connectivity-primary", "title": { "zhHans": "开通主网络", "en": "Activate primary data" }, "detail": { "zhHans": "抵达前确认覆盖区域和激活方式", "en": "Check coverage and activation before arrival" } },
+        { "id": "connectivity-backup", "title": { "zhHans": "准备备用联网", "en": "Prepare backup access" }, "detail": { "zhHans": "保留机场柜台、当地 SIM 或随身 Wi-Fi 方案", "en": "Keep a local SIM, airport desk, or pocket Wi-Fi option" } }
+      ],
+      "channel": { "zhHans": "比较运营商官网、机场官方柜台和 eSIM 服务商覆盖图。", "en": "Compare carrier sites, official airport desks, and eSIM coverage maps." },
+      "pitfall": { "zhHans": "无限流量常有高速额度限制，视频会议前先测热点和上行速度。", "en": "Unlimited plans may throttle; test hotspot and upload speed before calls." }
+    },
+    {
+      "id": "payments",
+      "title": { "zhHans": "现金与支付", "en": "Cash & payment" },
+      "summary": { "zhHans": "现金、银行卡与手续费", "en": "Cash, cards, and fees" },
+      "symbol": "banknote.fill",
+      "tone": "green",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "payments-cash", "title": { "zhHans": "准备首日现金", "en": "Prepare first-day cash" }, "detail": { "zhHans": "覆盖交通、餐食和无法刷卡的小额支出", "en": "Cover transport, meals, and small cash-only expenses" } },
+        { "id": "payments-backup-card", "title": { "zhHans": "分开放备用卡", "en": "Store a backup card separately" }, "detail": { "zhHans": "开启境外交易提醒并记录挂失方式", "en": "Enable travel alerts and save the card lock process" } }
+      ],
+      "channel": { "zhHans": "优先使用银行官方汇率说明和当地大型银行 ATM。", "en": "Prefer bank exchange-rate guidance and ATMs from major local banks." },
+      "pitfall": { "zhHans": "ATM 或刷卡机询问币种时，通常选择当地货币可避免动态换汇费用。", "en": "Choosing local currency usually avoids dynamic currency conversion fees." }
+    },
+    {
+      "id": "medicine",
+      "title": { "zhHans": "常用药", "en": "Medicine" },
+      "summary": { "zhHans": "个人药品、处方与携带限制", "en": "Personal medication, prescriptions, and restrictions" },
+      "symbol": "pills.fill",
+      "tone": "pink",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "medicine-daily", "title": { "zhHans": "补齐个人常用药", "en": "Pack personal medication" }, "detail": { "zhHans": "按旅程天数留出合理余量并保留原包装", "en": "Bring a reasonable buffer and keep original packaging" } },
+        { "id": "medicine-prescription", "title": { "zhHans": "备份处方信息", "en": "Back up prescription details" }, "detail": { "zhHans": "保存通用药名、剂量与医生证明", "en": "Save generic names, dosage, and a doctor's note" } }
+      ],
+      "channel": { "zhHans": "携带限制以目的地海关、卫生部门和使领馆信息为准。", "en": "Check customs, health authorities, and embassy guidance for restrictions." },
+      "pitfall": { "zhHans": "不要把药品建议当作医疗诊断；出现不适应及时寻求专业帮助。", "en": "Preparation guidance is not medical advice; seek professional care when needed." }
+    },
+    {
+      "id": "packing",
+      "title": { "zhHans": "物品清单", "en": "Packing" },
+      "summary": { "zhHans": "工作设备、插头与气候装备", "en": "Work gear, adapters, and climate essentials" },
+      "symbol": "backpack.fill",
+      "tone": "orange",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "packing-work-kit", "title": { "zhHans": "检查工作设备", "en": "Check the work kit" }, "detail": { "zhHans": "电脑、电源、转接头、耳机和备用线材", "en": "Laptop, power, adapters, headphones, and spare cables" } },
+        { "id": "packing-climate", "title": { "zhHans": "按气候补装备", "en": "Pack for the climate" }, "detail": { "zhHans": "雨季、防晒或保暖层按目的地调整", "en": "Adjust rain, sun, or warm layers for the destination" } }
+      ],
+      "channel": { "zhHans": "先看住宿设施、航空行李限制和当地未来一周天气。", "en": "Review accommodation amenities, baggage limits, and the weekly forecast." },
+      "pitfall": { "zhHans": "避免为了“可能用到”过度打包，优先保证工作和健康底线。", "en": "Avoid packing for every possibility; protect work and health essentials first." }
+    },
+    {
+      "id": "documents",
+      "title": { "zhHans": "文件备份", "en": "Documents" },
+      "summary": { "zhHans": "护照、签证、机票与离线副本", "en": "Passport, visa, bookings, and offline copies" },
+      "symbol": "folder.fill.badge.person.crop",
+      "tone": "indigo",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "documents-core", "title": { "zhHans": "备份核心证件", "en": "Back up core documents" }, "detail": { "zhHans": "护照资料页、签证、保单和返程证明", "en": "Passport bio page, visa, policy, and onward travel" } },
+        { "id": "documents-offline", "title": { "zhHans": "建立离线文件夹", "en": "Create an offline folder" }, "detail": { "zhHans": "手机无网时仍可打开，并保留一个异地副本", "en": "Keep it available offline plus one separate backup" } }
+      ],
+      "channel": { "zhHans": "使用系统文件 App、加密云盘或受保护的密码管理器附件。", "en": "Use Files, encrypted cloud storage, or protected password-manager attachments." },
+      "pitfall": { "zhHans": "不要把证件照片放在公开相册或无密码保护的共享链接。", "en": "Do not leave identity documents in public albums or unprotected links." }
+    },
+    {
+      "id": "emergency",
+      "title": { "zhHans": "紧急信息", "en": "Emergency" },
+      "summary": { "zhHans": "报警、急救、使领馆与联系人", "en": "Police, medical help, embassy, and contacts" },
+      "symbol": "sos.circle.fill",
+      "tone": "orange",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "emergency-numbers", "title": { "zhHans": "保存当地紧急号码", "en": "Save local emergency numbers" }, "detail": { "zhHans": "报警、急救、消防与旅游警察分开记录", "en": "Record police, medical, fire, and tourist assistance separately" } },
+        { "id": "emergency-contact", "title": { "zhHans": "设置紧急联系人", "en": "Set an emergency contact" }, "detail": { "zhHans": "锁屏医疗急救卡和同行人都能快速找到", "en": "Make it accessible from Medical ID and to travel companions" } }
+      ],
+      "channel": { "zhHans": "号码以当地政府、使领馆与保险公司官方页面为准。", "en": "Verify numbers with local government, embassy, and insurer sources." },
+      "pitfall": { "zhHans": "紧急号码和常用客服不要混在一起，离线保存并定期更新。", "en": "Keep emergency numbers separate from support contacts and update them." }
+    },
+    {
+      "id": "workspace",
+      "title": { "zhHans": "工作地点", "en": "Workspaces" },
+      "summary": { "zhHans": "网络、会议环境与备用地点", "en": "Internet, calls, and backup places" },
+      "symbol": "laptopcomputer",
+      "tone": "blue",
+      "updatedAt": "2026-07-15",
+      "items": [
+        { "id": "workspace-primary", "title": { "zhHans": "确认主工作地点", "en": "Confirm a primary workspace" }, "detail": { "zhHans": "核对营业时间、网速、插座与会议规则", "en": "Check hours, internet, outlets, and call rules" } },
+        { "id": "workspace-backup", "title": { "zhHans": "收藏一个备用地点", "en": "Save a backup workspace" }, "detail": { "zhHans": "停电、满座或临时会议时可以立即切换", "en": "Switch quickly during outages, crowds, or surprise calls" } }
+      ],
+      "channel": { "zhHans": "优先查看场地方官方页面，并在重要会议前现场测试。", "en": "Use official venue pages and test in person before important calls." },
+      "pitfall": { "zhHans": "咖啡馆“有 Wi-Fi”不等于适合视频会议，注意噪音和限时。", "en": "Wi-Fi does not guarantee call readiness; check noise and time limits." }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+name: NomadKit
+options:
+  bundleIdPrefix: com.nomadkit
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: zh-Hans
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 0.2.0
+    CODE_SIGN_STYLE: Automatic
+targets:
+  NomadKit:
+    type: application
+    platform: iOS
+    sources:
+      - path: NomadKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.app
+        PRODUCT_NAME: NomadKit
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: NomadKit-Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: NomadKit
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: NomadKit uses your location to show your current city and nearby essentials.
+        TARGETED_DEVICE_FAMILY: 1
+    scheme:
+      commandLineArguments:
+        "-onboarding-reset": true
+      testTargets:
+        - NomadKitTests
+        - NomadKitUITests
+  NomadKitTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: NomadKitTests
+      - path: NomadKit/Resources/Data/cities.json
+        buildPhase: resources
+      - path: NomadKit/Resources/Data/safety_checklist.json
+        buildPhase: resources
+      - path: NomadKit/Resources/Data/visa_articles.json
+        buildPhase: resources
+      - path: NomadKit/Resources/Data/badges.json
+        buildPhase: resources
+    dependencies:
+      - target: NomadKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.tests
+        GENERATE_INFOPLIST_FILE: YES
+  NomadKitUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: NomadKitUITests
+    dependencies:
+      - target: NomadKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.uitests
+        GENERATE_INFOPLIST_FILE: YES

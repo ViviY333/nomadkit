@@ -1,0 +1,857 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		062297E23CAC547B875ABE5B /* VisaLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7372F9C5D18EEAF63A1A1E /* VisaLibraryViewModel.swift */; };
+		141FEF3755349ADC145FDF68 /* safety_checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */; };
+		253B8ED63898A05D65DF4CB2 /* VisaArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DE4AA4AD00AD0ECECCC66 /* VisaArticle.swift */; };
+		274B63371F96F425F8634933 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966BF7CC2D0B20F4ED37FDD /* UserDataStore.swift */; };
+		314119B4FF7383744E3D5BAE /* VastagoGrotesk-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28060EF0112B4E1D7AA0A670 /* VastagoGrotesk-SemiBold.otf */; };
+		31DB67FF9301D14E097EB88D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE9A6758ED467D2D06214D /* TodayView.swift */; };
+		39EA1D0C6D06A49A292E7D84 /* VastagoGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7D782ADBFCBCF7BF84ECD6 /* VastagoGrotesk-Medium.otf */; };
+		3AFFB6B29183BDD90254C3DE /* Onboarding.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17AE5EF3DD82A060BCF2218B /* Onboarding.strings */; };
+		3B89CFF188B5861AEF20F1EE /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E16EF6235252FF9D1960F /* ChecklistView.swift */; };
+		425B2FF6BC9DD4F5FA637B0C /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = E7A4836F9BB3209C6C691DBD /* globe.png */; };
+		451DDF621C757F134A89CC04 /* visa-hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A75F3D29C2ECA47BA693213 /* visa-hero.png */; };
+		46FE11B131D1FD145DBE0BB4 /* NomadKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754A2255F40388429B5C473 /* NomadKitTests.swift */; };
+		49ECA11ECB620BDBB6B426AB /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */; };
+		5063F96DD19844521F35E7A7 /* VastagoGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6010E4672DB0EFB514343 /* VastagoGrotesk-Regular.otf */; };
+		54C58F659083D29A44E216F6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3979A353ED1D5AC365F98F2 /* OnboardingView.swift */; };
+		566C02B5F2F3C954A1A7D0C3 /* PassportShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */; };
+		5825C4E3D5C932E35A36A61B /* TravelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1148D7656CFD2D6994CA8 /* TravelProfile.swift */; };
+		583B1A942C90EAD58224D3E6 /* VastagoGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A104CF92F2DC14E39E9C7BAD /* VastagoGrotesk-Bold.otf */; };
+		5C403EEC2C261FF0594F4E82 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5661E43AFC523B58C436F21C /* cities.json */; };
+		5DBC48553A80FEB7A41F07A5 /* NomadTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFCA82118CDA5B7BB159AB6 /* NomadTypography.swift */; };
+		618D1F924874662311C232DD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55127F45EC8743270147594B /* SettingsView.swift */; };
+		6422C9AE94B4DA40A2004FBC /* VISA_COVER_SOURCES.md in Resources */ = {isa = PBXBuildFile; fileRef = F9178DDFE5B39C2DF521677E /* VISA_COVER_SOURCES.md */; };
+		65FEBCE35B773F95B27D454D /* nomad-map.png in Resources */ = {isa = PBXBuildFile; fileRef = F02A9760869E1C774F36ECAE /* nomad-map.png */; };
+		6B1FC0449936FBC615BC5AF7 /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69569EF9EEACF2D72A405177 /* SharedComponents.swift */; };
+		6BF486F0BD1673D576C367C7 /* visa_articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 13BAA8D188E62B3329CC58ED /* visa_articles.json */; };
+		6C1D5D27DE5D81BAFB55624B /* CitySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */; };
+		6E2B82803B856ADDA8E5094B /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F63667D660A1B23445523 /* TodayViewModel.swift */; };
+		89ABD9176A0CD05C1110B93F /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */; };
+		8DC329EE93F753174F9B7A83 /* nomad-globe.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */; };
+		93A97E194A205E003EC053D4 /* safety_checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */; };
+		96DC4AA92810914D26D86E4C /* NomadTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */; };
+		9EE8CDC982A82C9740BAA982 /* NomadKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B676B59199F1C42051F083EA /* NomadKitApp.swift */; };
+		AD8B20731DC80AFC18A5A7FF /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = 35A2BF4E414B17C38AEB974B /* badges.json */; };
+		B2FA7EA6BC0D23E88F6104AA /* NomadKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC181F46EB087BED46D1ACA /* NomadKitUITests.swift */; };
+		B31337492EC7C9AEB775624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE981317298216D02FE72F8D /* Assets.xcassets */; };
+		B3C772F1FCCA03D96B6F6396 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5661E43AFC523B58C436F21C /* cities.json */; };
+		BF91AA875AE318B63EF790B5 /* cobe.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */; };
+		BFBA7BB0919FD9F73C5E43BA /* CITY_COVER_SOURCES.md in Resources */ = {isa = PBXBuildFile; fileRef = 32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */; };
+		C1B9B424C68D0778E3A26513 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */; };
+		C324CB8CB5976A7E3082EE6A /* VisaLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBD849A43CD75414124333 /* VisaLibraryView.swift */; };
+		C5FE67B3706AE42CAB7B8893 /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDF96F47CC2BD941D9A89F /* ProfileEditorView.swift */; };
+		C99401E6E623C810F6C962E0 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBC6F416A896AFF3DB1EF9 /* RootTabView.swift */; };
+		CB73A324C42D850CA0A4C724 /* home-city.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6E9F000541281FBAFF8E58 /* home-city.png */; };
+		CCAF0D644DF08520F4A9005B /* visa_articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 13BAA8D188E62B3329CC58ED /* visa_articles.json */; };
+		D07CC9C2C3CCA05A0BF550BC /* cobe-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F18FAA6D340FA4706ECB6ED /* cobe-map.png */; };
+		D9F6160168F471AEA8F44F6C /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */; };
+		E1F40F5449DFE5E65AC844BA /* SafetyChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */; };
+		E3E42DD233C2979657793AD9 /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = 35A2BF4E414B17C38AEB974B /* badges.json */; };
+		EC46769FE38FCA262D0AA6A6 /* NomadGlobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */; };
+		ED79A1C6EBB4D4B55CF29DAA /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DC07603E42163113305E2 /* SavedItemsView.swift */; };
+		F61465B2FA702760F9FA0F0D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A69E5AC45AF3FCBF51FA9B60 /* Localizable.xcstrings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EA9EE3D56257F1105E4D627 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8CB0B84868E3CB7CCCFE36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1558E2855403C1BC5AA89CF0;
+			remoteInfo = NomadKit;
+		};
+		CA0FBD72E89334B410B99841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8CB0B84868E3CB7CCCFE36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1558E2855403C1BC5AA89CF0;
+			remoteInfo = NomadKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04DE9A6758ED467D2D06214D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		0ADABE720FE12416FD78C125 /* NomadKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NomadKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13BAA8D188E62B3329CC58ED /* visa_articles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = visa_articles.json; sourceTree = "<group>"; };
+		1966BF7CC2D0B20F4ED37FDD /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
+		1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySnapshot.swift; sourceTree = "<group>"; };
+		1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyChecklist.swift; sourceTree = "<group>"; };
+		22F1BB44A237CFCCABDA2ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportShareImage.swift; sourceTree = "<group>"; };
+		263DE4AA4AD00AD0ECECCC66 /* VisaArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaArticle.swift; sourceTree = "<group>"; };
+		26EBC6F416A896AFF3DB1EF9 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		28060EF0112B4E1D7AA0A670 /* VastagoGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
+		2AC181F46EB087BED46D1ACA /* NomadKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitUITests.swift; sourceTree = "<group>"; };
+		32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CITY_COVER_SOURCES.md; sourceTree = "<group>"; };
+		35A2BF4E414B17C38AEB974B /* badges.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = badges.json; sourceTree = "<group>"; };
+		376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadTheme.swift; sourceTree = "<group>"; };
+		3A75F3D29C2ECA47BA693213 /* visa-hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-hero.png"; sourceTree = "<group>"; };
+		4F18FAA6D340FA4706ECB6ED /* cobe-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobe-map.png"; sourceTree = "<group>"; };
+		55127F45EC8743270147594B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5661E43AFC523B58C436F21C /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		58FA5D67CE2994F3D9938DAE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		5BC1148D7656CFD2D6994CA8 /* TravelProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelProfile.swift; sourceTree = "<group>"; };
+		5C7372F9C5D18EEAF63A1A1E /* VisaLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaLibraryViewModel.swift; sourceTree = "<group>"; };
+		5DFCA82118CDA5B7BB159AB6 /* NomadTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadTypography.swift; sourceTree = "<group>"; };
+		5E7D782ADBFCBCF7BF84ECD6 /* VastagoGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-Medium.otf"; sourceTree = "<group>"; };
+		619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadGlobeView.swift; sourceTree = "<group>"; };
+		69569EF9EEACF2D72A405177 /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
+		6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = cobe.bundle.js; sourceTree = "<group>"; };
+		75B03ADB9470F5B8345B3164 /* NomadKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NomadKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
+		804DC07603E42163113305E2 /* SavedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
+		8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe.html"; sourceTree = "<group>"; };
+		9E1F63667D660A1B23445523 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		A104CF92F2DC14E39E9C7BAD /* VastagoGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
+		A6876A3BAA3230D21EE54A32 /* NomadKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A69E5AC45AF3FCBF51FA9B60 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		AB6E9F000541281FBAFF8E58 /* home-city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-city.png"; sourceTree = "<group>"; };
+		ABB6010E4672DB0EFB514343 /* VastagoGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-Regular.otf"; sourceTree = "<group>"; };
+		B3979A353ED1D5AC365F98F2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B676B59199F1C42051F083EA /* NomadKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitApp.swift; sourceTree = "<group>"; };
+		BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
+		E754A2255F40388429B5C473 /* NomadKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitTests.swift; sourceTree = "<group>"; };
+		E7A4836F9BB3209C6C691DBD /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		EEEDF96F47CC2BD941D9A89F /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
+		F02A9760869E1C774F36ECAE /* nomad-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nomad-map.png"; sourceTree = "<group>"; };
+		F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = safety_checklist.json; sourceTree = "<group>"; };
+		F77E16EF6235252FF9D1960F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		F9178DDFE5B39C2DF521677E /* VISA_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VISA_COVER_SOURCES.md; sourceTree = "<group>"; };
+		FAEBD849A43CD75414124333 /* VisaLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaLibraryView.swift; sourceTree = "<group>"; };
+		FE981317298216D02FE72F8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		04EF48DAD0CD4D33E8DA94FD /* SafetyChecklist */ = {
+			isa = PBXGroup;
+			children = (
+				F77E16EF6235252FF9D1960F /* ChecklistView.swift */,
+				BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */,
+				FAEBD849A43CD75414124333 /* VisaLibraryView.swift */,
+				5C7372F9C5D18EEAF63A1A1E /* VisaLibraryViewModel.swift */,
+			);
+			path = SafetyChecklist;
+			sourceTree = "<group>";
+		};
+		1B7B5EFEA2667A2F12C1A05C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A104CF92F2DC14E39E9C7BAD /* VastagoGrotesk-Bold.otf */,
+				5E7D782ADBFCBCF7BF84ECD6 /* VastagoGrotesk-Medium.otf */,
+				ABB6010E4672DB0EFB514343 /* VastagoGrotesk-Regular.otf */,
+				28060EF0112B4E1D7AA0A670 /* VastagoGrotesk-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1DA55069719C27C2FD810D6F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EEEDF96F47CC2BD941D9A89F /* ProfileEditorView.swift */,
+				804DC07603E42163113305E2 /* SavedItemsView.swift */,
+				55127F45EC8743270147594B /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		29E6C06E070B8DCBFBE6D03F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B676B59199F1C42051F083EA /* NomadKitApp.swift */,
+				26EBC6F416A896AFF3DB1EF9 /* RootTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2DD43CB74AB03CA7CCCFAEF7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */,
+				1966BF7CC2D0B20F4ED37FDD /* UserDataStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3967D7E206BC273D636B717F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4D768B88A41ABAC0A32490C5 /* Models */,
+				2DD43CB74AB03CA7CCCFAEF7 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3E04A3EC47D5246231885E77 /* CheckIn */ = {
+			isa = PBXGroup;
+			children = (
+				BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */,
+				77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */,
+				619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */,
+				262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */,
+			);
+			path = CheckIn;
+			sourceTree = "<group>";
+		};
+		458A5969DC3BFE4FB9428FD0 /* NomadKit */ = {
+			isa = PBXGroup;
+			children = (
+				29E6C06E070B8DCBFBE6D03F /* App */,
+				3967D7E206BC273D636B717F /* Core */,
+				FD48FA461B28843785576639 /* DesignSystem */,
+				644D56481C360DBBA0E0AB39 /* Features */,
+				DF1929333BE06B587A1E7A66 /* Resources */,
+			);
+			path = NomadKit;
+			sourceTree = "<group>";
+		};
+		49B1DBE51C23F9D87294CF9F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				35A2BF4E414B17C38AEB974B /* badges.json */,
+				5661E43AFC523B58C436F21C /* cities.json */,
+				F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */,
+				13BAA8D188E62B3329CC58ED /* visa_articles.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4D768B88A41ABAC0A32490C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */,
+				1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */,
+				5BC1148D7656CFD2D6994CA8 /* TravelProfile.swift */,
+				263DE4AA4AD00AD0ECECCC66 /* VisaArticle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		514348981E4E32B0042BE05F /* DesignAssets */ = {
+			isa = PBXGroup;
+			children = (
+				E7A4836F9BB3209C6C691DBD /* globe.png */,
+				AB6E9F000541281FBAFF8E58 /* home-city.png */,
+				F02A9760869E1C774F36ECAE /* nomad-map.png */,
+				3A75F3D29C2ECA47BA693213 /* visa-hero.png */,
+			);
+			path = DesignAssets;
+			sourceTree = "<group>";
+		};
+		644D56481C360DBBA0E0AB39 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3E04A3EC47D5246231885E77 /* CheckIn */,
+				849B690312B341A9C1BA0149 /* Onboarding */,
+				04EF48DAD0CD4D33E8DA94FD /* SafetyChecklist */,
+				1DA55069719C27C2FD810D6F /* Settings */,
+				9A2DC872ABF28C94E6D38C6B /* Today */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		849B690312B341A9C1BA0149 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B3979A353ED1D5AC365F98F2 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9A2DC872ABF28C94E6D38C6B /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				04DE9A6758ED467D2D06214D /* TodayView.swift */,
+				9E1F63667D660A1B23445523 /* TodayViewModel.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		9FAF13479653D44BEA91BB2C /* NomadKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				E754A2255F40388429B5C473 /* NomadKitTests.swift */,
+			);
+			path = NomadKitTests;
+			sourceTree = "<group>";
+		};
+		A507628B3905AB28B2641C9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6876A3BAA3230D21EE54A32 /* NomadKit.app */,
+				0ADABE720FE12416FD78C125 /* NomadKitTests.xctest */,
+				75B03ADB9470F5B8345B3164 /* NomadKitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A79DEA8035EF5A75486E29F9 /* NomadKitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2AC181F46EB087BED46D1ACA /* NomadKitUITests.swift */,
+			);
+			path = NomadKitUITests;
+			sourceTree = "<group>";
+		};
+		B8100B6F1E5DF068C86A287E /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4F18FAA6D340FA4706ECB6ED /* cobe-map.png */,
+				6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */,
+				8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		DF1929333BE06B587A1E7A66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE981317298216D02FE72F8D /* Assets.xcassets */,
+				32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */,
+				A69E5AC45AF3FCBF51FA9B60 /* Localizable.xcstrings */,
+				F9178DDFE5B39C2DF521677E /* VISA_COVER_SOURCES.md */,
+				49B1DBE51C23F9D87294CF9F /* Data */,
+				514348981E4E32B0042BE05F /* DesignAssets */,
+				1B7B5EFEA2667A2F12C1A05C /* Fonts */,
+				17AE5EF3DD82A060BCF2218B /* Onboarding.strings */,
+				B8100B6F1E5DF068C86A287E /* Web */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E071DD9DEC73A3BE2E822BBC = {
+			isa = PBXGroup;
+			children = (
+				458A5969DC3BFE4FB9428FD0 /* NomadKit */,
+				9FAF13479653D44BEA91BB2C /* NomadKitTests */,
+				A79DEA8035EF5A75486E29F9 /* NomadKitUITests */,
+				A507628B3905AB28B2641C9A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD48FA461B28843785576639 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */,
+				5DFCA82118CDA5B7BB159AB6 /* NomadTypography.swift */,
+				69569EF9EEACF2D72A405177 /* SharedComponents.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1558E2855403C1BC5AA89CF0 /* NomadKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A308666430E892717784C68E /* Build configuration list for PBXNativeTarget "NomadKit" */;
+			buildPhases = (
+				B69860246BBDF169A9396C06 /* Sources */,
+				BE1090970E2CD3124370D8C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NomadKit;
+			packageProductDependencies = (
+			);
+			productName = NomadKit;
+			productReference = A6876A3BAA3230D21EE54A32 /* NomadKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B31FE79A7FE8E627ABD420F /* NomadKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB3DDF7E2DAE640919D24ED /* Build configuration list for PBXNativeTarget "NomadKitTests" */;
+			buildPhases = (
+				70E1079B1AAAA688559E3B6B /* Sources */,
+				8ACC9EA18C3D0899FEF21E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1A1ED98EA29FA289D752215 /* PBXTargetDependency */,
+			);
+			name = NomadKitTests;
+			packageProductDependencies = (
+			);
+			productName = NomadKitTests;
+			productReference = 0ADABE720FE12416FD78C125 /* NomadKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		940B76125C8F313EF919A802 /* NomadKitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 727C1F7124B43DADE3851B61 /* Build configuration list for PBXNativeTarget "NomadKitUITests" */;
+			buildPhases = (
+				262C474E6D9AA376C68E195B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1342DC600DFD57C4F7197BA7 /* PBXTargetDependency */,
+			);
+			name = NomadKitUITests;
+			packageProductDependencies = (
+			);
+			productName = NomadKitUITests;
+			productReference = 75B03ADB9470F5B8345B3164 /* NomadKitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA8CB0B84868E3CB7CCCFE36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					1558E2855403C1BC5AA89CF0 = {
+						ProvisioningStyle = Automatic;
+					};
+					2B31FE79A7FE8E627ABD420F = {
+						ProvisioningStyle = Automatic;
+					};
+					940B76125C8F313EF919A802 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1558E2855403C1BC5AA89CF0;
+					};
+				};
+			};
+			buildConfigurationList = 749AFA0A763CE626254870E3 /* Build configuration list for PBXProject "NomadKit" */;
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+			);
+			mainGroup = E071DD9DEC73A3BE2E822BBC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A507628B3905AB28B2641C9A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1558E2855403C1BC5AA89CF0 /* NomadKit */,
+				2B31FE79A7FE8E627ABD420F /* NomadKitTests */,
+				940B76125C8F313EF919A802 /* NomadKitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8ACC9EA18C3D0899FEF21E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD8B20731DC80AFC18A5A7FF /* badges.json in Resources */,
+				B3C772F1FCCA03D96B6F6396 /* cities.json in Resources */,
+				93A97E194A205E003EC053D4 /* safety_checklist.json in Resources */,
+				6BF486F0BD1673D576C367C7 /* visa_articles.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1090970E2CD3124370D8C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B31337492EC7C9AEB775624D /* Assets.xcassets in Resources */,
+				BFBA7BB0919FD9F73C5E43BA /* CITY_COVER_SOURCES.md in Resources */,
+				F61465B2FA702760F9FA0F0D /* Localizable.xcstrings in Resources */,
+				3AFFB6B29183BDD90254C3DE /* Onboarding.strings in Resources */,
+				6422C9AE94B4DA40A2004FBC /* VISA_COVER_SOURCES.md in Resources */,
+				583B1A942C90EAD58224D3E6 /* VastagoGrotesk-Bold.otf in Resources */,
+				39EA1D0C6D06A49A292E7D84 /* VastagoGrotesk-Medium.otf in Resources */,
+				5063F96DD19844521F35E7A7 /* VastagoGrotesk-Regular.otf in Resources */,
+				314119B4FF7383744E3D5BAE /* VastagoGrotesk-SemiBold.otf in Resources */,
+				E3E42DD233C2979657793AD9 /* badges.json in Resources */,
+				5C403EEC2C261FF0594F4E82 /* cities.json in Resources */,
+				D07CC9C2C3CCA05A0BF550BC /* cobe-map.png in Resources */,
+				BF91AA875AE318B63EF790B5 /* cobe.bundle.js in Resources */,
+				425B2FF6BC9DD4F5FA637B0C /* globe.png in Resources */,
+				CB73A324C42D850CA0A4C724 /* home-city.png in Resources */,
+				8DC329EE93F753174F9B7A83 /* nomad-globe.html in Resources */,
+				65FEBCE35B773F95B27D454D /* nomad-map.png in Resources */,
+				141FEF3755349ADC145FDF68 /* safety_checklist.json in Resources */,
+				451DDF621C757F134A89CC04 /* visa-hero.png in Resources */,
+				CCAF0D644DF08520F4A9005B /* visa_articles.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		262C474E6D9AA376C68E195B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FA7EA6BC0D23E88F6104AA /* NomadKitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70E1079B1AAAA688559E3B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46FE11B131D1FD145DBE0BB4 /* NomadKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B69860246BBDF169A9396C06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89ABD9176A0CD05C1110B93F /* CheckInView.swift in Sources */,
+				D9F6160168F471AEA8F44F6C /* CheckInViewModel.swift in Sources */,
+				3B89CFF188B5861AEF20F1EE /* ChecklistView.swift in Sources */,
+				49ECA11ECB620BDBB6B426AB /* ChecklistViewModel.swift in Sources */,
+				6C1D5D27DE5D81BAFB55624B /* CitySnapshot.swift in Sources */,
+				C1B9B424C68D0778E3A26513 /* MockDataService.swift in Sources */,
+				EC46769FE38FCA262D0AA6A6 /* NomadGlobeView.swift in Sources */,
+				9EE8CDC982A82C9740BAA982 /* NomadKitApp.swift in Sources */,
+				96DC4AA92810914D26D86E4C /* NomadTheme.swift in Sources */,
+				5DBC48553A80FEB7A41F07A5 /* NomadTypography.swift in Sources */,
+				54C58F659083D29A44E216F6 /* OnboardingView.swift in Sources */,
+				566C02B5F2F3C954A1A7D0C3 /* PassportShareImage.swift in Sources */,
+				C5FE67B3706AE42CAB7B8893 /* ProfileEditorView.swift in Sources */,
+				C99401E6E623C810F6C962E0 /* RootTabView.swift in Sources */,
+				E1F40F5449DFE5E65AC844BA /* SafetyChecklist.swift in Sources */,
+				ED79A1C6EBB4D4B55CF29DAA /* SavedItemsView.swift in Sources */,
+				618D1F924874662311C232DD /* SettingsView.swift in Sources */,
+				6B1FC0449936FBC615BC5AF7 /* SharedComponents.swift in Sources */,
+				31DB67FF9301D14E097EB88D /* TodayView.swift in Sources */,
+				6E2B82803B856ADDA8E5094B /* TodayViewModel.swift in Sources */,
+				5825C4E3D5C932E35A36A61B /* TravelProfile.swift in Sources */,
+				274B63371F96F425F8634933 /* UserDataStore.swift in Sources */,
+				253B8ED63898A05D65DF4CB2 /* VisaArticle.swift in Sources */,
+				C324CB8CB5976A7E3082EE6A /* VisaLibraryView.swift in Sources */,
+				062297E23CAC547B875ABE5B /* VisaLibraryViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1342DC600DFD57C4F7197BA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1558E2855403C1BC5AA89CF0 /* NomadKit */;
+			targetProxy = CA0FBD72E89334B410B99841 /* PBXContainerItemProxy */;
+		};
+		D1A1ED98EA29FA289D752215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1558E2855403C1BC5AA89CF0 /* NomadKit */;
+			targetProxy = 9EA9EE3D56257F1105E4D627 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		17AE5EF3DD82A060BCF2218B /* Onboarding.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F1BB44A237CFCCABDA2ED8 /* en */,
+				58FA5D67CE2994F3D9938DAE /* zh-Hans */,
+			);
+			name = Onboarding.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		490F5E3DFB00E88F60FD92FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
+			};
+			name = Release;
+		};
+		54B62B361C8E4A54E0A1929E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "NomadKit-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = NomadKit;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.app;
+				PRODUCT_NAME = NomadKit;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8AC11D01CD691F6233A1386C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
+			};
+			name = Debug;
+		};
+		90EC9887019A88DE8A5BCE7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "NomadKit-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = NomadKit;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.app;
+				PRODUCT_NAME = NomadKit;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AC6161A6F99B61385B7C88CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.2.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C37B1B5EAB51C23809587629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.2.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D336E8FDD61ADD021896D959 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NomadKit;
+			};
+			name = Release;
+		};
+		EC60033E99FD865063F0C72A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NomadKit;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EB3DDF7E2DAE640919D24ED /* Build configuration list for PBXNativeTarget "NomadKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AC11D01CD691F6233A1386C /* Debug */,
+				490F5E3DFB00E88F60FD92FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		727C1F7124B43DADE3851B61 /* Build configuration list for PBXNativeTarget "NomadKitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC60033E99FD865063F0C72A /* Debug */,
+				D336E8FDD61ADD021896D959 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		749AFA0A763CE626254870E3 /* Build configuration list for PBXProject "NomadKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC6161A6F99B61385B7C88CB /* Debug */,
+				C37B1B5EAB51C23809587629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A308666430E892717784C68E /* Build configuration list for PBXNativeTarget "NomadKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54B62B361C8E4A54E0A1929E /* Debug */,
+				90EC9887019A88DE8A5BCE7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA8CB0B84868E3CB7CCCFE36 /* Project object */;
+}

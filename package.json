@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build:cobe": "node scripts/build-cobe.mjs"
+  },
+  "dependencies": {
+    "reicon-react": "^1.1.302",
+    "world-countries": "^5.1.0"
+  },
+  "devDependencies": {
+    "cobe": "^2.0.1",
+    "esbuild": "^0.28.2",
+    "pngjs": "^7.0.0"
+  }
+}

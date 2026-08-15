@@ -1,0 +1,22 @@
+            <div class="section-title"><span>本地此刻</span><small>清迈 · 更新于 09:30</small></div>
+            <div class="now-grid">
+              <article class="now-card w-weather">
+                <span class="now-label">天气</span>
+                <span class="now-emoji">⛅️</span>
+                <b class="now-main2">多云转阵雨</b>
+                <span class="now-sub">18:00 后转雨</span>
+              </article>
+              <article class="now-card w-temp">
+                <span class="now-label">气温</span>
+                <span class="now-emoji">🌡️</span>
+                <span class="now-main">32<span class="u">°C</span></span>
+                <span class="now-sub">体感 36° · 湿度 78%</span>
+              </article>
+              <article class="now-card w-spot">
+                <span class="now-label">推荐地点</span>
+                <span class="now-emoji">☕️</span>
+                <b class="now-main2">Graph Nimman</b>
+                <span class="now-sub">步行 5 分钟 · 上午宜</span>
+              </article>
+            </div>
+

@@ -1,0 +1,402 @@
+{
+  "articles": [
+    {
+      "id": "thailand-dtv",
+      "countryCode": "TH",
+      "country": { "zhHans": "泰国", "en": "Thailand" },
+      "title": { "zhHans": "DTV：适合远程工作者的 5 年多次入境签证", "en": "DTV: a five-year multiple-entry visa for remote workers" },
+      "summary": { "zhHans": "适合有境外雇主、长期客户或稳定自由职业项目，希望在泰国生活并继续处理境外工作的人。", "en": "For people with overseas employers, long-term clients, or established freelance work who want to live in Thailand while continuing overseas work." },
+      "symbol": "sun.max.fill",
+      "tone": "orange",
+      "status": { "zhHans": "中国大陆护照可重点了解", "en": "Worth exploring for mainland Chinese passport holders" },
+      "updatedAt": "2026-08-11",
+      "readTimeMinutes": 6,
+      "keyFacts": [
+        { "id": "th-validity", "label": { "zhHans": "有效期", "en": "Validity" }, "value": { "zhHans": "5 年", "en": "5 years" }, "detail": { "zhHans": "多次入境", "en": "Multiple entries" } },
+        { "id": "th-stay", "label": { "zhHans": "每次停留", "en": "Stay per entry" }, "value": { "zhHans": "180 天", "en": "180 days" }, "detail": { "zhHans": "可申请一次延期", "en": "One extension may be requested" } },
+        { "id": "th-funds", "label": { "zhHans": "资金证明", "en": "Financial proof" }, "value": { "zhHans": "≥ 50 万泰铢", "en": "≥ THB 500,000" }, "detail": { "zhHans": "以受理使领馆要求为准", "en": "Subject to the processing mission" } }
+      ],
+      "notice": {
+        "title": { "zhHans": "5 年有效，不等于一次住 5 年", "en": "Five-year validity is not a five-year continuous stay" },
+        "body": { "zhHans": "每次入境通常最多停留 180 天。延期需要向泰国移民局申请，并不是自动获得。", "en": "Each entry generally permits up to 180 days. An extension requires an application to Thai Immigration and is not automatic." },
+        "tone": "orange"
+      },
+      "sections": [
+        {
+          "id": "th-who",
+          "title": { "zhHans": "谁比较适合申请", "en": "Who it suits" },
+          "paragraphs": [
+            { "zhHans": "如果你有境外雇主、长期客户或稳定的自由职业项目，希望在泰国一边生活、一边继续处理境外工作，Destination Thailand Visa（DTV）是目前值得了解的长期签证之一。", "en": "If you have an overseas employer, long-term clients, or stable freelance work, the Destination Thailand Visa is a long-stay option worth exploring." }
+          ],
+          "highlights": [
+            { "id": "th-work", "label": { "zhHans": "工作身份", "en": "Work status" }, "detail": { "zhHans": "需要证明自己从事远程工作、自由职业或境外专业服务。", "en": "You need evidence of remote work, freelance activity, or overseas professional services." }, "tone": "orange" },
+            { "id": "th-money", "label": { "zhHans": "资金门槛", "en": "Financial threshold" }, "detail": { "zhHans": "需要提供不少于 500,000 泰铢或等值货币的资金证明。", "en": "Financial evidence of at least THB 500,000 or equivalent is required." }, "tone": "green" }
+          ],
+          "bullets": []
+        },
+        {
+          "id": "th-documents",
+          "title": { "zhHans": "核心材料", "en": "Core documents" },
+          "paragraphs": [
+            { "zhHans": "下面是泰国外交部公布的全球核心材料。受理使领馆仍可能追加居住证明、指定月份的银行流水、公司资料、翻译件或行程材料。", "en": "These are the global core documents published by Thailand's Ministry of Foreign Affairs. The processing mission may request additional documents." }
+          ],
+          "highlights": [],
+          "bullets": [
+            { "zhHans": "护照或旅行证件、近期照片、当前所在地证明。", "en": "Passport or travel document, recent photo, and proof of current location." },
+            { "zhHans": "不少于 500,000 泰铢的资金证明，例如银行流水、工资单或资助信。", "en": "Financial evidence of at least THB 500,000, such as bank statements, payslips, or a sponsorship letter." },
+            { "zhHans": "境外雇佣合同、在职证明，或能展示远程工作和自由职业身份的专业作品集。", "en": "An overseas employment contract, employment certificate, or professional portfolio showing remote or freelance status." }
+          ]
+        },
+        {
+          "id": "th-process",
+          "title": { "zhHans": "如何申请", "en": "How to apply" },
+          "paragraphs": [
+            { "zhHans": "申请人应在泰国境外，通过 Thai e-Visa 或负责当前所在地的泰国使领馆申请。在线流程包括创建账户、填表、上传材料、付款、等待审核和下载获批文件。", "en": "Apply from outside Thailand through Thai e-Visa or the Thai mission responsible for your current location." },
+            { "zhHans": "官方基准费用为 10,000 泰铢，但实际费用按受理使领馆公布的当地币种和金额支付。使领馆可以要求面谈或补充材料，申请费用通常不退。", "en": "The published base fee is THB 10,000, while actual local-currency fees are set by the processing mission. Additional documents or an interview may be requested." }
+          ],
+          "highlights": [],
+          "bullets": []
+        },
+        {
+          "id": "th-cautions",
+          "title": { "zhHans": "申请前注意", "en": "Before applying" },
+          "paragraphs": [],
+          "highlights": [],
+          "bullets": [
+            { "zhHans": "DTV 的远程工作类别用于证明境外工作或自由职业身份。涉及泰国本地雇佣或经营活动时，需要另外确认工作许可要求。", "en": "The remote-work route concerns overseas work or freelance status. Local Thai employment or business activity requires separate confirmation." },
+            { "zhHans": "长期停留可能产生税务影响；签证资格不等于税务居民判断。", "en": "Long stays may have tax implications; visa eligibility is not a tax-residency determination." },
+            { "zhHans": "家属可以通过配偶或受抚养子女路径申请，但关系、年龄和文件要求应以受理使领馆为准。", "en": "Dependants may apply through the spouse or child route, subject to local relationship, age, and document requirements." }
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "th-mfa-dtv", "title": { "zhHans": "DTV 官方说明图", "en": "Official DTV infographic" }, "publisher": { "zhHans": "泰国外交部", "en": "Ministry of Foreign Affairs of Thailand" }, "url": "https://image.mfa.go.th/mfa/0/xJ3BrCz2xe/DTV_Infographic.pdf" },
+        { "id": "th-evisa-dtv", "title": { "zhHans": "DTV 电子签证页面", "en": "DTV e-Visa page" }, "publisher": { "zhHans": "Thai e-Visa", "en": "Thai e-Visa" }, "url": "https://www.thaievisa.go.th/visa/dtv-visa" },
+        { "id": "th-evisa-global", "title": { "zhHans": "电子签证全球上线说明", "en": "Worldwide e-Visa rollout" }, "publisher": { "zhHans": "泰国外交部", "en": "Ministry of Foreign Affairs of Thailand" }, "url": "https://www.mfa.go.th/en/content/kick-off-thai-e-visa-en?cate=5d5bcb4e15e39c306000683c" },
+        { "id": "th-evisa-manual", "title": { "zhHans": "电子签证中文操作手册", "en": "Chinese e-Visa application guide" }, "publisher": { "zhHans": "Thai e-Visa", "en": "Thai e-Visa" }, "url": "https://www.thaievisa.go.th/static/Chinese-Manual.pdf" }
+      ],
+      "disclaimer": { "zhHans": "本文是对官方公开信息的中文整理，不是官方译文，也不代表审批结果。申请前请再次核对受理使领馆和 Thai e-Visa 的最新要求。", "en": "This is an editorial summary of official public information, not an official translation or approval decision. Recheck the processing mission and Thai e-Visa before applying." }
+    },
+    {
+      "id": "japan-digital-nomad",
+      "countryCode": "JP",
+      "country": { "zhHans": "日本", "en": "Japan" },
+      "title": { "zhHans": "日本数字游民签证：短期 6 个月，适用护照有限", "en": "Japan digital nomad visa: six months with limited eligible passports" },
+      "summary": { "zhHans": "适合高收入远程工作者，但首先要核对护照是否在日本官方指定名单内。", "en": "For high-income remote workers whose passport is on Japan's official eligibility list." },
+      "symbol": "building.columns.fill",
+      "tone": "pink",
+      "status": { "zhHans": "中国大陆普通护照目前不适用", "en": "Mainland Chinese ordinary passports are currently not eligible" },
+      "updatedAt": "2026-08-11",
+      "readTimeMinutes": 5,
+      "keyFacts": [
+        { "id": "jp-stay", "label": { "zhHans": "停留期", "en": "Stay" }, "value": { "zhHans": "6 个月", "en": "6 months" }, "detail": { "zhHans": "不可延期", "en": "No extension" } },
+        { "id": "jp-income", "label": { "zhHans": "年收入", "en": "Annual income" }, "value": { "zhHans": "≥ 1,000 万日元", "en": "≥ JPY 10 million" }, "detail": { "zhHans": "申请时证明", "en": "Proven at application" } },
+        { "id": "jp-insurance", "label": { "zhHans": "医疗保险", "en": "Medical insurance" }, "value": { "zhHans": "≥ 1,000 万日元", "en": "≥ JPY 10 million" }, "detail": { "zhHans": "医疗费用补偿", "en": "Medical treatment coverage" } }
+      ],
+      "notice": {
+        "title": { "zhHans": "先查护照，再看收入", "en": "Check passport eligibility before income" },
+        "body": { "zhHans": "中国大陆普通护照不在当前主申请人名单中；香港和台湾在名单中。护照不适用时，即使收入达标也不能按这一路径申请。", "en": "Mainland Chinese ordinary passports are not on the current principal-applicant list; Hong Kong and Taiwan are listed. Income alone does not establish eligibility." },
+        "tone": "pink"
+      },
+      "sections": [
+        {
+          "id": "jp-eligibility",
+          "title": { "zhHans": "核心申请条件", "en": "Core eligibility" },
+          "paragraphs": [
+            { "zhHans": "日本的数字游民路径属于“特定活动”，面向在日本停留不超过 6 个月并继续从事国际远程工作的人。不能受雇于日本的机构。", "en": "Japan's digital nomad route is a Designated Activities status for up to six months of international remote work. Employment by a Japanese organization is not permitted." }
+          ],
+          "highlights": [
+            { "id": "jp-passport", "label": { "zhHans": "护照名单", "en": "Passport list" }, "detail": { "zhHans": "必须属于日本官方指定国家或地区。中国大陆普通护照目前不在主申请人名单中。", "en": "Applicants must be nationals or citizens of an officially listed country or region. Mainland Chinese ordinary passports are not currently listed for principal applicants." }, "tone": "pink" },
+            { "id": "jp-income-highlight", "label": { "zhHans": "收入门槛", "en": "Income threshold" }, "detail": { "zhHans": "申请时个人年收入至少 10,000,000 日元。", "en": "Personal annual income must be at least JPY 10,000,000 at application." }, "tone": "green" }
+          ],
+          "bullets": []
+        },
+        {
+          "id": "jp-documents",
+          "title": { "zhHans": "材料和保险", "en": "Documents and insurance" },
+          "paragraphs": [],
+          "highlights": [],
+          "bullets": [
+            { "zhHans": "签证申请表、照片和护照。", "en": "Visa application form, photo, and passport." },
+            { "zhHans": "在日本的活动和停留计划。", "en": "Planned activities and period of stay in Japan." },
+            { "zhHans": "收入证明，例如纳税证明、所得证明、雇佣合同或业务合同。", "en": "Income evidence such as tax, income, employment, or business-contract documents." },
+            { "zhHans": "覆盖死亡、受伤和疾病的私人医疗旅行保险，其中伤病治疗费用补偿至少 10,000,000 日元。", "en": "Private medical travel insurance covering death, injury, and illness, with at least JPY 10,000,000 in medical treatment coverage." }
+          ]
+        },
+        {
+          "id": "jp-limits",
+          "title": { "zhHans": "容易忽略的限制", "en": "Important limits" },
+          "paragraphs": [],
+          "highlights": [],
+          "bullets": [
+            { "zhHans": "停留期固定为 6 个月，不可延期；达到最长停留期后，再次申请前需等待。", "en": "The six-month stay cannot be extended, and a waiting period applies before applying again after the maximum stay." },
+            { "zhHans": "该身份不签发在留卡。", "en": "No residence card is issued for this status." },
+            { "zhHans": "配偶或子女可以申请随行路径，但适用国家和材料名单与主申请人并不完全相同。", "en": "A spouse or child may use the dependant route, whose country and document rules are not identical to those for principal applicants." }
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "jp-mofa", "title": { "zhHans": "数字游民特定签证说明", "en": "Digital nomad specified visa" }, "publisher": { "zhHans": "日本外务省", "en": "Ministry of Foreign Affairs of Japan" }, "url": "https://www.mofa.go.jp/ca/fna/pagewe_000001_00046.html" },
+        { "id": "jp-isa", "title": { "zhHans": "数字游民特定活动在留资格", "en": "Digital nomad Designated Activities status" }, "publisher": { "zhHans": "日本出入国在留管理厅", "en": "Immigration Services Agency of Japan" }, "url": "https://www.moj.go.jp/isa/applications/status/designatedactivities53_00001.html?hl=ja" },
+        { "id": "jp-list", "title": { "zhHans": "适用国家和地区名单", "en": "Eligible countries and regions" }, "publisher": { "zhHans": "日本出入国在留管理厅", "en": "Immigration Services Agency of Japan" }, "url": "https://www.moj.go.jp/isa/content/001416932.pdf" }
+      ],
+      "disclaimer": { "zhHans": "本文是官方信息的中文整理，不是官方译文。适用国家和地区可能调整，申请前必须重新核对官方名单和申请所在地使领馆要求。", "en": "This is an editorial summary, not an official translation. Recheck the official country list and local mission requirements before applying." }
+    },
+    {
+      "id": "korea-workcation-f1d",
+      "countryCode": "KR",
+      "country": { "zhHans": "韩国", "en": "South Korea" },
+      "title": { "zhHans": "韩国 F-1-D：最长可到 2 年的 Workcation 签证", "en": "South Korea F-1-D: a workcation visa for up to two years" },
+      "summary": { "zhHans": "适合有至少一年同行业经历、能远程工作的境外企业主或国际公司从业者。", "en": "For overseas business owners or international-company workers with at least one year in the same industry who can work remotely." },
+      "symbol": "laptopcomputer.and.arrow.down",
+      "tone": "blue",
+      "status": { "zhHans": "收入门槛需按申请年份重新计算", "en": "Income threshold must be recalculated for the application year" },
+      "updatedAt": "2026-08-11",
+      "readTimeMinutes": 6,
+      "keyFacts": [
+        { "id": "kr-stay", "label": { "zhHans": "初次停留", "en": "Initial stay" }, "value": { "zhHans": "1 年", "en": "1 year" }, "detail": { "zhHans": "可再延 1 年", "en": "May extend one more year" } },
+        { "id": "kr-income", "label": { "zhHans": "收入门槛", "en": "Income" }, "value": { "zhHans": "前一年人均 GNI 2 倍以上", "en": "Over 2× prior-year GNI per capita" }, "detail": { "zhHans": "每年变化", "en": "Changes annually" } },
+        { "id": "kr-insurance", "label": { "zhHans": "医疗保险", "en": "Insurance" }, "value": { "zhHans": "≥ 1 亿韩元", "en": "≥ KRW 100 million" }, "detail": { "zhHans": "含治疗与遣返", "en": "Treatment and repatriation" } }
+      ],
+      "notice": {
+        "title": { "zhHans": "不要沿用旧攻略里的固定收入数字", "en": "Do not reuse a fixed income number from an old guide" },
+        "body": { "zhHans": "官方规则是“高于韩国银行公布的前一年人均 GNI 的 2 倍”。具体金额会随年份变化，提交前应向韩国使领馆确认当期标准。", "en": "The official rule is more than twice the previous year's GNI per capita published by the Bank of Korea. Confirm the current amount before applying." },
+        "tone": "blue"
+      },
+      "sections": [
+        {
+          "id": "kr-eligibility",
+          "title": { "zhHans": "核心申请条件", "en": "Core eligibility" },
+          "paragraphs": [
+            { "zhHans": "韩国的 Digital Nomad（Workcation）签证通常称为 F-1-D。官方对象是能够远程工作的境外企业主，或隶属于国际公司的外国人及其随行家属。", "en": "South Korea's Digital Nomad or Workcation visa is commonly known as F-1-D, for remote-capable overseas business owners or people affiliated with international companies and their dependants." }
+          ],
+          "highlights": [
+            { "id": "kr-experience", "label": { "zhHans": "从业经历", "en": "Experience" }, "detail": { "zhHans": "需要在同一行业工作至少 1 年。", "en": "At least one year of work in the same industry is required." }, "tone": "blue" },
+            { "id": "kr-income-highlight", "label": { "zhHans": "动态收入门槛", "en": "Dynamic income threshold" }, "detail": { "zhHans": "收入需要高于申请前一年韩国人均 GNI 的 2 倍，不能把旧年份示例金额当成当前标准。", "en": "Income must exceed twice Korea's prior-year GNI per capita; an old example amount is not the current threshold." }, "tone": "green" }
+          ],
+          "bullets": []
+        },
+        {
+          "id": "kr-documents",
+          "title": { "zhHans": "核心材料", "en": "Core documents" },
+          "paragraphs": [],
+          "highlights": [],
+          "bullets": [
+            { "zhHans": "签证申请表、护照、标准照片和费用。", "en": "Visa application form, passport, standard photo, and fee." },
+            { "zhHans": "在职证明、工资证明、银行交易证明等收入材料。", "en": "Income documents such as employment, salary, and bank-transaction certificates." },
+            { "zhHans": "经 Apostille 或领事认证的无犯罪记录证明。", "en": "Criminal record certificate with Apostille or consular legalization." },
+            { "zhHans": "医疗保险证明；随行家属还需要家庭关系证明。", "en": "Medical insurance certificate; dependants also need proof of family relationship." }
+          ]
+        },
+        {
+          "id": "kr-stay-rules",
+          "title": { "zhHans": "停留与工作限制", "en": "Stay and work restrictions" },
+          "paragraphs": [],
+          "highlights": [
+            { "id": "kr-local-work", "label": { "zhHans": "韩国本地营利活动受限", "en": "Local profit-making activity is restricted" }, "detail": { "zhHans": "F-1-D 不是韩国本地就业许可。涉及韩国雇主或本地营利活动时，需要另外确认适用身份。", "en": "F-1-D is not permission for local Korean employment. Confirm the correct status for a Korean employer or local profit-making activity." }, "tone": "pink" }
+          ],
+          "bullets": [
+            { "zhHans": "完成外国人登记后通常授予 1 年停留期，可延长 1 年，最长 2 年。", "en": "After foreigner registration, one year is generally granted and may be extended by one year, up to two years." },
+            { "zhHans": "官方说明允许符合条件的短期停留者在韩国境内申请变更身份，但个案仍应向当地出入境机构确认。", "en": "Official guidance allows eligible short-term visitors to seek a status change in Korea, subject to confirmation with the local immigration office." }
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "kr-immigration", "title": { "zhHans": "Digital Nomad（Workcation）Visa 官方指南", "en": "Official Digital Nomad (Workcation) Visa guide" }, "publisher": { "zhHans": "韩国法务部出入境·外国人政策本部", "en": "Korea Immigration Service, Ministry of Justice" }, "url": "https://www.immigration.go.kr/bbs/immigration_eng/229/464290/download.do" },
+        { "id": "kr-portal", "title": { "zhHans": "韩国签证门户", "en": "Korea Visa Portal" }, "publisher": { "zhHans": "韩国法务部", "en": "Ministry of Justice, Republic of Korea" }, "url": "https://www.visa.go.kr/" },
+        { "id": "kr-form", "title": { "zhHans": "官方签证申请表", "en": "Official visa application form" }, "publisher": { "zhHans": "韩国签证门户", "en": "Korea Visa Portal" }, "url": "https://www.visa.go.kr/downfile/VisaapplicationForm_CH.pdf" }
+      ],
+      "disclaimer": { "zhHans": "本文按韩国官方公开指南整理，不构成审批结论。收入标准、材料认证和申请地点要求可能变化，提交前应向负责你所在地的韩国使领馆或韩国出入境机构确认。", "en": "This summary is based on official Korean guidance and is not an approval decision. Confirm current income, legalization, and filing requirements with the responsible Korean mission or immigration office." }
+    },
+    {
+      "id": "portugal-digital-nomad",
+      "countryCode": "PT",
+      "country": { "zhHans": "葡萄牙", "en": "Portugal" },
+      "title": { "zhHans": "葡萄牙数字游民签证：临时停留与居留两条路径", "en": "Portugal digital nomad visa: temporary stay and residence routes" },
+      "summary": { "zhHans": "适合为葡萄牙境外雇主或客户远程工作、收入稳定，并希望选择短期停留或进一步申请居留的人。", "en": "For remote workers serving employers or clients outside Portugal who want either a temporary stay or a residence route." },
+      "symbol": "water.waves",
+      "tone": "blue",
+      "status": { "zhHans": "中国大陆护照可申请，需按居住地领区递交", "en": "Mainland Chinese passport holders may apply through their responsible consular district" },
+      "updatedAt": "2026-08-12",
+      "readTimeMinutes": 5,
+      "keyFacts": [
+        { "id": "pt-route", "label": { "zhHans": "签证路径", "en": "Routes" }, "value": { "zhHans": "临时 / 居留", "en": "Temporary / residence" }, "detail": { "zhHans": "按计划停留长度选择", "en": "Choose by intended stay" } },
+        { "id": "pt-income", "label": { "zhHans": "月收入", "en": "Monthly income" }, "value": { "zhHans": "≥ 最低工资 4 倍", "en": "≥ 4x minimum wage" }, "detail": { "zhHans": "金额随年度调整", "en": "Amount changes annually" } },
+        { "id": "pt-work", "label": { "zhHans": "工作来源", "en": "Work source" }, "value": { "zhHans": "葡萄牙境外", "en": "Outside Portugal" }, "detail": { "zhHans": "雇佣或专业服务", "en": "Employment or services" } }
+      ],
+      "notice": { "title": { "zhHans": "先选路径，再准备材料", "en": "Choose the route before preparing documents" }, "body": { "zhHans": "临时停留签证和居留签证不是同一种结果。收入门槛引用葡萄牙月最低工资，因此提交前必须核对当年金额和受理领馆清单。", "en": "The temporary-stay and residence visas lead to different outcomes. The income threshold tracks Portugal's monthly minimum wage, so verify the current amount and local checklist." }, "tone": "blue" },
+      "sections": [
+        { "id": "pt-eligibility", "title": { "zhHans": "核心申请条件", "en": "Core eligibility" }, "paragraphs": [{ "zhHans": "申请人需要证明自己通过通信技术，为葡萄牙境外的个人或机构远程从事受雇工作或独立专业活动。", "en": "Applicants must show remote employment or independent professional activity for a person or entity outside Portugal." }], "highlights": [
+          { "id": "pt-income-highlight", "label": { "zhHans": "动态收入门槛", "en": "Dynamic income threshold" }, "detail": { "zhHans": "最近三个月平均月收入通常需要达到葡萄牙月最低工资的 4 倍；不要沿用旧年份金额。", "en": "Average monthly income over the latest three months generally needs to equal four times Portugal's monthly minimum wage; do not rely on an old annual figure." }, "tone": "green" },
+          { "id": "pt-tax", "label": { "zhHans": "税务居住证明", "en": "Tax residence evidence" }, "detail": { "zhHans": "官方领馆清单要求提供税务居住证明。", "en": "Official consular checklists require a tax residence certificate." }, "tone": "blue" }
+        ], "bullets": [] },
+        { "id": "pt-documents", "title": { "zhHans": "常见核心材料", "en": "Common core documents" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "护照、国家签证申请表、照片，以及在申请领区合法居住的证明。", "en": "Passport, national visa form, photo, and proof of legal residence in the consular district." },
+          { "zhHans": "雇佣合同或雇主声明；自由职业者可提供服务合同、公司合同或已提供服务的证明。", "en": "Employment contract or employer declaration; freelancers may provide service or company contracts and evidence of services." },
+          { "zhHans": "最近三个月收入证明、税务居住证明、保险、无犯罪记录和住宿等材料。", "en": "Recent income evidence, tax residence certificate, insurance, criminal record, and accommodation evidence." }
+        ] },
+        { "id": "pt-cautions", "title": { "zhHans": "申请前注意", "en": "Before applying" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "不同使领馆的预约方式、材料格式和资金计算口径可能不同。", "en": "Appointment procedures, formats, and financial calculations may differ by mission." },
+          { "zhHans": "居留路径抵达葡萄牙后还涉及居留许可程序，不应把入境签证直接理解为最终居留卡。", "en": "The residence route still involves a residence-permit procedure after arrival; the entry visa is not the final residence card." }
+        ] }
+      ],
+      "sources": [
+        { "id": "pt-mne-types", "title": { "zhHans": "葡萄牙国家签证类型", "en": "Portugal national visa types" }, "publisher": { "zhHans": "葡萄牙外交部签证门户", "en": "Portuguese Ministry of Foreign Affairs visa portal" }, "url": "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa" },
+        { "id": "pt-tokyo-checklist", "title": { "zhHans": "远程工作临时停留签证官方清单", "en": "Official temporary-stay remote-work checklist" }, "publisher": { "zhHans": "葡萄牙驻东京大使馆", "en": "Embassy of Portugal in Tokyo" }, "url": "https://toquio.embaixadaportugal.mne.gov.pt/images/vistos/checklists/en/estada_temporaria/temporary_stay_visa_for_remote_work_-_digital_nomads.pdf" },
+        { "id": "pt-residence-checklist", "title": { "zhHans": "远程工作居留签证官方清单", "en": "Official remote-work residence visa checklist" }, "publisher": { "zhHans": "葡萄牙外交部领事机构", "en": "Portuguese consular service" }, "url": "https://islamabad.embaixadaportugal.mne.gov.pt/images/temporary_national_checklists/national_visa_eng/d9_new_en.pdf" }
+      ],
+      "disclaimer": { "zhHans": "本文是对葡萄牙官方领事信息的中文整理，不是官方译文。最低工资、领区和材料要求会变化，申请前请核对负责你居住地的葡萄牙使领馆。", "en": "This is an editorial summary of official Portuguese consular information, not an official translation. Verify current minimum wage, jurisdiction, and documents with your responsible mission." }
+    },
+    {
+      "id": "spain-digital-nomad",
+      "countryCode": "ES",
+      "country": { "zhHans": "西班牙", "en": "Spain" },
+      "title": { "zhHans": "西班牙国际远程工作签证：可兼顾长期居住", "en": "Spain international telework visa: a route designed for residence" },
+      "summary": { "zhHans": "适合已有稳定境外工作关系，并能处理学历或经验、社保和西班牙医疗保险要求的远程工作者。", "en": "For remote workers with an established overseas work relationship who can meet qualification, social security, and Spanish health-insurance rules." },
+      "symbol": "sun.horizon.fill",
+      "tone": "orange",
+      "status": { "zhHans": "中国大陆护照可申请，领馆要求需单独核对", "en": "Mainland Chinese passport holders may apply, subject to local consular requirements" },
+      "updatedAt": "2026-08-12",
+      "readTimeMinutes": 6,
+      "keyFacts": [
+        { "id": "es-validity", "label": { "zhHans": "领馆签证", "en": "Consular visa" }, "value": { "zhHans": "最长 1 年", "en": "Up to 1 year" }, "detail": { "zhHans": "依获批工作期确定", "en": "Based on authorized work period" } },
+        { "id": "es-income", "label": { "zhHans": "经济能力", "en": "Financial means" }, "value": { "zhHans": "≥ SMI 200%", "en": "≥ 200% of SMI" }, "detail": { "zhHans": "金额按年度变化", "en": "Changes annually" } },
+        { "id": "es-experience", "label": { "zhHans": "资历", "en": "Qualification" }, "value": { "zhHans": "学历或 3 年经验", "en": "Degree or 3 years" }, "detail": { "zhHans": "专业经验路径", "en": "Professional-experience route" } }
+      ],
+      "notice": { "title": { "zhHans": "社保往往是材料难点", "en": "Social security is often the difficult part" }, "body": { "zhHans": "仅有远程工作合同并不够。雇主或自雇申请人通常还要证明会履行西班牙社保义务，或证明适用国际社保协调规则。", "en": "A remote-work contract alone is insufficient. The employer or self-employed applicant generally must address Spanish social-security obligations or an applicable international coordination regime." }, "tone": "orange" },
+      "sections": [
+        { "id": "es-eligibility", "title": { "zhHans": "核心申请条件", "en": "Core eligibility" }, "paragraphs": [{ "zhHans": "受雇申请人只能为西班牙境外公司远程工作；自雇申请人可以承接西班牙客户，但来自西班牙的业务不得超过全部专业活动的 20%。", "en": "Employees may only work for companies outside Spain. Self-employed applicants may serve Spanish clients, but Spanish activity may not exceed 20% of total professional activity." }], "highlights": [
+          { "id": "es-relationship", "label": { "zhHans": "工作关系", "en": "Work relationship" }, "detail": { "zhHans": "申请前通常需要已为境外公司工作至少 3 个月，并证明公司真实经营至少 1 年。", "en": "Applicants generally need at least three months with the foreign company, which must show at least one year of genuine activity." }, "tone": "orange" },
+          { "id": "es-income-highlight", "label": { "zhHans": "动态资金门槛", "en": "Dynamic financial threshold" }, "detail": { "zhHans": "主申请人需要达到当年西班牙最低工资 SMI 的 200%；家属还会增加资金要求。", "en": "The principal applicant needs 200% of the current Spanish minimum wage; accompanying family increases the requirement." }, "tone": "green" }
+        ], "bullets": [] },
+        { "id": "es-documents", "title": { "zhHans": "核心材料", "en": "Core documents" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "国家签证申请表、护照、照片、NIE，以及领区居住证明。", "en": "National visa form, passport, photo, NIE, and proof of residence in the consular district." },
+          { "zhHans": "雇主许可远程工作的证明、公司注册与持续经营证明、合同和收入材料。", "en": "Employer remote-work authorization, company registration and activity evidence, contract, and income documents." },
+          { "zhHans": "学历或至少 3 年专业经验、无犯罪记录、获准在西班牙经营的机构提供的医疗保险。", "en": "Degree or three years of professional experience, criminal record, and health insurance from an insurer authorized in Spain." }
+        ] },
+        { "id": "es-cautions", "title": { "zhHans": "申请前注意", "en": "Before applying" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "外国文件通常需要认证或 Apostille，并按要求提供西班牙语官方翻译。", "en": "Foreign documents generally require legalization or Apostille and an official Spanish translation where applicable." },
+          { "zhHans": "西班牙境内合法停留者还可能直接申请最长 3 年的居留许可，该流程与领馆签证不同。", "en": "People legally in Spain may be able to apply for a residence authorization of up to three years; this differs from the consular visa process." }
+        ] }
+      ],
+      "sources": [
+        { "id": "es-hk", "title": { "zhHans": "国际远程工作居留签证", "en": "International Remote Work Residence Visa" }, "publisher": { "zhHans": "西班牙驻香港总领事馆", "en": "Consulate General of Spain in Hong Kong" }, "url": "https://www.exteriores.gob.es/Consulados/hongkong/en/ServiciosConsulares/Paginas/Consular/Visados-International-Remote-Work-Residence.aspx" },
+        { "id": "es-london", "title": { "zhHans": "数字游民签证官方说明", "en": "Official Digital Nomad Visa guidance" }, "publisher": { "zhHans": "西班牙驻伦敦总领事馆", "en": "Consulate General of Spain in London" }, "url": "https://exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx" }
+      ],
+      "disclaimer": { "zhHans": "本文按西班牙外交部领事页面整理，不构成移民或税务建议。SMI、社保、保险和认证要求可能调整，请以负责你居住地的西班牙领馆为准。", "en": "This summary is based on Spanish consular pages and is not immigration or tax advice. Verify current SMI, social-security, insurance, and legalization rules with your responsible consulate." }
+    },
+    {
+      "id": "croatia-digital-nomad",
+      "countryCode": "HR",
+      "country": { "zhHans": "克罗地亚", "en": "Croatia" },
+      "title": { "zhHans": "克罗地亚数字游民临时居留：最长 18 个月", "en": "Croatia digital nomad temporary stay: up to 18 months" },
+      "summary": { "zhHans": "适合为克罗地亚境外公司远程工作、不承接当地雇主业务，并愿意办理住宿登记和居留手续的人。", "en": "For remote workers serving companies outside Croatia who will not work for local employers and can complete residence registration." },
+      "symbol": "globe.europe.africa.fill",
+      "tone": "blue",
+      "status": { "zhHans": "中国大陆护照可申请，获批后通常还需办理 D 签证", "en": "Mainland Chinese passport holders may apply and generally need a D visa after approval" },
+      "updatedAt": "2026-08-12",
+      "readTimeMinutes": 5,
+      "keyFacts": [
+        { "id": "hr-stay", "label": { "zhHans": "最长停留", "en": "Maximum stay" }, "value": { "zhHans": "18 个月", "en": "18 months" }, "detail": { "zhHans": "也可能批得更短", "en": "May be granted for less" } },
+        { "id": "hr-extension", "label": { "zhHans": "短期获批续期", "en": "Extension" }, "value": { "zhHans": "最长再 6 个月", "en": "Up to 6 more months" }, "detail": { "zhHans": "原批不足 18 个月时", "en": "If initially under 18 months" } },
+        { "id": "hr-local-work", "label": { "zhHans": "本地工作", "en": "Local work" }, "value": { "zhHans": "不允许", "en": "Not allowed" }, "detail": { "zhHans": "不得服务当地雇主", "en": "No Croatian employers" } }
+      ],
+      "notice": { "title": { "zhHans": "获批居留不等于已经完成入境手续", "en": "Residence approval does not complete entry formalities" }, "body": { "zhHans": "中国大陆公民属于入境需签证人群。数字游民临时居留获批后，通常还要取得长期 D 签证，并在抵达后登记地址及办理生物识别居留卡。", "en": "Mainland Chinese citizens are visa-required. After temporary-stay approval, they generally need a long-stay D visa and must register their address and obtain a biometric residence card after arrival." }, "tone": "blue" },
+      "sections": [
+        { "id": "hr-eligibility", "title": { "zhHans": "核心申请条件", "en": "Core eligibility" }, "paragraphs": [{ "zhHans": "该身份面向非欧盟、非欧洲经济区和非瑞士公民。申请人通过通信技术为未在克罗地亚注册的境外公司或自己的境外公司工作。", "en": "This status is for non-EU/EEA/Swiss nationals working through communication technology for a company, including their own, not registered in Croatia." }], "highlights": [
+          { "id": "hr-work-highlight", "label": { "zhHans": "不得服务克罗地亚雇主", "en": "No services for Croatian employers" }, "detail": { "zhHans": "申请人不能在克罗地亚为当地雇主工作或提供服务。", "en": "Applicants may not work or provide services for employers in Croatia." }, "tone": "pink" },
+          { "id": "hr-funds", "label": { "zhHans": "资金标准会调整", "en": "Financial threshold changes" }, "detail": { "zhHans": "官方按统计平均净工资计算最低月度资金，并允许用一次性银行余额证明；提交前应查看页面最新数字。", "en": "The official minimum is calculated from the statistical average net salary and may also be shown through a lump-sum balance; check the current figure before filing." }, "tone": "green" }
+        ], "bullets": [] },
+        { "id": "hr-documents", "title": { "zhHans": "材料与流程", "en": "Documents and process" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "在线或按签证身份向克罗地亚使领馆、警察行政部门提交申请。", "en": "Apply online or through the responsible Croatian mission or police authority, depending on visa status." },
+          { "zhHans": "护照、医疗保险、境外远程工作证明、资金证明、无犯罪记录和克罗地亚地址。", "en": "Passport, health insurance, overseas remote-work evidence, funds, criminal record, and a Croatian address." },
+          { "zhHans": "获批后按时登记临时地址并申请生物识别居留卡。", "en": "After approval, register the temporary address and obtain the biometric residence card on time." }
+        ] },
+        { "id": "hr-cautions", "title": { "zhHans": "续期和再次申请", "en": "Extension and reapplication" }, "paragraphs": [{ "zhHans": "若首次批准不足 18 个月，可最晚在到期前 60 天申请延长，延长最长 6 个月。新的数字游民居留申请通常要等前一次相关临时居留到期 6 个月后再提交。", "en": "If initially granted for less than 18 months, an extension of up to six months may be requested no later than 60 days before expiry. A new digital-nomad stay generally requires a six-month gap after the previous relevant stay expires." }], "highlights": [], "bullets": [] }
+      ],
+      "sources": [
+        { "id": "hr-mup-nomad", "title": { "zhHans": "数字游民临时居留官方指南", "en": "Official temporary stay guidance for digital nomads" }, "publisher": { "zhHans": "克罗地亚内政部", "en": "Croatian Ministry of the Interior" }, "url": "https://mup.gov.hr/aliens-702/stay-and-work-of-aliens-in-the-republic-of-croatia/temporary-stay/temporary-stay-for-the-purpose-of-digital-nomadism/286833" },
+        { "id": "hr-mup-stay", "title": { "zhHans": "第三国公民临时居留条件", "en": "Temporary stay of third-country nationals" }, "publisher": { "zhHans": "克罗地亚内政部", "en": "Croatian Ministry of the Interior" }, "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-third-country-nationals/281661" }
+      ],
+      "disclaimer": { "zhHans": "本文按克罗地亚内政部公开信息整理，不是法律意见。资金数字、签证和登记要求可能变化，请在申请前查看官方页面并向受理机构确认。", "en": "This summary is based on Croatian Interior Ministry information and is not legal advice. Verify current funds, visa, and registration rules before applying." }
+    },
+    {
+      "id": "colombia-digital-nomad",
+      "countryCode": "CO",
+      "country": { "zhHans": "哥伦比亚", "en": "Colombia" },
+      "title": { "zhHans": "哥伦比亚 V 类数字游民签证：最长 2 年", "en": "Colombia type V digital nomad visa: up to two years" },
+      "summary": { "zhHans": "适合为境外公司远程工作、希望在拉美停留更久，并能提供稳定收入和医疗保险的人。", "en": "For people working remotely for overseas companies who want a longer Latin American stay and can show stable income and health insurance." },
+      "symbol": "leaf.fill",
+      "tone": "green",
+      "status": { "zhHans": "护照适用性和申请类别需先核对官方系统", "en": "Confirm passport eligibility and category in the official system first" },
+      "updatedAt": "2026-08-12",
+      "readTimeMinutes": 5,
+      "keyFacts": [
+        { "id": "co-validity", "label": { "zhHans": "最长有效期", "en": "Maximum validity" }, "value": { "zhHans": "2 年", "en": "2 years" }, "detail": { "zhHans": "实际由签证机关决定", "en": "At visa authority discretion" } },
+        { "id": "co-income", "label": { "zhHans": "月收入", "en": "Monthly income" }, "value": { "zhHans": "≥ 3 倍 SMLMV", "en": "≥ 3x SMLMV" }, "detail": { "zhHans": "按当前最低工资计算", "en": "Based on current minimum wage" } },
+        { "id": "co-local-work", "label": { "zhHans": "哥伦比亚本地工作", "en": "Local work" }, "value": { "zhHans": "不授权", "en": "Not authorized" }, "detail": { "zhHans": "收入应来自境外", "en": "Income should be foreign" } }
+      ],
+      "notice": { "title": { "zhHans": "不能为哥伦比亚公司工作", "en": "No work for Colombian companies" }, "body": { "zhHans": "数字游民签证用于为境外公司远程工作、创业或数字业务。它不授权申请人在哥伦比亚境内为本地个人或公司从事有报酬的工作。", "en": "The digital nomad visa supports remote work, entrepreneurship, or digital business for foreign entities. It does not authorize paid work for Colombian persons or companies." }, "tone": "green" },
+      "sections": [
+        { "id": "co-eligibility", "title": { "zhHans": "核心申请条件", "en": "Core eligibility" }, "paragraphs": [{ "zhHans": "申请人需要通过远程工作或通信工具，为境外公司提供服务，或开展面向境外的数字内容和信息技术创业项目。", "en": "Applicants must remotely serve foreign companies or conduct digital-content or IT entrepreneurship aimed outside Colombia." }], "highlights": [
+          { "id": "co-income-highlight", "label": { "zhHans": "收入门槛", "en": "Income threshold" }, "detail": { "zhHans": "最近三个月银行流水需要证明收入达到哥伦比亚当前法定月最低工资 SMLMV 的 3 倍。", "en": "Bank statements for the latest three months must show income equal to three times Colombia's current statutory monthly minimum wage." }, "tone": "green" },
+          { "id": "co-passport", "label": { "zhHans": "先核对护照规则", "en": "Check passport rules first" }, "detail": { "zhHans": "该路径与短期免签国籍规则有关；中国大陆护照申请人应在付费前通过官方签证系统确认适用类别。", "en": "This route interacts with short-stay visa-exemption rules; mainland Chinese applicants should confirm the applicable category in the official system before paying." }, "tone": "orange" }
+        ], "bullets": [] },
+        { "id": "co-documents", "title": { "zhHans": "核心材料", "en": "Core documents" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "护照资料页、近期照片、合法停留或居住证明，以及在线申请表。", "en": "Passport biodata page, recent photo, lawful stay or residence evidence, and online application." },
+          { "zhHans": "境外公司出具的西班牙语或英语工作证明，说明关系和远程工作安排。", "en": "A Spanish- or English-language letter from the foreign company describing the relationship and remote-work arrangement." },
+          { "zhHans": "最近三个月收入证明，以及在哥伦比亚有效、覆盖意外、疾病、住院、死亡或遣返的医疗保险。", "en": "Three months of income evidence and health insurance valid in Colombia covering accident, illness, hospitalization, death, or repatriation." }
+        ] },
+        { "id": "co-cautions", "title": { "zhHans": "申请前注意", "en": "Before applying" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "签证最长可签发 2 年，不代表每位申请人都会获得完整 2 年。", "en": "The visa may be issued for up to two years; the full period is not guaranteed." },
+          { "zhHans": "SMLMV 每年变化，文章不固定展示容易过期的比索换算金额。", "en": "SMLMV changes annually, so this article does not hard-code a peso amount that may quickly expire." }
+        ] }
+      ],
+      "sources": [
+        { "id": "co-announcement", "title": { "zhHans": "数字游民签证官方发布说明", "en": "Official digital nomad visa announcement" }, "publisher": { "zhHans": "哥伦比亚外交部", "en": "Colombian Ministry of Foreign Affairs" }, "url": "https://cancilleria.gov.co/newsroom/news/visa-nomadas-digitales-ya-realidad-comenzara-funcionar-ano-colombia" },
+        { "id": "co-application", "title": { "zhHans": "哥伦比亚在线签证申请系统", "en": "Colombia online visa application" }, "publisher": { "zhHans": "哥伦比亚外交部", "en": "Colombian Ministry of Foreign Affairs" }, "url": "https://tramitesmre.cancilleria.gov.co/tramites/enlinea/solicitarVisaIE.xhtml" },
+        { "id": "co-regulation", "title": { "zhHans": "哥伦比亚签证法规汇编", "en": "Colombian visa regulation compilation" }, "publisher": { "zhHans": "哥伦比亚外交部", "en": "Colombian Ministry of Foreign Affairs" }, "url": "https://www.cancilleria.gov.co/normograma/compilacion/docs/resolucion_minrelaciones_5477_2022.htm" }
+      ],
+      "disclaimer": { "zhHans": "本文是对哥伦比亚官方公开资料的中文整理，不代表签证机关的资格判断。国籍适用性、最低工资和保险要求可能变化，请在官方系统提交前再次确认。", "en": "This is an editorial summary of official Colombian information and not an eligibility decision. Reconfirm nationality eligibility, minimum wage, and insurance requirements before filing." }
+    },
+    {
+      "id": "brazil-digital-nomad",
+      "countryCode": "BR",
+      "country": { "zhHans": "巴西", "en": "Brazil" },
+      "title": { "zhHans": "巴西 VITEM XIV 数字游民签证：1 年起步，可申请续期", "en": "Brazil VITEM XIV digital nomad visa: one year with renewal route" },
+      "summary": { "zhHans": "适合收入来自巴西境外、通过信息技术远程工作，并希望在巴西居住约一年或更久的人。", "en": "For technology-enabled remote workers whose income comes from outside Brazil and who want to live in Brazil for around a year or longer." },
+      "symbol": "tree.fill",
+      "tone": "green",
+      "status": { "zhHans": "中国大陆护照可向负责居住地的巴西领馆了解", "en": "Mainland Chinese passport holders may consult the Brazilian mission responsible for their residence" },
+      "updatedAt": "2026-08-12",
+      "readTimeMinutes": 5,
+      "keyFacts": [
+        { "id": "br-stay", "label": { "zhHans": "初始居留", "en": "Initial residence" }, "value": { "zhHans": "最长 1 年", "en": "Up to 1 year" }, "detail": { "zhHans": "可向联邦警察申请续期", "en": "Renewal may be requested" } },
+        { "id": "br-income", "label": { "zhHans": "月收入", "en": "Monthly income" }, "value": { "zhHans": "≥ 1,500 美元", "en": "≥ USD 1,500" }, "detail": { "zhHans": "境外来源", "en": "Foreign source" } },
+        { "id": "br-savings", "label": { "zhHans": "或银行资金", "en": "Or bank funds" }, "value": { "zhHans": "≥ 18,000 美元", "en": "≥ USD 18,000" }, "detail": { "zhHans": "替代资金路径", "en": "Alternative funds route" } }
+      ],
+      "notice": { "title": { "zhHans": "签证和抵达后的居留登记是两步", "en": "Visa and post-arrival residence registration are separate steps" }, "body": { "zhHans": "领馆签发 VITEM XIV 后，持有人通常还要在抵达巴西后按期限向联邦警察登记，取得移民登记文件。", "en": "After a consulate issues VITEM XIV, holders generally must register with the Federal Police within the applicable deadline after arrival to obtain their immigration registration document." }, "tone": "green" },
+      "sections": [
+        { "id": "br-eligibility", "title": { "zhHans": "核心申请条件", "en": "Core eligibility" }, "paragraphs": [{ "zhHans": "巴西将数字游民定义为能够通过信息和通信技术，为巴西境外雇主开展远程工作、且在巴西没有登记雇佣关系的移民。", "en": "Brazil defines a digital nomad as an immigrant able to work remotely through information and communication technology for a foreign employer, without a registered employment relationship in Brazil." }], "highlights": [
+          { "id": "br-income-highlight", "label": { "zhHans": "收入或存款二选一", "en": "Income or savings route" }, "detail": { "zhHans": "通常可证明每月境外收入至少 1,500 美元，或提供至少 18,000 美元的可用银行资金。", "en": "Applicants generally may show at least USD 1,500 in monthly foreign income or at least USD 18,000 in available bank funds." }, "tone": "green" },
+          { "id": "br-work-highlight", "label": { "zhHans": "收入来自巴西境外", "en": "Foreign-source work" }, "detail": { "zhHans": "这一路径不用于建立巴西本地雇佣关系。", "en": "This route is not for establishing a local Brazilian employment relationship." }, "tone": "orange" }
+        ], "bullets": [] },
+        { "id": "br-documents", "title": { "zhHans": "常见核心材料", "en": "Common core documents" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "护照、签证申请回执、照片、出生证明和无犯罪记录等领馆基础材料。", "en": "Passport, visa application receipt, photo, birth record, criminal record, and other consular base documents." },
+          { "zhHans": "境外雇主声明或服务合同，证明可以使用信息技术远程工作。", "en": "Foreign employer declaration or service contract proving technology-enabled remote work." },
+          { "zhHans": "医疗保险，以及月收入或银行存款证明。", "en": "Health insurance and evidence of monthly income or bank funds." }
+        ] },
+        { "id": "br-cautions", "title": { "zhHans": "申请与续期", "en": "Application and renewal" }, "paragraphs": [], "highlights": [], "bullets": [
+          { "zhHans": "境外申请通常通过负责申请人居住地的巴西使领馆办理，各领馆清单和系统步骤可能不同。", "en": "Applications abroad generally go through the Brazilian mission responsible for the applicant's residence; local checklists and system steps may differ." },
+          { "zhHans": "续期由巴西联邦警察处理，并需要在当前居留到期前按当时规则准备材料。", "en": "Renewal is handled by the Brazilian Federal Police and requires current documents before the existing residence expires." }
+        ] }
+      ],
+      "sources": [
+        { "id": "br-helsinki", "title": { "zhHans": "VITEM XIV 数字游民签证官方说明", "en": "Official VITEM XIV digital nomad visa guidance" }, "publisher": { "zhHans": "巴西外交部", "en": "Brazilian Ministry of Foreign Affairs" }, "url": "https://www.gov.br/mre/pt-br/embaixada-helsinque/consular-services/digital-nomad-visa-vitem-xiv" },
+        { "id": "br-washington", "title": { "zhHans": "数字游民签证与材料说明", "en": "Digital nomad visa and document guidance" }, "publisher": { "zhHans": "巴西驻华盛顿总领事馆", "en": "Consulate General of Brazil in Washington" }, "url": "https://www.gov.br/mre/pt-br/consulado-washington/consulate-general-of-brazil-in-washington-dc/digital-nomads" },
+        { "id": "br-resolution", "title": { "zhHans": "第 45/2021 号规范性决议", "en": "Normative Resolution 45/2021" }, "publisher": { "zhHans": "巴西国家移民委员会", "en": "Brazil National Immigration Council" }, "url": "https://portaldeimigracao.mj.gov.br/images/resolucoes_normativas/RESOLUCAO_CNIG_MJSP_N_45_DE_9_DE_SETEMBRO_DE_2021.pdf" }
+      ],
+      "disclaimer": { "zhHans": "本文是对巴西官方公开信息的中文整理，不是官方译文。材料、登记期限和续期规则可能变化，请以负责你居住地的巴西领馆及联邦警察最新要求为准。", "en": "This is an editorial summary of official Brazilian information, not an official translation. Verify current documents, registration deadlines, and renewal rules with the responsible Brazilian mission and Federal Police." }
+    }
+  ]
+}

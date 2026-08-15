@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nomad Kit v0.2 工具箱原型</title>
+  <style>
+    :root {
+      --ink: #282219;
+      --muted: #766a59;
+      --faint: #9a8d78;
+      --paper: #f5eddd;
+      --paper-strong: #fff8eb;
+      --sand: #d8c49e;
+      --line: rgba(40, 34, 25, .14);
+      --blue: #275b73;
+      --blue-deep: #1d475b;
+      --clay: #bd5835;
+      --olive: #687650;
+      --olive-soft: #e2e8bf;
+      --mint: #9db9a3;
+      --night: #172226;
+      --shadow: 0 28px 80px rgba(40, 34, 25, .18);
+      --display: "Songti SC", "STSong", Georgia, serif;
+      --body: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 13% 8%, rgba(189, 88, 53, .24), transparent 31rem),
+        radial-gradient(circle at 88% 10%, rgba(104, 118, 80, .28), transparent 34rem),
+        linear-gradient(135deg, #f3ead9 0%, #ddcaa7 48%, #d7ded0 100%);
+    }
+
+    .page {
+      width: min(1220px, 100%);
+      margin: 0 auto;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: clamp(28px, 6vw, 70px);
+      align-items: center;
+      padding: clamp(24px, 5vw, 64px);
+    }
+
+    .brief {
+      align-self: center;
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(40, 34, 25, .18);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .62);
+      color: #6f573e;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: var(--display);
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: .9;
+      letter-spacing: -.07em;
+      max-width: 700px;
+    }
+
+    .brief > p {
+      margin: 0;
+      max-width: 560px;
+      color: #5f5446;
+      font-size: clamp(16px, 1.35vw, 20px);
+      line-height: 1.72;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .note {
+      padding: 17px 17px 16px;
+      border-radius: 24px;
+      background: rgba(255, 248, 235, .6);
+      border: 1px solid rgba(40, 34, 25, .12);
+      box-shadow: 0 16px 38px rgba(40, 34, 25, .07);
+    }
+
+    .note b {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 15px;
+    }
+
+    .note span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .phone-shell {
+      width: 420px;
+      max-width: calc(100vw - 30px);
+      margin-inline: auto;
+      border-radius: 52px;
+      padding: 15px;
+      background: #151412;
+      box-shadow: var(--shadow);
+    }
+
+    .phone {
+      position: relative;
+      height: 816px;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        linear-gradient(165deg, rgba(255, 248, 235, .98), rgba(230, 211, 176, .9)),
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(92, 74, 48, .035) 18px 19px);
+      isolation: isolate;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(40, 34, 25, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40, 34, 25, .035) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+    }
+
+    .status {
+      height: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 22px;
+      font-size: 12px;
+      font-weight: 900;
+      position: relative;
+      z-index: 10;
+    }
+
+    .notch {
+      width: 58px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(20, 19, 17, .92);
+      margin-left: 20px;
+    }
+
+    .view {
+      position: absolute;
+      inset: 36px 0 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .28s ease, transform .28s ease;
+    }
+
+    .view.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .scroll {
+      height: calc(100% - 86px);
+      overflow-y: auto;
+      padding: 8px 20px 116px;
+      scrollbar-width: none;
+    }
+
+    .scroll::-webkit-scrollbar { display: none; }
+
+    .topline,
+    .row,
+    .widget-head,
+    .task,
+    .safety-item,
+    .badge-row,
+    .city-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .topline,
+    .row,
+    .widget-head { justify-content: space-between; }
+
+    .brand {
+      color: #7a6248;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(40, 34, 25, .22);
+      background: rgba(255, 248, 235, .68);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 12px;
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .25);
+    }
+
+    .city-pill,
+    .soft-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(40, 34, 25, .18);
+      color: #594a3a;
+      background: rgba(255, 248, 235, .58);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    h2 {
+      font-family: var(--display);
+      margin: 16px 0 8px;
+      font-size: 38px;
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    .subcopy {
+      margin: 0 0 14px;
+      color: #6c604f;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .visa-card {
+      position: relative;
+      min-height: 184px;
+      padding: 18px 18px 17px;
+      border-radius: 29px;
+      color: #fff8eb;
+      background: linear-gradient(140deg, var(--blue), var(--blue-deep));
+      box-shadow: 0 18px 38px rgba(39, 91, 115, .27);
+      overflow: hidden;
+    }
+
+    .visa-card::after {
+      content: "BKK";
+      position: absolute;
+      right: -12px;
+      bottom: -3px;
+      font-family: Georgia, serif;
+      font-size: 78px;
+      font-weight: 900;
+      color: rgba(255, 248, 235, .075);
+      letter-spacing: -.08em;
+    }
+
+    .card-label {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .72;
+      font-weight: 900;
+    }
+
+    .days {
+      margin-top: 10px;
+      font-family: Georgia, serif;
+      font-size: 68px;
+      line-height: .96;
+      letter-spacing: -.08em;
+    }
+
+    .days small {
+      margin-left: 4px;
+      font-size: 21px;
+      letter-spacing: 0;
+      font-family: var(--body);
+    }
+
+    .visa-meta {
+      position: relative;
+      z-index: 1;
+      margin-top: 8px;
+      font-weight: 900;
+    }
+
+    .stamp {
+      position: absolute;
+      top: 17px;
+      right: 17px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255, 248, 235, .54);
+      display: grid;
+      place-items: center;
+      color: rgba(255, 248, 235, .76);
+      transform: rotate(-12deg);
+      font-size: 11px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .manage-strip {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .manage-strip button,
+    .ghost-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(40, 34, 25, .08);
+      color: var(--ink);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .widget-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .widget {
+      min-height: 92px;
+      padding: 12px;
+      border-radius: 21px;
+      background: rgba(255, 248, 235, .68);
+      border: 1px solid rgba(40, 34, 25, .11);
+      box-shadow: 0 12px 26px rgba(40, 34, 25, .055);
+    }
+
+    .drag {
+      display: inline-grid;
+      grid-template-columns: repeat(2, 3px);
+      gap: 3px;
+      opacity: .42;
+    }
+
+    .drag i {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .widget b {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+      letter-spacing: -.04em;
+    }
+
+    .widget span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin: 20px 0 10px;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .section-title small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .safety-tile {
+      min-height: 78px;
+      padding: 10px 6px;
+      border-radius: 19px;
+      text-align: center;
+      border: 1px solid rgba(40, 34, 25, .1);
+      background: rgba(255, 248, 235, .58);
+      color: var(--ink);
+    }
+
+    .mark {
+      width: 29px;
+      height: 29px;
+      margin: 0 auto 7px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--olive-soft);
+      color: #465235;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .safety-tile b {
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .task-list {
+      border-top: 1px solid rgba(40, 34, 25, .1);
+    }
+
+    .task {
+      gap: 11px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(40, 34, 25, .1);
+    }
+
+    .num {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--clay);
+      color: var(--paper-strong);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .task b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .task span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .city-hero {
+      padding: 18px;
+      border-radius: 30px;
+      background: #1f2c29;
+      color: #f8f0df;
+      box-shadow: 0 18px 38px rgba(31, 44, 41, .23);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .city-hero::after {
+      content: "CNX";
+      position: absolute;
+      right: -6px;
+      top: 54px;
+      font-family: Georgia, serif;
+      font-size: 68px;
+      font-weight: 900;
+      color: rgba(248, 240, 223, .07);
+      letter-spacing: -.08em;
+    }
+
+    .city-hero h3 {
+      margin: 10px 0 14px;
+      font-family: var(--display);
+      font-size: 35px;
+      line-height: .98;
+      letter-spacing: -.06em;
+    }
+
+    .city-score {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .score-num {
+      color: var(--olive-soft);
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 48px 1fr 24px;
+      gap: 7px;
+      align-items: center;
+      margin: 7px 0;
+      color: rgba(248, 240, 223, .72);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .track {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(248, 240, 223, .13);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--olive-soft);
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .info-card {
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(255, 248, 235, .64);
+      border: 1px solid rgba(40, 34, 25, .1);
+    }
+
+    .info-card .row { gap: 14px; }
+
+    .info-card b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .distance {
+      color: var(--blue);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .channel-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .channel {
+      min-height: 88px;
+      padding: 13px;
+      border-radius: 22px;
+      background: rgba(255, 248, 235, .58);
+      border: 1px solid rgba(40, 34, 25, .1);
+    }
+
+    .channel b { display: block; margin: 9px 0 3px; font-size: 14px; }
+    .channel span { color: var(--muted); font-size: 11px; line-height: 1.35; }
+
+    .map-card {
+      position: relative;
+      height: 178px;
+      margin-top: 10px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(40deg, rgba(104, 118, 80, .14) 0 2px, transparent 2px 40px),
+        linear-gradient(-35deg, rgba(39, 91, 115, .1) 0 2px, transparent 2px 46px),
+        rgba(255, 248, 235, .6);
+      border: 1px solid rgba(40, 34, 25, .11);
+    }
+
+    .route-line {
+      position: absolute;
+      left: 33px;
+      top: 68px;
+      width: 244px;
+      height: 70px;
+      border-top: 3px solid rgba(104, 118, 80, .65);
+      border-right: 3px solid rgba(104, 118, 80, .65);
+      border-radius: 0 54px 0 0;
+      transform: rotate(-8deg);
+    }
+
+    .pin {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: var(--clay);
+      box-shadow: 0 0 0 7px rgba(189, 88, 53, .14);
+    }
+
+    .pin.one { left: 58px; top: 76px; }
+    .pin.two { right: 64px; top: 88px; background: var(--blue); box-shadow: 0 0 0 7px rgba(39,91,115,.14); }
+
+    .checkin-hero {
+      padding: 18px;
+      border-radius: 31px;
+      color: #fff8eb;
+      background: linear-gradient(145deg, var(--clay), #9f432d);
+      box-shadow: 0 20px 40px rgba(189, 88, 53, .27);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .checkin-hero::after {
+      content: "";
+      position: absolute;
+      width: 168px;
+      height: 168px;
+      right: -58px;
+      top: -62px;
+      border-radius: 50%;
+      border: 28px solid rgba(255, 248, 235, .12);
+    }
+
+    .checkin-hero h3 {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 14px;
+      font-family: var(--display);
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -.06em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      padding: 11px 9px;
+      border-radius: 18px;
+      background: rgba(255, 248, 235, .14);
+      border: 1px solid rgba(255, 248, 235, .18);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 22px;
+      letter-spacing: -.05em;
+    }
+
+    .stat span { font-size: 11px; opacity: .74; }
+
+    .stamp-button {
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 20px;
+      padding: 14px 16px;
+      background: #fff8eb;
+      color: var(--clay);
+      font-size: 14px;
+      font-weight: 900;
+      font-family: var(--body);
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .badge-card {
+      min-height: 112px;
+      padding: 12px 9px;
+      border-radius: 23px;
+      text-align: center;
+      background: rgba(255, 248, 235, .62);
+      border: 1px solid rgba(40, 34, 25, .1);
+    }
+
+    .medal {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #4b5638;
+      background: var(--olive-soft);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,.28);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .badge-card b { display: block; font-size: 12px; line-height: 1.2; }
+    .badge-card span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.25; }
+
+    .share-card {
+      padding: 16px;
+      border-radius: 26px;
+      background: #fff8eb;
+      border: 1px solid rgba(40, 34, 25, .11);
+    }
+
+    .share-preview {
+      min-height: 132px;
+      border-radius: 22px;
+      padding: 15px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(104, 118, 80, .22), transparent 34%),
+        linear-gradient(135deg, #f1dfbd, #fff8eb);
+      border: 1px solid rgba(40, 34, 25, .09);
+    }
+
+    .share-preview b {
+      display: block;
+      font-family: var(--display);
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .share-preview span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tabbar {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      height: 66px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 7px;
+      z-index: 20;
+      border-radius: 26px;
+      background: rgba(255, 248, 235, .86);
+      border: 1px solid rgba(40, 34, 25, .12);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 32px rgba(40, 34, 25, .13);
+    }
+
+    .tabbar button {
+      border: 0;
+      border-radius: 20px;
+      background: transparent;
+      color: rgba(40, 34, 25, .52);
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: background .22s ease, color .22s ease, transform .22s ease;
+    }
+
+    .tabbar button.active {
+      color: var(--ink);
+      background: rgba(40, 34, 25, .08);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 28px 16px 46px;
+      }
+
+      .brief { max-width: none; }
+      .notes { grid-template-columns: 1fr; }
+      .phone-shell { width: min(420px, 100%); }
+    }
+
+    @media (max-width: 440px) {
+      .page { padding: 16px 10px 32px; }
+      h1 { font-size: 40px; }
+      .phone-shell { padding: 10px; border-radius: 42px; }
+      .phone { height: 790px; border-radius: 32px; }
+      .scroll { padding-inline: 16px; }
+      .widget-grid { gap: 8px; }
+      .widget { padding: 10px; }
+    }
+    .now-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 4px; }
+    .now-card {
+      min-height: 112px;
+      padding: 13px 12px;
+      border-radius: 21px;
+      border: 1px solid rgba(40, 34, 25, .11);
+      box-shadow: 0 12px 26px rgba(40, 34, 25, .055);
+      display: flex;
+      flex-direction: column;
+    }
+    .now-card .now-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 900; color: var(--faint); }
+    .now-card .now-emoji { margin-top: 8px; font-size: 24px; line-height: 1; }
+    .now-card .now-main { margin-top: auto; font-family: Georgia, serif; font-size: 30px; line-height: 1; letter-spacing: -.04em; }
+    .now-card .now-main .u { margin-left: 2px; font-size: 14px; font-family: var(--body); }
+    .now-card .now-main2 { margin-top: auto; font-family: var(--display); font-size: 17px; line-height: 1.12; letter-spacing: -.03em; }
+    .now-card .now-sub { margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.3; }
+    .now-card.w-weather { background: linear-gradient(160deg, rgba(39, 91, 115, .14), rgba(255, 248, 235, .72)); }
+    .now-card.w-temp { background: linear-gradient(160deg, rgba(189, 88, 53, .14), rgba(255, 248, 235, .72)); }
+    .now-card.w-spot { background: linear-gradient(160deg, rgba(104, 118, 80, .16), rgba(255, 248, 235, .72)); }
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="brief" aria-label="原型说明">
+      <span class="eyebrow">Nomad Kit · v0.2 Prototype</span>
+      <h1>工具优先，像一只随身旅居证件夹。</h1>
+      <p>新版原型保留第一个方向的“城市护照”质感，底部收敛为今日、清单、打卡三个 tab。今日第一屏以本地城市内容为核心，安全感清单独立成 tab，打卡徽章负责拉动收藏与分享。</p>
+      <div class="notes">
+        <div class="note"><b>首页心智</b><span>先解决“我还能待多久、今天要查什么、哪些东西没准备好”。</span></div>
+        <div class="note"><b>测试重点</b><span>发帖时问用户：如果首页只能放 6 个工具，你会选哪 6 个？</span></div>
+        <div class="note"><b>三 tab</b><span>今日是本地城市生存页，清单是安全感工具箱，打卡是传播页面。</span></div>
+        <div class="note"><b>我的入口</b><span>头像进入语言、文件、护照、签证、保险和小组件管理。</span></div>
+      </div>
+    </section>
+
+    <section class="phone-shell" aria-label="可点击手机原型">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span class="notch"></span><span>82%</span></div>
+
+        <section class="view active" data-view="today" aria-label="今日本地城市">
+          <div class="scroll">
+            <div class="topline">
+              <span class="brand">LOCAL TODAY</span>
+              <button class="avatar" type="button" aria-label="打开我的页面">YY</button>
+            </div>
+            <div class="row" style="margin-top: 14px;"><span class="city-pill">清迈 · 已落地第 4 天</span><span class="soft-pill">切换城市</span></div>
+            <h2>到一个城市，<br>先看怎么活</h2>
+            <p class="subcopy">今日页优先显示本地城市内容：签证状态、工作地点、本地渠道和落地 24 小时。</p>
+
+            <div class="section-title"><span>本地此刻</span><small>清迈 · 更新于 09:30</small></div>
+            <div class="now-grid">
+              <article class="now-card w-weather">
+                <span class="now-label">天气</span>
+                <span class="now-emoji">⛅️</span>
+                <b class="now-main2">多云转阵雨</b>
+                <span class="now-sub">18:00 后转雨</span>
+              </article>
+              <article class="now-card w-temp">
+                <span class="now-label">气温</span>
+                <span class="now-emoji">🌡️</span>
+                <span class="now-main">32<span class="u">°C</span></span>
+                <span class="now-sub">体感 36° · 湿度 78%</span>
+              </article>
+              <article class="now-card w-spot">
+                <span class="now-label">推荐地点</span>
+                <span class="now-emoji">☕️</span>
+                <b class="now-main2">Graph Nimman</b>
+                <span class="now-sub">步行 5 分钟 · 上午宜</span>
+              </article>
+            </div>
+
+            <article class="city-hero">
+              <div class="card-label">City survival score</div>
+              <h3>清迈适合慢下来工作</h3>
+              <div class="city-score">
+                <div class="score-num">86</div>
+                <div>
+                  <div class="bar"><span>工作</span><div class="track"><div class="fill" style="width: 86%"></div></div><b>高</b></div>
+                  <div class="bar"><span>预算</span><div class="track"><div class="fill" style="width: 72%"></div></div><b>中</b></div>
+                  <div class="bar"><span>社交</span><div class="track"><div class="fill" style="width: 78%"></div></div><b>热</b></div>
+                </div>
+              </div>
+            </article>
+
+            <div class="section-title"><span>本地工作地点</span><small>已验证 12 个</small></div>
+            <div class="info-list">
+              <article class="info-card"><div class="row"><span class="mark">W</span><div><b>Punspace Wiang Kaew</b><span>日票 350 THB · 安静 · 有会议室</span></div><span class="distance">1.2km</span></div></article>
+              <article class="info-card"><div class="row"><span class="mark">C</span><div><b>Graph One Nimman</b><span>插座多 · 适合 2 小时轻办公</span></div><span class="distance">900m</span></div></article>
+            </div>
+
+            <div class="map-card" aria-hidden="true"><span class="route-line"></span><span class="pin one"></span><span class="pin two"></span></div>
+
+            <div class="section-title"><span>今日本地提醒</span><small>3 件事</small></div>
+            <div class="task-list">
+              <div class="task"><span class="num">1</span><div><b>签证还剩 23 天</b><span>最晚离境 7 月 21 日，提前 7 天确认下一站</span></div></div>
+              <div class="task"><span class="num">2</span><div><b>下午 18:00 可能阵雨</b><span>去 Nimman 工作记得带伞</span></div></div>
+              <div class="task"><span class="num">3</span><div><b>今晚有游民交流活动</b><span>One Nimman 附近，适合认识同频人</span></div></div>
+            </div>
+
+            <div class="section-title"><span>本地渠道</span><small>常用入口</small></div>
+            <div class="channel-list">
+              <article class="channel"><span class="mark">网</span><b>联网渠道</b><span>AIS、True、eSIM 覆盖、机场柜台</span></article>
+              <article class="channel"><span class="mark">现</span><b>现金支付</b><span>ATM 手续费、现金需求、支付 App</span></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="checklist" aria-label="旅居安全感清单">
+          <div class="scroll">
+            <div class="topline">
+              <span class="brand">SAFETY KIT</span>
+              <button class="avatar" type="button" aria-label="打开我的页面">YY</button>
+            </div>
+            <div class="row" style="margin-top: 14px;">
+              <span class="city-pill">旅居安全感清单</span>
+              <button class="ghost-button" type="button">管理工具</button>
+            </div>
+            <h2>出发和落地，<br>先把底线备齐</h2>
+            <p class="subcopy">这是独立的信息聚合 tab：保险、eSIM/Wi-Fi、现金、常用药、物品和文件都从这里进入。</p>
+
+            <div class="section-title" style="margin-top: 16px;"><span>信息聚合入口</span><small>8 个分类</small></div>
+            <div class="safety-grid">
+              <button class="safety-tile" type="button"><span class="mark">保</span><b>保险商</b></button>
+              <button class="safety-tile" type="button"><span class="mark">网</span><b>eSIM<br>Wi-Fi</b></button>
+              <button class="safety-tile" type="button"><span class="mark">现</span><b>现金<br>支付</b></button>
+              <button class="safety-tile" type="button"><span class="mark">药</span><b>常用药</b></button>
+              <button class="safety-tile" type="button"><span class="mark">物</span><b>物品<br>清单</b></button>
+              <button class="safety-tile" type="button"><span class="mark">文</span><b>文件<br>备份</b></button>
+              <button class="safety-tile" type="button"><span class="mark">急</span><b>紧急<br>信息</b></button>
+              <button class="safety-tile" type="button"><span class="mark">工</span><b>工作<br>地点</b></button>
+            </div>
+
+            <div class="section-title"><span>常用工具小组件</span><small>长按拖拽排序</small></div>
+            <div class="widget-grid" aria-label="工具小组件">
+              <article class="widget">
+                <div class="widget-head"><span class="mark">V</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>23 天</b><span>签证剩余</span>
+              </article>
+              <article class="widget">
+                <div class="widget-head"><span class="mark">IN</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>9 天</b><span>保险到期</span>
+              </article>
+              <article class="widget">
+                <div class="widget-head"><span class="mark">FX</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>¥20.1</b><span>100 THB</span>
+              </article>
+              <article class="widget">
+                <div class="widget-head"><span class="mark">WX</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>32°C</b><span>18:00 阵雨</span>
+              </article>
+              <article class="widget">
+                <div class="widget-head"><span class="mark">ES</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>12GB</b><span>eSIM 余量</span>
+              </article>
+              <article class="widget">
+                <div class="widget-head"><span class="mark">PK</span><span class="drag"><i></i><i></i><i></i><i></i></span></div>
+                <b>7/12</b><span>离境清单</span>
+              </article>
+            </div>
+
+            <div class="section-title"><span>清单进度</span><small>今日 3 件事</small></div>
+            <div class="task-list">
+              <div class="task"><span class="num">1</span><div><b>补充保险紧急电话</b><span>写入离线文件夹，落地无网也能查</span></div></div>
+              <div class="task"><span class="num">2</span><div><b>确认 eSIM 备用方案</b><span>机场柜台和本地运营商都保留入口</span></div></div>
+              <div class="task"><span class="num">3</span><div><b>常用药和处方药拍照备份</b><span>跨境携带前确认当地限制</span></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="checkin" aria-label="城市打卡与徽章">
+          <div class="scroll">
+            <div class="topline">
+              <span class="brand">PASSPORT STAMPS</span>
+              <button class="avatar" type="button" aria-label="打开我的页面">YY</button>
+            </div>
+            <div class="row" style="margin-top: 14px;"><span class="city-pill">数字游民城市打卡</span><span class="soft-pill">分享</span></div>
+            <h2>我来过这里，<br>也完成了这段生活</h2>
+            <p class="subcopy">用城市打卡和徽章制造轻传播，不先做重社交。</p>
+
+            <article class="checkin-hero">
+              <div class="card-label">Current stamp</div>
+              <h3>曼谷 · 第 4 天</h3>
+              <div class="stats">
+                <div class="stat"><b>7</b><span>城市</span></div>
+                <div class="stat"><b>3</b><span>国家/地区</span></div>
+                <div class="stat"><b>94</b><span>旅居天数</span></div>
+              </div>
+              <button class="stamp-button" type="button">标记“我来过这里”</button>
+            </article>
+
+            <div class="section-title"><span>徽章收集</span><small>已解锁 5/18</small></div>
+            <div class="badge-grid">
+              <article class="badge-card"><span class="medal">01</span><b>第一站</b><span>完成第一次城市打卡</span></article>
+              <article class="badge-card"><span class="medal">30</span><b>慢旅 30 天</b><span>单城停留超过 30 天</span></article>
+              <article class="badge-card"><span class="medal">AS</span><b>亚洲三城</b><span>打卡 3 个亚洲城市</span></article>
+              <article class="badge-card"><span class="medal">VG</span><b>合法停留</b><span>设置 3 次签证倒计时</span></article>
+              <article class="badge-card"><span class="medal">RF</span><b>雨季生存者</b><span>完成雨季落地清单</span></article>
+              <article class="badge-card"><span class="medal">WK</span><b>共工探索</b><span>收藏 5 个工作地点</span></article>
+            </div>
+
+            <div class="section-title"><span>分享预览</span><small>小红书竖图</small></div>
+            <article class="share-card">
+              <div class="share-preview">
+                <b>我的数字游民护照</b>
+                <span>曼谷 · 清迈 · 台北 · 大阪 · 首尔 · 岘港 · 吉隆坡</span>
+                <div class="row" style="margin-top: 18px;"><span class="soft-pill">94 天在路上</span><span class="soft-pill">5 枚徽章</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <nav class="tabbar" aria-label="底部导航">
+          <button class="active" type="button" data-tab="today">今日</button>
+          <button type="button" data-tab="checklist">清单</button>
+          <button type="button" data-tab="checkin">打卡</button>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const views = document.querySelectorAll('[data-view]');
+
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.tab;
+        tabButtons.forEach((item) => item.classList.toggle('active', item === button));
+        views.forEach((view) => view.classList.toggle('active', view.dataset.view === target));
+      });
+    });
+  </script>
+</body>
+</html>

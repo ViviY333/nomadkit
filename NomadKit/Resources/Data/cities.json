@@ -1,0 +1,388 @@
+{
+  "cities": [
+    {
+      "id": "chiang-mai",
+      "name": { "zhHans": "清迈", "en": "Chiang Mai" },
+      "country": { "zhHans": "泰国", "en": "Thailand" },
+      "arrivalDay": 7,
+      "updatedAt": "09:30",
+      "headline": { "zhHans": "先知道今天怎么活", "en": "Know how today works" },
+      "summary": {
+        "zhHans": "从天气、工作地点到签证提醒，把在清迈最需要处理的事放在一个地方。",
+        "en": "Weather, workspaces, and stay reminders for a smoother day in Chiang Mai."
+      },
+      "moments": [
+        {
+          "id": "weather",
+          "label": { "zhHans": "天气", "en": "Weather" },
+          "value": { "zhHans": "多云转阵雨", "en": "Cloudy, then rain" },
+          "detail": { "zhHans": "18:00 后转雨", "en": "Rain after 18:00" },
+          "symbol": "cloud.sun.rain.fill",
+          "tone": "blue"
+        },
+        {
+          "id": "temperature",
+          "label": { "zhHans": "气温", "en": "Temperature" },
+          "value": { "zhHans": "32°C", "en": "32°C" },
+          "detail": { "zhHans": "体感 36° · 湿度 78%", "en": "Feels 36° · 78% humidity" },
+          "symbol": "thermometer.medium",
+          "tone": "orange"
+        },
+        {
+          "id": "place",
+          "label": { "zhHans": "推荐地点", "en": "Recommended" },
+          "value": { "zhHans": "Graph Nimman", "en": "Graph Nimman" },
+          "detail": { "zhHans": "步行 5 分钟 · 上午宜", "en": "5 min walk · Best before noon" },
+          "symbol": "cup.and.saucer.fill",
+          "tone": "green"
+        }
+      ],
+      "survival": {
+        "score": 86,
+        "title": { "zhHans": "适合慢下来工作", "en": "Made for focused slow travel" },
+        "metrics": [
+          { "id": "work", "label": { "zhHans": "工作", "en": "Work" }, "value": 0.86, "status": { "zhHans": "高", "en": "High" } },
+          { "id": "budget", "label": { "zhHans": "预算", "en": "Value" }, "value": 0.72, "status": { "zhHans": "稳", "en": "Good" } },
+          { "id": "social", "label": { "zhHans": "社交", "en": "Social" }, "value": 0.78, "status": { "zhHans": "热", "en": "Live" } }
+        ]
+      },
+      "workspaces": [
+        {
+          "id": "punspace",
+          "name": "Punspace Wiang Kaew",
+          "detail": { "zhHans": "日票 350 THB · 安静 · 有会议室", "en": "THB 350 day pass · Quiet · Meeting rooms" },
+          "distanceMeters": 1200,
+          "symbol": "laptopcomputer"
+        },
+        {
+          "id": "graph-one",
+          "name": "Graph One Nimman",
+          "detail": { "zhHans": "插座多 · 适合两小时轻办公", "en": "Plenty of outlets · Good for a short session" },
+          "distanceMeters": 900,
+          "symbol": "cup.and.saucer.fill"
+        }
+      ],
+      "reminders": [
+        {
+          "id": "visa",
+          "kind": "visa",
+          "title": { "zhHans": "检查停留期限", "en": "Check your stay limit" },
+          "detail": { "zhHans": "最晚离境 8 月 8 日，提前 7 天确认下一站", "en": "Leave by Aug 8; confirm your next stop 7 days early" },
+          "symbol": "calendar.badge.exclamationmark",
+          "tone": "orange"
+        },
+        {
+          "id": "rain",
+          "kind": "weather",
+          "title": { "zhHans": "18:00 后可能阵雨", "en": "Rain likely after 18:00" },
+          "detail": { "zhHans": "去 Nimman 工作记得带伞", "en": "Bring an umbrella if you work in Nimman" },
+          "symbol": "umbrella.fill",
+          "tone": "blue"
+        },
+        {
+          "id": "event",
+          "kind": "event",
+          "title": { "zhHans": "今晚有游民交流活动", "en": "Nomad meetup tonight" },
+          "detail": { "zhHans": "One Nimman 附近 · 19:30 开始", "en": "Near One Nimman · Starts at 19:30" },
+          "symbol": "person.3.fill",
+          "tone": "indigo"
+        }
+      ],
+      "channels": [
+        {
+          "id": "connectivity",
+          "title": { "zhHans": "联网渠道", "en": "Connectivity" },
+          "detail": { "zhHans": "AIS、True、eSIM 覆盖与机场柜台", "en": "AIS, True, eSIM coverage, and airport desks" },
+          "symbol": "antenna.radiowaves.left.and.right",
+          "tone": "blue"
+        },
+        {
+          "id": "cash",
+          "title": { "zhHans": "现金支付", "en": "Cash & payment" },
+          "detail": { "zhHans": "ATM 手续费、现金需求与常用支付方式", "en": "ATM fees, cash needs, and local payment methods" },
+          "symbol": "banknote.fill",
+          "tone": "green"
+        },
+        {
+          "id": "transport",
+          "title": { "zhHans": "本地交通", "en": "Getting around" },
+          "detail": { "zhHans": "双条车、Grab 与夜间出行提醒", "en": "Songthaews, Grab, and late-night tips" },
+          "symbol": "car.side.fill",
+          "tone": "orange"
+        },
+        {
+          "id": "pharmacy",
+          "title": { "zhHans": "药店与急用", "en": "Pharmacy" },
+          "detail": { "zhHans": "常用关键词、附近药店与紧急号码", "en": "Useful terms, nearby pharmacies, and emergency numbers" },
+          "symbol": "cross.case.fill",
+          "tone": "pink"
+        }
+      ],
+      "stay": {
+        "entryDate": "2026-07-10",
+        "allowedStayDays": 30,
+        "sourceUpdatedAt": "2026-07-15"
+      },
+      "disclaimer": {
+        "zhHans": "签证、保险与医疗信息仅作准备参考，请以官网、使领馆或服务商最新条款为准。",
+        "en": "Visa, insurance, and health information is for preparation only. Always verify with official sources."
+      }
+    },
+    {
+      "id": "bangkok",
+      "name": { "zhHans": "曼谷", "en": "Bangkok" },
+      "country": { "zhHans": "泰国", "en": "Thailand" },
+      "arrivalDay": 3,
+      "updatedAt": "09:25",
+      "headline": { "zhHans": "高效穿过这座大城", "en": "Move through the city with confidence" },
+      "summary": {
+        "zhHans": "把闷热天气、通勤距离和安静工作地点提前放进今天的计划。",
+        "en": "Plan around the heat, travel time, and quieter places to work."
+      },
+      "moments": [
+        {
+          "id": "weather",
+          "label": { "zhHans": "天气", "en": "Weather" },
+          "value": { "zhHans": "晴热", "en": "Hot and sunny" },
+          "detail": { "zhHans": "午后紫外线强", "en": "High UV this afternoon" },
+          "symbol": "sun.max.fill",
+          "tone": "orange"
+        },
+        {
+          "id": "temperature",
+          "label": { "zhHans": "气温", "en": "Temperature" },
+          "value": { "zhHans": "35°C", "en": "35°C" },
+          "detail": { "zhHans": "体感 40° · 湿度 70%", "en": "Feels 40° · 70% humidity" },
+          "symbol": "thermometer.sun.fill",
+          "tone": "pink"
+        },
+        {
+          "id": "place",
+          "label": { "zhHans": "推荐地点", "en": "Recommended" },
+          "value": { "zhHans": "The Commons", "en": "The Commons" },
+          "detail": { "zhHans": "BTS 后步行 8 分钟", "en": "8 min walk from BTS" },
+          "symbol": "building.2.fill",
+          "tone": "teal"
+        }
+      ],
+      "survival": {
+        "score": 82,
+        "title": { "zhHans": "选择多，但要留出通勤时间", "en": "Endless options, longer commutes" },
+        "metrics": [
+          { "id": "work", "label": { "zhHans": "工作", "en": "Work" }, "value": 0.9, "status": { "zhHans": "高", "en": "High" } },
+          { "id": "budget", "label": { "zhHans": "预算", "en": "Value" }, "value": 0.61, "status": { "zhHans": "中", "en": "Mid" } },
+          { "id": "social", "label": { "zhHans": "社交", "en": "Social" }, "value": 0.88, "status": { "zhHans": "热", "en": "Live" } }
+        ]
+      },
+      "workspaces": [
+        {
+          "id": "the-hive",
+          "name": "The Hive Thonglor",
+          "detail": { "zhHans": "屋顶露台 · 会议室 · 适合整日办公", "en": "Roof terrace · Meeting rooms · Full-day work" },
+          "distanceMeters": 1800,
+          "symbol": "laptopcomputer"
+        },
+        {
+          "id": "true-digital",
+          "name": "True Digital Park",
+          "detail": { "zhHans": "空间大 · 交通方便 · 餐饮齐全", "en": "Large space · Easy transit · Food nearby" },
+          "distanceMeters": 4200,
+          "symbol": "building.2.fill"
+        }
+      ],
+      "reminders": [
+        {
+          "id": "visa",
+          "kind": "visa",
+          "title": { "zhHans": "检查停留期限", "en": "Check your stay limit" },
+          "detail": { "zhHans": "最晚离境 8 月 12 日，提前确认后续行程", "en": "Leave by Aug 12; confirm onward travel early" },
+          "symbol": "calendar.badge.exclamationmark",
+          "tone": "orange"
+        },
+        {
+          "id": "heat",
+          "kind": "weather",
+          "title": { "zhHans": "午后体感接近 40°C", "en": "Feels close to 40°C this afternoon" },
+          "detail": { "zhHans": "把步行和户外行程放到 17:00 后", "en": "Move outdoor plans after 17:00" },
+          "symbol": "sun.max.trianglebadge.exclamationmark.fill",
+          "tone": "pink"
+        },
+        {
+          "id": "transit",
+          "kind": "event",
+          "title": { "zhHans": "晚高峰预留 30 分钟", "en": "Add 30 minutes for rush hour" },
+          "detail": { "zhHans": "优先选择 BTS 或 MRT", "en": "Prefer BTS or MRT where possible" },
+          "symbol": "tram.fill",
+          "tone": "blue"
+        }
+      ],
+      "channels": [
+        {
+          "id": "connectivity",
+          "title": { "zhHans": "联网渠道", "en": "Connectivity" },
+          "detail": { "zhHans": "AIS、True、dtac 与商场门店", "en": "AIS, True, dtac, and mall service shops" },
+          "symbol": "antenna.radiowaves.left.and.right",
+          "tone": "blue"
+        },
+        {
+          "id": "cash",
+          "title": { "zhHans": "现金支付", "en": "Cash & payment" },
+          "detail": { "zhHans": "ATM 手续费、刷卡范围与 PromptPay 提示", "en": "ATM fees, card coverage, and PromptPay notes" },
+          "symbol": "banknote.fill",
+          "tone": "green"
+        },
+        {
+          "id": "transport",
+          "title": { "zhHans": "本地交通", "en": "Getting around" },
+          "detail": { "zhHans": "BTS、MRT、Grab 与码头换乘", "en": "BTS, MRT, Grab, and river transfers" },
+          "symbol": "tram.fill",
+          "tone": "orange"
+        },
+        {
+          "id": "pharmacy",
+          "title": { "zhHans": "药店与急用", "en": "Pharmacy" },
+          "detail": { "zhHans": "连锁药店、医院入口与紧急号码", "en": "Pharmacy chains, hospitals, and emergency numbers" },
+          "symbol": "cross.case.fill",
+          "tone": "pink"
+        }
+      ],
+      "stay": {
+        "entryDate": "2026-07-14",
+        "allowedStayDays": 30,
+        "sourceUpdatedAt": "2026-07-15"
+      },
+      "disclaimer": {
+        "zhHans": "签证、保险与医疗信息仅作准备参考，请以官网、使领馆或服务商最新条款为准。",
+        "en": "Visa, insurance, and health information is for preparation only. Always verify with official sources."
+      }
+    },
+    {
+      "id": "taipei",
+      "name": { "zhHans": "台北", "en": "Taipei" },
+      "country": { "zhHans": "中国台湾", "en": "Taiwan, China" },
+      "arrivalDay": 12,
+      "updatedAt": "09:20",
+      "headline": { "zhHans": "把工作和生活放得更近", "en": "Keep work and daily life close" },
+      "summary": {
+        "zhHans": "交通、便利店和稳定网络都很顺手，今天只需要留意午后雷雨。",
+        "en": "Transit, essentials, and stable internet are easy; watch for afternoon storms."
+      },
+      "moments": [
+        {
+          "id": "weather",
+          "label": { "zhHans": "天气", "en": "Weather" },
+          "value": { "zhHans": "午后雷雨", "en": "Afternoon storms" },
+          "detail": { "zhHans": "15:00 降雨概率 70%", "en": "70% rain chance at 15:00" },
+          "symbol": "cloud.bolt.rain.fill",
+          "tone": "indigo"
+        },
+        {
+          "id": "temperature",
+          "label": { "zhHans": "气温", "en": "Temperature" },
+          "value": { "zhHans": "31°C", "en": "31°C" },
+          "detail": { "zhHans": "体感 35° · 湿度 76%", "en": "Feels 35° · 76% humidity" },
+          "symbol": "thermometer.medium",
+          "tone": "orange"
+        },
+        {
+          "id": "place",
+          "label": { "zhHans": "推荐地点", "en": "Recommended" },
+          "value": { "zhHans": "FutureWard", "en": "FutureWard" },
+          "detail": { "zhHans": "步行 7 分钟 · 安静", "en": "7 min walk · Quiet" },
+          "symbol": "laptopcomputer",
+          "tone": "teal"
+        }
+      ],
+      "survival": {
+        "score": 89,
+        "title": { "zhHans": "日常便利，适合稳定输出", "en": "Easy routines for consistent work" },
+        "metrics": [
+          { "id": "work", "label": { "zhHans": "工作", "en": "Work" }, "value": 0.91, "status": { "zhHans": "高", "en": "High" } },
+          { "id": "budget", "label": { "zhHans": "预算", "en": "Value" }, "value": 0.68, "status": { "zhHans": "中", "en": "Mid" } },
+          { "id": "social", "label": { "zhHans": "社交", "en": "Social" }, "value": 0.74, "status": { "zhHans": "稳", "en": "Good" } }
+        ]
+      },
+      "workspaces": [
+        {
+          "id": "futureward",
+          "name": "FutureWard",
+          "detail": { "zhHans": "采光好 · 有电话亭 · 交通方便", "en": "Bright · Phone booths · Easy transit" },
+          "distanceMeters": 700,
+          "symbol": "laptopcomputer"
+        },
+        {
+          "id": "notch",
+          "name": "NOTCH",
+          "detail": { "zhHans": "座位舒适 · 适合深度工作", "en": "Comfortable seating · Good for deep work" },
+          "distanceMeters": 1600,
+          "symbol": "building.2.fill"
+        }
+      ],
+      "reminders": [
+        {
+          "id": "visa",
+          "kind": "visa",
+          "title": { "zhHans": "检查停留期限", "en": "Check your stay limit" },
+          "detail": { "zhHans": "最晚离境 8 月 18 日，具体条件以官方为准", "en": "Leave by Aug 18; verify exact terms officially" },
+          "symbol": "calendar.badge.exclamationmark",
+          "tone": "orange"
+        },
+        {
+          "id": "rain",
+          "kind": "weather",
+          "title": { "zhHans": "15:00 后雷雨概率较高", "en": "Storms likely after 15:00" },
+          "detail": { "zhHans": "把跨区移动安排在午饭前", "en": "Finish cross-city trips before lunch" },
+          "symbol": "cloud.bolt.rain.fill",
+          "tone": "indigo"
+        },
+        {
+          "id": "meeting",
+          "kind": "event",
+          "title": { "zhHans": "20:00 有远程会议", "en": "Remote meeting at 20:00" },
+          "detail": { "zhHans": "与北京时间无时差", "en": "Same time zone as Beijing" },
+          "symbol": "video.fill",
+          "tone": "teal"
+        }
+      ],
+      "channels": [
+        {
+          "id": "connectivity",
+          "title": { "zhHans": "联网渠道", "en": "Connectivity" },
+          "detail": { "zhHans": "中华电信、台湾大哥大与 eSIM", "en": "Chunghwa, Taiwan Mobile, and eSIM options" },
+          "symbol": "antenna.radiowaves.left.and.right",
+          "tone": "blue"
+        },
+        {
+          "id": "cash",
+          "title": { "zhHans": "现金支付", "en": "Cash & payment" },
+          "detail": { "zhHans": "悠游卡、现金场景与银行卡范围", "en": "EasyCard, cash-only spots, and card coverage" },
+          "symbol": "creditcard.fill",
+          "tone": "green"
+        },
+        {
+          "id": "transport",
+          "title": { "zhHans": "本地交通", "en": "Getting around" },
+          "detail": { "zhHans": "捷运、公车、YouBike 与末班车", "en": "MRT, buses, YouBike, and last trains" },
+          "symbol": "bicycle",
+          "tone": "teal"
+        },
+        {
+          "id": "pharmacy",
+          "title": { "zhHans": "药店与急用", "en": "Pharmacy" },
+          "detail": { "zhHans": "连锁药局、夜间门店与紧急号码", "en": "Pharmacy chains, late hours, and emergency numbers" },
+          "symbol": "cross.case.fill",
+          "tone": "pink"
+        }
+      ],
+      "stay": {
+        "entryDate": "2026-07-05",
+        "allowedStayDays": 45,
+        "sourceUpdatedAt": "2026-07-15"
+      },
+      "disclaimer": {
+        "zhHans": "签证、保险与医疗信息仅作准备参考，请以官网、使领馆或服务商最新条款为准。",
+        "en": "Visa, insurance, and health information is for preparation only. Always verify with official sources."
+      }
+    }
+  ]
+}

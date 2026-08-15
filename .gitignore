@@ -1,0 +1,19 @@
+.DS_Store
+.build/
+xcuserdata/
+*.xcuserstate
+
+# Local dependencies and generated development artifacts
+node_modules/
+.codex-artifacts/
+.codex-backups/
+.codex-derived/
+.playwright-cli/
+output/
+
+# Local reference and working files, not required to build the app
+截图参考/
+export/
+todo.html
+CLAUDE.md
+.impeccable.md

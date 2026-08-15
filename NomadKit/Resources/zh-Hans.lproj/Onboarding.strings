@@ -1,0 +1,57 @@
+"continue" = "继续";
+"skip" = "跳过";
+
+"journey.title" = "怎么描述你现在的阶段\n比较合适";
+"journey.accessibility" = "旅程状态选择器";
+"journey.traveling" = "正在旅居";
+"journey.preparing" = "准备出发，正在做计划";
+"journey.notTraveling" = "暂时没有计划，观望中";
+
+"destination.title" = "下一站想去哪个国家？";
+"destination.subtitle" = "我们会先把和下一站有关的工具准备好。";
+
+"location.title" = "获取并确认当前位置";
+"location.subtitle" = "用当前位置为你准备天气、本地渠道和附近的工作地点。";
+"location.request" = "获取当前位置";
+"location.confirm" = "确认位置";
+"location.system" = "使用系统当前位置";
+"location.detected" = "清迈，泰国";
+"location.usage" = "用于推荐与你当前城市相关的实用信息";
+"location.confirmHint" = "位置已获取，请确认是否准确";
+"location.change" = "换一个城市";
+"location.searchPlaceholder" = "搜索城市";
+"location.countryResult" = "国家或地区";
+"cancel" = "取消";
+"back" = "返回上一步";
+
+"stay.title" = "这次旅居的日期范围";
+"stay.subtitle" = "这是提醒用的个人记录，不会根据护照替你判断签证。";
+"stay.reminder" = "设置旅居日期";
+"stay.later" = "之后可以在设置里添加提醒。";
+"stay.arrival" = "到达日期";
+"stay.departure" = "离开日期";
+
+"departure.title" = "预计什么时候出发？";
+"departure.subtitle" = "先记一个大概日期，之后随时可以调整。";
+
+"tools.title" = "现在什么对你最有用？";
+"tool.visa" = "签证 / 停留";
+"tool.exchange" = "汇率";
+"tool.coworking" = "共享办公地";
+"tool.connectivity" = "eSIM / Wi-Fi";
+"tool.checklist" = "出发清单";
+"tool.insurance" = "保险";
+"tool.weather" = "天气";
+
+"visited.title" = "你去过哪些地方游民？";
+"visited.popular" = "数字游民热门";
+"visited.all" = "所有国家和地区";
+"countries.search" = "搜索国家";
+"countries.popular" = "热门旅居国家";
+
+"ready.button" = "进入我的旅居首页";
+"ready.traveling" = "你的当地生活工具已准备好";
+"ready.preparing" = "出发需要的东西已经装好";
+"ready.notTraveling" = "你的旅居工具箱已经准备好";
+"ready.destination" = "从 %@ 开始，慢慢把旅居过得更明白。";
+"ready.subtitle" = "清单、足迹和城市信息，都会在你需要时出现。";

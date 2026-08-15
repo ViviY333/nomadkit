@@ -1,0 +1,52 @@
+{
+  "badges": [
+    {
+      "id": "first-stop",
+      "title": { "zhHans": "第一站", "en": "First stop" },
+      "detail": { "zhHans": "完成第一次城市打卡", "en": "Complete your first city check-in" },
+      "symbol": "flag.fill",
+      "tone": "blue",
+      "rule": { "metric": "cityCount", "threshold": 1 }
+    },
+    {
+      "id": "slow-thirty",
+      "title": { "zhHans": "慢旅 30 天", "en": "Slow travel 30" },
+      "detail": { "zhHans": "累计记录 30 天旅居", "en": "Record 30 days of travel" },
+      "symbol": "calendar.badge.checkmark",
+      "tone": "green",
+      "rule": { "metric": "totalDays", "threshold": 30 }
+    },
+    {
+      "id": "asia-three",
+      "title": { "zhHans": "三城生活家", "en": "Three-city local" },
+      "detail": { "zhHans": "完成 3 座城市打卡", "en": "Check in to three cities" },
+      "symbol": "map.fill",
+      "tone": "orange",
+      "rule": { "metric": "cityCount", "threshold": 3 }
+    },
+    {
+      "id": "three-countries",
+      "title": { "zhHans": "跨境漫游", "en": "Across borders" },
+      "detail": { "zhHans": "记录 3 个国家或地区", "en": "Record three countries or regions" },
+      "symbol": "globe.asia.australia.fill",
+      "tone": "indigo",
+      "rule": { "metric": "countryCount", "threshold": 3 }
+    },
+    {
+      "id": "prepared-six",
+      "title": { "zhHans": "底线已备齐", "en": "Ready to land" },
+      "detail": { "zhHans": "完成 6 项安全感准备", "en": "Complete six readiness items" },
+      "symbol": "checkmark.shield.fill",
+      "tone": "teal",
+      "rule": { "metric": "checklistCount", "threshold": 6 }
+    },
+    {
+      "id": "hundred-days",
+      "title": { "zhHans": "在路上 100 天", "en": "100 days out" },
+      "detail": { "zhHans": "累计记录 100 天旅居", "en": "Record 100 days of travel" },
+      "symbol": "sparkles",
+      "tone": "pink",
+      "rule": { "metric": "totalDays", "threshold": 100 }
+    }
+  ]
+}

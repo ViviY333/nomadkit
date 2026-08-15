@@ -18,8 +18,8 @@
 "location.detected" = "清迈，泰国";
 "location.usage" = "用于推荐与你当前城市相关的实用信息";
 "location.confirmHint" = "位置已获取，请确认是否准确";
-"location.change" = "换一个城市";
-"location.searchPlaceholder" = "搜索城市";
+"location.change" = "换一个国家";
+"location.searchPlaceholder" = "搜索国家";
 "location.countryResult" = "国家或地区";
 "cancel" = "取消";
 "back" = "返回上一步";

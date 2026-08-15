@@ -97,7 +97,7 @@ struct ChecklistView: View {
             .onAppear { toolOrder = ChecklistTool.order(from: storedToolOrder) }
         }
     }
-    private var visaEntry: some View { ZStack(alignment: .bottomLeading) { Image("VisaLibraryCover").resizable().scaledToFill().frame(height: 177).clipped(); LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .top); VStack(alignment: .leading, spacing: 8) { Text("Nomad visa").font(.caption); Text("checklist.visaCount").font(.vastago(18, weight: .semibold)) }.foregroundStyle(.white).padding(16) }.clipShape(RoundedRectangle(cornerRadius: 30)) }
+    private var visaEntry: some View { ZStack(alignment: .bottomLeading) { Image("VisaLibraryCover").resizable().scaledToFill().frame(height: 157).clipped(); LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .top); VStack(alignment: .leading, spacing: 8) { Text("Nomad visa").font(.caption); Text("checklist.visaCount").font(.vastago(18, weight: .semibold)) }.foregroundStyle(.white).padding(16) }.frame(height: 157).clipShape(RoundedRectangle(cornerRadius: 30)) }
     @ViewBuilder private var toolContent: some View {
         Group {
             switch selectedTool {

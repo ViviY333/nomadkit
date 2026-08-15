@@ -175,7 +175,7 @@ struct OnboardingView: View {
         case .destination:
             CountryPickerStep(
                 title: onboardingString("destination.title"),
-                subtitle: onboardingString("destination.subtitle"),
+                subtitle: "",
                 selection: $destinations,
                 primaryTitle: onboardingString("continue"),
                 allowSkip: stage == .notTraveling,
@@ -247,7 +247,7 @@ struct OnboardingView: View {
 
     private var skipAction: (() -> Void)? {
         switch step {
-        case .journey, .visited:
+        case .journey, .currentPlace, .visited:
             { performSkip() }
         default:
             nil
@@ -258,6 +258,8 @@ struct OnboardingView: View {
         switch step {
         case .journey:
             stage = .notTraveling
+            advance()
+        case .currentPlace:
             advance()
         case .visited:
             advance()
@@ -548,38 +550,11 @@ private struct CurrentPlaceStep: View {
         let countryCode: String
     }
 
-    private let cityOptions: [(zh: String, en: String, countryZH: String, countryEN: String, flag: String, code: String)] = [
-        ("清迈", "Chiang Mai", "泰国", "Thailand", "🇹🇭", "TH"),
-        ("曼谷", "Bangkok", "泰国", "Thailand", "🇹🇭", "TH"),
-        ("吉隆坡", "Kuala Lumpur", "马来西亚", "Malaysia", "🇲🇾", "MY"),
-        ("巴厘岛", "Bali", "印度尼西亚", "Indonesia", "🇮🇩", "ID"),
-        ("里斯本", "Lisbon", "葡萄牙", "Portugal", "🇵🇹", "PT"),
-        ("墨西哥城", "Mexico City", "墨西哥", "Mexico", "🇲🇽", "MX")
-    ]
-
     private var searchResults: [PlaceSearchResult] {
-        let isChinese = Locale.autoupdatingCurrent.language.languageCode?.identifier == "zh"
-        let cities = cityOptions.filter {
-            searchText.isEmpty
-                || $0.zh.localizedCaseInsensitiveContains(searchText)
-                || $0.en.localizedCaseInsensitiveContains(searchText)
-                || $0.countryZH.localizedCaseInsensitiveContains(searchText)
-                || $0.countryEN.localizedCaseInsensitiveContains(searchText)
-        }.map { city in
-            PlaceSearchResult(
-                id: "city-\(city.en)",
-                title: isChinese ? city.zh : city.en,
-                subtitle: isChinese ? city.countryZH : city.countryEN,
-                flag: city.flag,
-                countryCode: city.code
-            )
-        }
-
-        guard !searchText.isEmpty else { return cities }
-
-        let countries = OnboardingView.Country.allCases.filter { country in
+        OnboardingView.Country.allCases.filter { country in
             let chineseName = Locale(identifier: "zh_Hans").localizedString(forRegionCode: country.rawValue) ?? ""
-            return country.title.localizedCaseInsensitiveContains(searchText)
+            return searchText.isEmpty
+                || country.title.localizedCaseInsensitiveContains(searchText)
                 || country.englishName.localizedCaseInsensitiveContains(searchText)
                 || chineseName.localizedCaseInsensitiveContains(searchText)
                 || country.rawValue.localizedCaseInsensitiveContains(searchText)
@@ -592,8 +567,6 @@ private struct CurrentPlaceStep: View {
                 countryCode: country.rawValue
             )
         }
-
-        return cities + countries
     }
 
     var body: some View {
@@ -605,8 +578,7 @@ private struct CurrentPlaceStep: View {
             }
         ) {
             VStack(alignment: .leading, spacing: 0) {
-                OnboardingTitle(title: onboardingString("location.title"), subtitle: onboardingString("location.subtitle"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                OnboardingTitle(title: onboardingString("location.title"), subtitle: "")
                 VStack(spacing: 14) {
                     HStack(spacing: 14) {
                         Image(systemName: "location.fill").foregroundStyle(Color.nomadSky).frame(width: 42, height: 42).background(Color.nomadSky.opacity(0.12), in: Circle())
@@ -668,7 +640,7 @@ private struct CurrentPlaceStep: View {
                                 LazyVStack(spacing: 0) {
                                     ForEach(searchResults) { place in
                                         Button {
-                                            Task { await select(place) }
+                                            select(place)
                                         } label: {
                                             HStack(spacing: 12) {
                                                 Text(place.flag).font(.system(size: 20))
@@ -722,20 +694,13 @@ private struct CurrentPlaceStep: View {
         }
     }
 
-    private func select(_ result: PlaceSearchResult) async {
-        let isCountryOnly = result.id.hasPrefix("country-")
-        if isCountryOnly {
-            userData.currentCountryCode = result.countryCode
-            userData.currentCityName = result.title
-            selectedCityName = result.title
-        } else if let resolved = try? await locationService.resolve(city: result.title, countryName: result.subtitle) {
-            userData.updateCurrentPlace(ResolvedPlace(city: resolved.city, district: resolved.district, countryCode: result.countryCode, latitude: resolved.latitude, longitude: resolved.longitude))
-            selectedCityName = result.title
-        } else {
-            userData.currentCityName = result.title
-            userData.currentCountryCode = result.countryCode
-            selectedCityName = result.title
-        }
+    private func select(_ result: PlaceSearchResult) {
+        userData.currentCountryCode = result.countryCode
+        userData.currentCityName = result.title
+        userData.currentDistrictName = ""
+        userData.currentLatitude = nil
+        userData.currentLongitude = nil
+        selectedCityName = result.title
         hasRequestedLocation = true
         isSearching = false
         searchFocused = false
@@ -1260,8 +1225,6 @@ private struct KitReadyStep: View {
                     .font(.onboarding(28, weight: .semibold, relativeTo: .title))
                     .multilineTextAlignment(.center)
                     .padding(.top, 46)
-                Text(readySubtitle)
-                    .font(.body).foregroundStyle(.secondary).multilineTextAlignment(.center).padding(.top, 12)
                 Spacer()
             }
             .onAppear { withAnimation(.smooth(duration: 0.55).delay(0.12)) { packed = true } }
@@ -1276,12 +1239,6 @@ private struct KitReadyStep: View {
         }
     }
 
-    private var readySubtitle: String {
-        if let destination {
-            return String(format: onboardingString("ready.destination"), destination.title)
-        }
-        return onboardingString("ready.subtitle")
-    }
 }
 
 private struct OnboardingFloatingStep<Content: View>: View {
@@ -1312,19 +1269,14 @@ private struct OnboardingTitle: View {
     let subtitle: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 11) {
+        VStack(alignment: .center, spacing: 0) {
             Text(title)
                 .font(.onboarding(28, weight: .semibold, relativeTo: .title))
                 .foregroundStyle(Color.nomadInk)
+                .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
-            if !subtitle.isEmpty {
-                Text(subtitle)
-                    .font(.onboarding(15, relativeTo: .subheadline))
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .center)
         .padding(.top, OnboardingLayout.titleTop)
     }
 }

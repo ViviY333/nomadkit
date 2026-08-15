@@ -20,7 +20,7 @@ private enum LocationRequestError: LocalizedError {
         switch self {
         case .servicesDisabled: "Location Services are turned off. Enable them in Settings and try again."
         case .permissionDenied: "Location permission is denied. Enable Location Services for NomadKit in Settings."
-        case .unavailable: "Your current location is temporarily unavailable. Try again or enter a city manually."
+        case .unavailable: "Your current location is temporarily unavailable. Try again or choose a country manually."
         }
     }
 }

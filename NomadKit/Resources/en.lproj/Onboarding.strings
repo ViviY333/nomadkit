@@ -18,8 +18,8 @@
 "location.detected" = "Chiang Mai, Thailand";
 "location.usage" = "Used to recommend practical information for your current city";
 "location.confirmHint" = "Location found. Please confirm it is correct";
-"location.change" = "Choose another city";
-"location.searchPlaceholder" = "Search cities";
+"location.change" = "Choose another country";
+"location.searchPlaceholder" = "Search countries";
 "location.countryResult" = "Country or region";
 "cancel" = "Cancel";
 "back" = "Back";

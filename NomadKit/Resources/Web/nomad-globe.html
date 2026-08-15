@@ -181,12 +181,7 @@
     let pointerDown = null;
     let pointerPhi = 0;
 
-    const cityMarkers = [
-      { location: [18.79, 98.99], size: 0, color: [0.42, 0.74, 0.94], id: "chiang-mai" },
-      { location: [13.76, 100.50], size: 0, color: [0.42, 0.74, 0.94], id: "bangkok" },
-      { location: [25.03, 121.57], size: 0, color: [0.42, 0.74, 0.94], id: "taipei" }
-    ];
-    let visitedMarkers = cityMarkers;
+    let visitedMarkers = [];
     const globe = createGlobe(canvas, {
       devicePixelRatio: Math.min(window.devicePixelRatio, 2),
       width: 700,
@@ -212,10 +207,7 @@
       arcHeight: 0.12
     });
 
-    const routeArcs = [
-      { from: [18.79, 98.99], to: [13.76, 100.50] },
-      { from: [13.76, 100.50], to: [25.03, 121.57] }
-    ];
+    let routeArcs = [];
     let labelsVisible = false;
     let globeScale = 1.164;
     function render() {
@@ -229,17 +221,23 @@
       labelsVisible = visible;
       document.body.classList.toggle("tags-hidden", !visible);
     };
-    window.setVisitedCountries = (codes) => {
-      const existingCodes = new Set(["TH", "TW"]);
-      const countryMarkers = codes
-        .filter(code => !existingCodes.has(code) && countryCenters[code])
-        .map(code => ({
-          location: countryCenters[code],
-          size: 0.034,
-          color: [0.42, 0.74, 0.94],
-          id: `country-${code.toLowerCase()}`
-        }));
-      visitedMarkers = [...cityMarkers, ...countryMarkers];
+    window.setVisits = (visits) => {
+      const uniquePlaces = new Map();
+      visits.forEach((visit) => {
+        const location = Number.isFinite(visit.latitude) && Number.isFinite(visit.longitude)
+          ? [visit.latitude, visit.longitude]
+          : countryCenters[visit.countryID];
+        if (!location) return;
+        const key = `${visit.countryID}-${visit.cityID}`;
+        uniquePlaces.set(key, { location, id: key });
+      });
+      const places = [...uniquePlaces.values()];
+      visitedMarkers = places.map((place) => ({
+        ...place,
+        size: 0.038,
+        color: [0.42, 0.74, 0.94]
+      }));
+      routeArcs = places.slice(1).map((place, index) => ({ from: places[index].location, to: place.location }));
     };
 
     const pointers = new Map();

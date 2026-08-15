@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>NomadKit uses your location to show your current city and nearby essentials.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NomadKit reads location data from photos you choose to add places you have visited.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

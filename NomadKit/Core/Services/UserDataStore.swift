@@ -288,7 +288,8 @@ final class UserDataStore {
         passportNationalities = defaults.stringArray(forKey: Keys.passportNationalities) ?? [storedPassportNationality]
         plannedCountryCodes = defaults.stringArray(forKey: Keys.plannedCountryCodes) ?? []
         preferredComponentIDs = defaults.stringArray(forKey: Keys.preferredComponentIDs) ?? []
-        visitedCountryCodes = defaults.stringArray(forKey: Keys.visitedCountryCodes) ?? []
+        let storedVisitedCountryCodes = defaults.stringArray(forKey: Keys.visitedCountryCodes) ?? []
+        visitedCountryCodes = storedVisitedCountryCodes
         journeyStageID = defaults.string(forKey: Keys.journeyStageID) ?? ""
         allowedStayUntil = defaults.object(forKey: Keys.allowedStayUntil) as? Date
         currentStayStartedAt = defaults.object(forKey: Keys.currentStayStartedAt) as? Date
@@ -351,7 +352,12 @@ final class UserDataStore {
         appleUserIdentifier = defaults.string(forKey: Keys.appleUserIdentifier)
         appleAccountEmail = defaults.string(forKey: Keys.appleAccountEmail)
         completedSafetyItemIDs = Self.loadCompletedItems(from: defaults)
-        visits = Self.loadVisits(from: defaults)
+        let storedVisits = Self.loadVisits(from: defaults)
+        if storedVisits.isEmpty, !storedVisitedCountryCodes.isEmpty {
+            visits = Self.countryOnlyVisits(for: storedVisitedCountryCodes)
+        } else {
+            visits = storedVisits
+        }
         favoriteWorkspaceKeys = Self.loadFavorites(from: defaults, key: Keys.favoriteWorkspaceKeys)
         favoriteChannelKeys = Self.loadFavorites(from: defaults, key: Keys.favoriteChannelKeys)
     }
@@ -420,6 +426,22 @@ final class UserDataStore {
         visits.contains { $0.cityID == cityID }
     }
 
+    var hasRecordedPlaces: Bool { !visits.isEmpty }
+
+    var recordedCountryCodes: [String] {
+        Array(Set(visits.map(\.countryID))).sorted()
+    }
+
+    func recordVisitedCountries(_ codes: [String]) {
+        let normalized = Array(Set(codes.map(CountryCatalog.code(for:)))).sorted()
+        visitedCountryCodes = normalized
+        let existingCountryOnly = Set(visits.filter { $0.source == .migrated }.map(\.countryID))
+        visits.removeAll { $0.source == .migrated && !normalized.contains($0.countryID) }
+        for code in normalized where !existingCountryOnly.contains(code) && !visits.contains(where: { $0.countryID == code }) {
+            visits.append(Self.countryOnlyVisit(for: code))
+        }
+    }
+
     @discardableResult
     func checkIn(city: CitySnapshot, date: Date = .now) -> Bool {
         guard !isCheckedIn(cityID: city.id) else { return false }
@@ -428,11 +450,37 @@ final class UserDataStore {
                 id: UUID(),
                 cityID: city.id,
                 cityName: city.name,
-                countryID: city.country.en,
+                countryID: Self.countryCode(for: city.id),
+                countryName: city.country,
+                latitude: Self.cityCoordinate(for: city.id)?.latitude,
+                longitude: Self.cityCoordinate(for: city.id)?.longitude,
                 days: max(city.arrivalDay, 1),
-                checkedInAt: date
+                checkedInAt: date,
+                source: .cityCheckIn
             )
         )
+        return true
+    }
+
+    @discardableResult
+    func addPlace(
+        cityID: String,
+        cityName: LocalizedCopy,
+        countryCode: String,
+        countryName: LocalizedCopy,
+        latitude: Double?,
+        longitude: Double?,
+        days: Int = 1,
+        source: VisitSource,
+        date: Date = .now
+    ) -> Bool {
+        let code = CountryCatalog.code(for: countryCode)
+        guard !visits.contains(where: { $0.cityID == cityID && $0.countryID == code }) else { return false }
+        visits.append(TravelVisit(
+            cityID: cityID, cityName: cityName, countryID: code, countryName: countryName,
+            latitude: latitude, longitude: longitude, days: max(days, 1), checkedInAt: date, source: source
+        ))
+        visitedCountryCodes = recordedCountryCodes
         return true
     }
 
@@ -462,7 +510,7 @@ final class UserDataStore {
 
     var travelStats: TravelStats {
         TravelStats(
-            cityCount: Set(visits.map(\.cityID)).count,
+            cityCount: Set(visits.filter { !$0.cityID.hasPrefix("country-") }.map(\.cityID)).count,
             countryCount: Set(visits.map(\.countryID)).count,
             totalDays: visits.reduce(0) { $0 + $1.days }
         )
@@ -516,6 +564,23 @@ final class UserDataStore {
         return visits
     }
 
+    private static func countryOnlyVisits(for codes: [String]) -> [TravelVisit] {
+        codes.map(countryOnlyVisit(for:))
+    }
+
+    private static func countryOnlyVisit(for code: String) -> TravelVisit {
+        let normalized = CountryCatalog.code(for: code)
+        return TravelVisit(
+            cityID: "country-\(normalized)",
+            cityName: CountryCatalog.name(for: normalized),
+            countryID: normalized,
+            countryName: CountryCatalog.name(for: normalized),
+            days: 0,
+            checkedInAt: .now,
+            source: .migrated
+        )
+    }
+
     private static func loadFavorites(from defaults: UserDefaults, key: String) -> Set<String> {
         Set(defaults.stringArray(forKey: key) ?? [])
     }
@@ -542,6 +607,22 @@ final class UserDataStore {
         switch cityID {
         case "taipei": "TW"
         default: "TH"
+        }
+    }
+
+    private static func countryCode(for cityID: String) -> String {
+        switch cityID {
+        case "taipei": "TW"
+        default: "TH"
+        }
+    }
+
+    private static func cityCoordinate(for cityID: String) -> (latitude: Double, longitude: Double)? {
+        switch cityID {
+        case "chiang-mai": (18.7883, 98.9853)
+        case "bangkok": (13.7563, 100.5018)
+        case "taipei": (25.0330, 121.5654)
+        default: nil
         }
     }
 

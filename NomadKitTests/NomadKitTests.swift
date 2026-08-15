@@ -154,4 +154,27 @@ final class NomadKitTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
+
+    @MainActor
+    func testRecordedPlacesDriveCountryStatsAndReconcileLegacyCountries() throws {
+        let suiteName = "NomadKitPlaceTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        let store = UserDataStore(defaults: defaults)
+        store.recordVisitedCountries(["FR", "DE"])
+        XCTAssertEqual(store.travelStats.cityCount, 0)
+        XCTAssertEqual(store.travelStats.countryCount, 2)
+        XCTAssertEqual(store.recordedCountryCodes, ["DE", "FR"])
+
+        store.recordVisitedCountries(["FR"])
+        XCTAssertEqual(store.travelStats.countryCount, 1)
+        XCTAssertEqual(store.recordedCountryCodes, ["FR"])
+
+        let city = try XCTUnwrap(MockDataService().loadCities().first)
+        XCTAssertTrue(store.checkIn(city: city))
+        XCTAssertEqual(store.travelStats.cityCount, 1)
+        XCTAssertEqual(store.travelStats.countryCount, 2)
+        XCTAssertEqual(store.visits.first(where: { $0.cityID == city.id })?.countryID, "TH")
+    }
 }

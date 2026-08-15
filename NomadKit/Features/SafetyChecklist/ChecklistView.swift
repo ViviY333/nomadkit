@@ -41,6 +41,7 @@ private struct ToolDropDelegate: DropDelegate {
 
 struct ChecklistView: View {
     @Environment(UserDataStore.self) private var userData
+    @Environment(\.locale) private var locale
     @State private var selectedTool = ChecklistTool.packingList
     @State private var toolOrder = ChecklistTool.defaults
     @State private var draggedTool: String?
@@ -74,7 +75,7 @@ struct ChecklistView: View {
                                         .fill(selectedTool == tool ? tint(tool) : Color.nomadLavender.opacity(0.22))
                                         .frame(width: 58, height: 54)
                                         .overlay(Image(systemName: icon(tool)).symbolVariant(selectedTool == tool ? .fill : .none).foregroundStyle(Color.nomadInk))
-                                    Text(tool).font(.caption2)
+                                    Text(toolDisplayName(tool)).font(.caption2)
                                 }
                             }
                             .buttonStyle(.plain)
@@ -124,6 +125,10 @@ struct ChecklistView: View {
         case "Residency": Color(red: 0.91, green: 0.94, blue: 0.98)
         default: Color(red: 0.91, green: 0.94, blue: 0.98)
         }
+    }
+
+    private func toolDisplayName(_ tool: String) -> String {
+        tool == ChecklistTool.packingList ? packingString("packing.tool.name", locale: locale) : tool
     }
 
     private func dragPreview(for tool: String) -> some View {
@@ -418,11 +423,37 @@ private struct FXResponse: Decodable { let rates: [String: Double] }
 private struct PackingItem: Identifiable {
     let id: String
     let title: String
+    let isLocalized: Bool
+
+    init(id: String, titleKey: String) {
+        self.id = id
+        title = titleKey
+        isLocalized = true
+    }
+
+    init(id: String, customTitle: String) {
+        self.id = id
+        title = customTitle
+        isLocalized = false
+    }
+
+    func displayTitle(locale: Locale) -> String {
+        isLocalized ? packingString(title, locale: locale) : title
+    }
+}
+
+private func packingString(_ key: String, locale: Locale) -> String {
+    let language = locale.language.languageCode?.identifier == "zh" ? "zh-Hans" : "en"
+    guard let path = Bundle.main.path(forResource: language, ofType: "lproj"),
+          let bundle = Bundle(path: path) else {
+        return Bundle.main.localizedString(forKey: key, value: nil, table: nil)
+    }
+    return bundle.localizedString(forKey: key, value: nil, table: nil)
 }
 
 private struct PackingCategory: Identifiable {
     let id: String
-    let title: String
+    let titleKey: String
     let imageName: String
     let tint: Color
     let items: [PackingItem]
@@ -432,33 +463,30 @@ private struct PackingChecklistToolView: View {
     @State private var checkedItems: Set<String> = []
     @State private var selectedCategory: PackingCategory?
 
-    private let categories = [
-        PackingCategory(id: "documents", title: "证件资料", imageName: "PackingDocumentsPhoto", tint: Color(red: 0.88, green: 0.76, blue: 0.46), items: [
-            PackingItem(id: "passport", title: "护照"), PackingItem(id: "visa", title: "签证资料"), PackingItem(id: "tickets", title: "机票与行程单"), PackingItem(id: "insurance", title: "旅行保险")
+    @State private var categories = [
+        PackingCategory(id: "documents", titleKey: "packing.category.documents", imageName: "PackingDocumentsObject", tint: Color(red: 0.88, green: 0.76, blue: 0.46), items: [
+            PackingItem(id: "passport", titleKey: "packing.item.passport"), PackingItem(id: "visa", titleKey: "packing.item.visa"), PackingItem(id: "tickets", titleKey: "packing.item.tickets"), PackingItem(id: "insurance", titleKey: "packing.item.insurance")
         ]),
-        PackingCategory(id: "luggage", title: "行李装备", imageName: "PackingLuggagePhoto", tint: Color(red: 0.43, green: 0.62, blue: 0.78), items: [
-            PackingItem(id: "suitcase", title: "行李箱"), PackingItem(id: "backpack", title: "随身背包"), PackingItem(id: "packing-cubes", title: "收纳袋"), PackingItem(id: "umbrella", title: "折叠伞"), PackingItem(id: "bottle", title: "水杯")
+        PackingCategory(id: "luggage", titleKey: "packing.category.luggage", imageName: "PackingLuggageObject", tint: Color(red: 0.43, green: 0.62, blue: 0.78), items: [
+            PackingItem(id: "suitcase", titleKey: "packing.item.suitcase"), PackingItem(id: "backpack", titleKey: "packing.item.backpack"), PackingItem(id: "packing-cubes", titleKey: "packing.item.packingCubes"), PackingItem(id: "umbrella", titleKey: "packing.item.umbrella"), PackingItem(id: "bottle", titleKey: "packing.item.bottle")
         ]),
-        PackingCategory(id: "clothes", title: "衣物鞋履", imageName: "PackingClothesPhoto", tint: Color(red: 0.67, green: 0.55, blue: 0.43), items: [
-            PackingItem(id: "tops", title: "上衣"), PackingItem(id: "bottoms", title: "裤装"), PackingItem(id: "underwear", title: "贴身衣物"), PackingItem(id: "jacket", title: "外套"), PackingItem(id: "shoes", title: "鞋子"), PackingItem(id: "sleepwear", title: "睡衣")
+        PackingCategory(id: "clothes", titleKey: "packing.category.clothes", imageName: "PackingClothesObject", tint: Color(red: 0.67, green: 0.55, blue: 0.43), items: [
+            PackingItem(id: "tops", titleKey: "packing.item.tops"), PackingItem(id: "bottoms", titleKey: "packing.item.bottoms"), PackingItem(id: "underwear", titleKey: "packing.item.underwear"), PackingItem(id: "jacket", titleKey: "packing.item.jacket"), PackingItem(id: "shoes", titleKey: "packing.item.shoes"), PackingItem(id: "sleepwear", titleKey: "packing.item.sleepwear")
         ]),
-        PackingCategory(id: "tech", title: "电子设备", imageName: "PackingTechPhoto", tint: Color(red: 0.44, green: 0.58, blue: 0.72), items: [
-            PackingItem(id: "laptop", title: "电脑"), PackingItem(id: "phone", title: "手机"), PackingItem(id: "headphones", title: "耳机"), PackingItem(id: "chargers", title: "充电器"), PackingItem(id: "adapter", title: "转换插头")
+        PackingCategory(id: "tech", titleKey: "packing.category.tech", imageName: "PackingTechObject", tint: Color(red: 0.44, green: 0.58, blue: 0.72), items: [
+            PackingItem(id: "laptop", titleKey: "packing.item.laptop"), PackingItem(id: "phone", titleKey: "packing.item.phone"), PackingItem(id: "headphones", titleKey: "packing.item.headphones"), PackingItem(id: "chargers", titleKey: "packing.item.chargers"), PackingItem(id: "adapter", titleKey: "packing.item.adapter")
         ]),
-        PackingCategory(id: "toiletries", title: "洗漱护理", imageName: "PackingToiletriesPhoto", tint: Color(red: 0.48, green: 0.66, blue: 0.57), items: [
-            PackingItem(id: "toiletry-bag", title: "洗漱包"), PackingItem(id: "toothbrush", title: "牙刷牙膏"), PackingItem(id: "skincare", title: "护肤品"), PackingItem(id: "towel", title: "毛巾"), PackingItem(id: "medicine", title: "常用药")
+        PackingCategory(id: "toiletries", titleKey: "packing.category.toiletries", imageName: "PackingToiletriesObject", tint: Color(red: 0.48, green: 0.66, blue: 0.57), items: [
+            PackingItem(id: "toiletry-bag", titleKey: "packing.item.toiletryBag"), PackingItem(id: "toothbrush", titleKey: "packing.item.toothbrush"), PackingItem(id: "skincare", titleKey: "packing.item.skincare"), PackingItem(id: "towel", titleKey: "packing.item.towel"), PackingItem(id: "medicine", titleKey: "packing.item.medicine")
         ]),
-        PackingCategory(id: "essentials", title: "随身小物", imageName: "PackingEssentialsPhoto", tint: Color(red: 0.78, green: 0.48, blue: 0.38), items: [
-            PackingItem(id: "wallet", title: "钱包与现金"), PackingItem(id: "keys", title: "钥匙"), PackingItem(id: "sim", title: "eSIM / SIM 卡"), PackingItem(id: "sunglasses", title: "太阳镜"), PackingItem(id: "notebook", title: "纸笔")
+        PackingCategory(id: "essentials", titleKey: "packing.category.essentials", imageName: "PackingEssentialsObject", tint: Color(red: 0.78, green: 0.48, blue: 0.38), items: [
+            PackingItem(id: "wallet", titleKey: "packing.item.wallet"), PackingItem(id: "keys", titleKey: "packing.item.keys"), PackingItem(id: "sim", titleKey: "packing.item.sim"), PackingItem(id: "sunglasses", titleKey: "packing.item.sunglasses"), PackingItem(id: "notebook", titleKey: "packing.item.notebook")
         ])
     ]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("旅行清单").font(.vastago(23, weight: .semibold)).foregroundStyle(Color.nomadInk)
-                Text("按分类整理，出发前更安心").font(.caption.weight(.medium)).foregroundStyle(Color.nomadInk.opacity(0.52))
-            }
+            Text("packing.title").font(.vastago(23, weight: .semibold)).foregroundStyle(Color.nomadInk)
 
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2), spacing: 12) {
                 ForEach(categories) { category in
@@ -472,18 +500,30 @@ private struct PackingChecklistToolView: View {
         .background(Color(red: 0.94, green: 0.93, blue: 0.98), in: RoundedRectangle(cornerRadius: 24))
         .shadow(color: .black.opacity(0.04), radius: 12, y: 6)
         .sheet(item: $selectedCategory) { category in
-            PackingCategorySheet(category: category, checkedItems: $checkedItems)
+            PackingCategorySheet(category: category, items: itemsBinding(for: category), checkedItems: $checkedItems)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+                .presentationBackground(Color.white.opacity(0.98))
         }
     }
 
     private func checkedCount(in category: PackingCategory) -> Int {
         category.items.lazy.filter { checkedItems.contains($0.id) }.count
     }
+
+    private func itemsBinding(for category: PackingCategory) -> Binding<[PackingItem]> {
+        Binding {
+            categories.first { $0.id == category.id }?.items ?? category.items
+        } set: { items in
+            guard let index = categories.firstIndex(where: { $0.id == category.id }) else { return }
+            let current = categories[index]
+            categories[index] = PackingCategory(id: current.id, titleKey: current.titleKey, imageName: current.imageName, tint: current.tint, items: items)
+        }
+    }
 }
 
 private struct PackingCategoryCard: View {
+    @Environment(\.locale) private var locale
     let category: PackingCategory
     let checkedCount: Int
     let action: () -> Void
@@ -492,13 +532,13 @@ private struct PackingCategoryCard: View {
         Button(action: action) {
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(category.title)
+                    Text(packingString(category.titleKey, locale: locale))
                         .font(.vastago(17, weight: .semibold))
                         .foregroundStyle(Color.nomadInk)
                         .lineLimit(2)
 
                     if checkedCount > 0 {
-                        Text("\(checkedCount)/\(category.items.count) 已收好")
+                        Text(String.localizedStringWithFormat(packingString("packing.progress.compact", locale: locale), checkedCount, category.items.count))
                             .font(.caption2.weight(.bold))
                             .foregroundStyle(Color.nomadInk.opacity(0.65))
                             .padding(.horizontal, 7)
@@ -509,22 +549,16 @@ private struct PackingCategoryCard: View {
 
                     Spacer()
 
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("\(category.items.count)")
-                            .font(.system(size: 35, weight: .bold, design: .rounded))
-                        Text("件")
-                            .font(.caption.weight(.bold))
-                    }
+                    Text("\(category.items.count)")
+                        .font(.system(size: 35, weight: .bold, design: .rounded))
                     .foregroundStyle(Color.nomadInk)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 
                 Image(category.imageName)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: 76, height: 72)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(.white.opacity(0.75), lineWidth: 1))
+                    .scaledToFit()
+                    .frame(width: 88, height: 84)
             }
             .padding(14)
             .frame(maxWidth: .infinity, minHeight: 168, alignment: .leading)
@@ -532,21 +566,25 @@ private struct PackingCategoryCard: View {
             .shadow(color: Color.nomadInk.opacity(0.06), radius: 8, y: 4)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("\(category.title)，共 \(category.items.count) 件，已收好 \(checkedCount) 件")
-        .accessibilityHint("双击查看具体物品")
+        .accessibilityLabel(String.localizedStringWithFormat(packingString("packing.category.accessibility", locale: locale), packingString(category.titleKey, locale: locale), category.items.count, checkedCount))
+        .accessibilityHint(packingString("packing.category.hint", locale: locale))
     }
 }
 
 private struct PackingCategorySheet: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.locale) private var locale
     let category: PackingCategory
+    @Binding var items: [PackingItem]
     @Binding var checkedItems: Set<String>
+    @State private var showingAddItem = false
+    @State private var newItemTitle = ""
 
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    ForEach(category.items) { item in
+                    ForEach(items) { item in
                         Button {
                             withAnimation(.snappy(duration: 0.2)) {
                                 checkedItems.formSymmetricDifference([item.id])
@@ -556,7 +594,7 @@ private struct PackingCategorySheet: View {
                                 Image(systemName: checkedItems.contains(item.id) ? "checkmark.circle.fill" : "circle")
                                     .font(.title3)
                                     .foregroundStyle(checkedItems.contains(item.id) ? category.tint : Color.secondary.opacity(0.45))
-                                Text(item.title)
+                                Text(item.displayTitle(locale: locale))
                                     .font(.body.weight(.medium))
                                     .foregroundStyle(Color.nomadInk)
                                 Spacer()
@@ -564,19 +602,20 @@ private struct PackingCategorySheet: View {
                             .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
+                        .listRowBackground(Color.white)
                     }
+                    .onDelete(perform: deleteItems)
                 } header: {
                     HStack(spacing: 14) {
                         Image(category.imageName)
                             .resizable()
-                            .scaledToFill()
-                            .frame(width: 66, height: 66)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .scaledToFit()
+                            .frame(width: 72, height: 72)
                         VStack(alignment: .leading, spacing: 5) {
-                            Text("已收好 \(completedCount) / \(category.items.count) 件")
+                            Text(String.localizedStringWithFormat(packingString("packing.progress.detail", locale: locale), completedCount, items.count))
                                 .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(Color.nomadInk)
-                            ProgressView(value: Double(completedCount), total: Double(category.items.count))
+                            ProgressView(value: Double(completedCount), total: Double(max(items.count, 1)))
                                 .tint(category.tint)
                         }
                     }
@@ -584,18 +623,50 @@ private struct PackingCategorySheet: View {
                     .padding(.vertical, 8)
                 }
             }
-            .navigationTitle(category.title)
+            .scrollContentBackground(.hidden)
+            .background(Color.white)
+            .navigationTitle(packingString(category.titleKey, locale: locale))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("完成") { dismiss() }
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
                 }
+                ToolbarItem(placement: .primaryAction) {
+                    Button { showingAddItem = true } label: {
+                        Image(systemName: "plus")
+                    }
+                    .accessibilityLabel(packingString("packing.add.accessibility", locale: locale))
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(packingString("common.done", locale: locale)) { dismiss() }
+                }
+            }
+            .toolbarBackground(Color.white, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .alert(packingString("packing.add.title", locale: locale), isPresented: $showingAddItem) {
+                TextField(packingString("packing.add.placeholder", locale: locale), text: $newItemTitle)
+                Button(packingString("common.cancel", locale: locale), role: .cancel) { newItemTitle = "" }
+                Button(packingString("common.add", locale: locale)) { addItem() }
+                    .disabled(newItemTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
         }
     }
 
     private var completedCount: Int {
-        category.items.lazy.filter { checkedItems.contains($0.id) }.count
+        items.lazy.filter { checkedItems.contains($0.id) }.count
+    }
+
+    private func addItem() {
+        let title = newItemTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !title.isEmpty else { return }
+        items.append(PackingItem(id: "custom-\(UUID().uuidString)", customTitle: title))
+        newItemTitle = ""
+    }
+
+    private func deleteItems(at offsets: IndexSet) {
+        let deletedIDs = offsets.map { items[$0].id }
+        checkedItems.subtract(deletedIDs)
+        items.remove(atOffsets: offsets)
     }
 }
 

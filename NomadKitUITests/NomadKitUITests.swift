@@ -88,6 +88,46 @@ final class NomadKitUITests: XCTestCase {
         attachScreenshot(named: "visa-thailand-article")
     }
 
+    func testPackingChecklistSupportsAddingDeletingAndEnglishLocalization() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing-reset", "-user.preferredLanguageCode", "zh-Hans"]
+        app.launch()
+
+        app.buttons["清单"].tap()
+        XCTAssertTrue(app.staticTexts["旅行清单"].waitForExistence(timeout: 3))
+        app.buttons["旅行清单"].tap()
+
+        let documents = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "label CONTAINS %@", "证件资料"))
+            .firstMatch
+        for _ in 0..<6 where !documents.exists {
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.72))
+                .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.52)))
+        }
+        XCTAssertTrue(documents.waitForExistence(timeout: 2))
+        documents.tap()
+
+        app.buttons["添加物品"].tap()
+        let itemName = app.textFields["物品名称"]
+        XCTAssertTrue(itemName.waitForExistence(timeout: 2))
+        itemName.typeText("充电宝")
+        app.buttons["添加"].tap()
+        XCTAssertTrue(app.staticTexts["充电宝"].waitForExistence(timeout: 2))
+
+        app.buttons["充电宝"].swipeLeft()
+        XCTAssertTrue(app.buttons["删除"].waitForExistence(timeout: 2))
+        app.buttons["删除"].tap()
+        XCTAssertFalse(app.staticTexts["充电宝"].exists)
+
+        app.terminate()
+        app.launchArguments = ["-ui-testing-reset", "-user.preferredLanguageCode", "en"]
+        app.launch()
+        app.buttons["Checklist"].tap()
+        XCTAssertTrue(app.staticTexts["Travel Checklist"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["Documents"].exists)
+        XCTAssertFalse(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "件")).firstMatch.exists)
+    }
+
     private func attachScreenshot(named name: String) {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name

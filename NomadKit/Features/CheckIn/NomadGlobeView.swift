@@ -3,15 +3,15 @@ import WebKit
 
 struct NomadGlobeView: UIViewRepresentable {
     let showLabels: Bool
-    let visitedCountryCodes: [String]
+    let visits: [TravelVisit]
 
-    init(showLabels: Bool = false, visitedCountryCodes: [String] = []) {
+    init(showLabels: Bool = false, visits: [TravelVisit] = []) {
         self.showLabels = showLabels
-        self.visitedCountryCodes = visitedCountryCodes
+        self.visits = visits
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(showLabels: showLabels, visitedCountryCodes: visitedCountryCodes)
+        Coordinator(showLabels: showLabels, visits: visits)
     }
 
     func makeUIView(context: Context) -> WKWebView {
@@ -35,30 +35,30 @@ struct NomadGlobeView: UIViewRepresentable {
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         context.coordinator.showLabels = showLabels
-        context.coordinator.visitedCountryCodes = visitedCountryCodes
+        context.coordinator.visits = visits
         let value = showLabels ? "true" : "false"
         webView.evaluateJavaScript("window.setPlaceTagsVisible && window.setPlaceTagsVisible(\(value));")
-        if let data = try? JSONEncoder().encode(visitedCountryCodes),
+        if let data = try? JSONEncoder().encode(visits),
            let json = String(data: data, encoding: .utf8) {
-            webView.evaluateJavaScript("window.setVisitedCountries && window.setVisitedCountries(\(json));")
+            webView.evaluateJavaScript("window.setVisits && window.setVisits(\(json));")
         }
     }
 
     final class Coordinator: NSObject, WKNavigationDelegate {
         var showLabels: Bool
-        var visitedCountryCodes: [String]
+        var visits: [TravelVisit]
 
-        init(showLabels: Bool, visitedCountryCodes: [String]) {
+        init(showLabels: Bool, visits: [TravelVisit]) {
             self.showLabels = showLabels
-            self.visitedCountryCodes = visitedCountryCodes
+            self.visits = visits
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             let value = showLabels ? "true" : "false"
             webView.evaluateJavaScript("window.setPlaceTagsVisible && window.setPlaceTagsVisible(\(value));")
-            if let data = try? JSONEncoder().encode(visitedCountryCodes),
+            if let data = try? JSONEncoder().encode(visits),
                let json = String(data: data, encoding: .utf8) {
-                webView.evaluateJavaScript("window.setVisitedCountries && window.setVisitedCountries(\(json));")
+                webView.evaluateJavaScript("window.setVisits && window.setVisits(\(json));")
             }
         }
     }

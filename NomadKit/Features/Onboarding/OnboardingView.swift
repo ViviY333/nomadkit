@@ -271,7 +271,7 @@ struct OnboardingView: View {
         userData.journeyStageID = stage.rawValue
         userData.plannedCountryCodes = destinations.map(\.rawValue).sorted()
         if !visitedCountries.isEmpty {
-            userData.visitedCountryCodes = visitedCountries.map(\.rawValue).sorted()
+            userData.recordVisitedCountries(visitedCountries.map(\.rawValue))
         }
         userData.preferredComponentIDs = components.map(\.rawValue).sorted()
         userData.allowedStayUntil = useStayDate ? stayUntil : nil

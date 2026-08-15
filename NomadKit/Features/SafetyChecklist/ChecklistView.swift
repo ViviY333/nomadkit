@@ -81,6 +81,8 @@ struct ChecklistView: View {
                             .onDrag {
                                 draggedTool = tool
                                 return NSItemProvider(object: tool as NSString)
+                            } preview: {
+                                dragPreview(for: tool)
                             }
                             .onDrop(of: [UTType.text], delegate: ToolDropDelegate(item: tool, items: $toolOrder, draggedItem: $draggedTool, saveOrder: saveToolOrder))
                         }
@@ -122,6 +124,19 @@ struct ChecklistView: View {
         case "Residency": Color(red: 0.91, green: 0.94, blue: 0.98)
         default: Color(red: 0.91, green: 0.94, blue: 0.98)
         }
+    }
+
+    private func dragPreview(for tool: String) -> some View {
+        RoundedRectangle(cornerRadius: 18, style: .continuous)
+            .fill(Color(red: 0.91, green: 0.92, blue: 0.95))
+            .frame(width: 68, height: 64)
+            .overlay {
+                Image(systemName: icon(tool))
+                    .font(.system(size: 24, weight: .semibold))
+                    .symbolVariant(selectedTool == tool ? .fill : .none)
+                    .foregroundStyle(Color.nomadInk)
+            }
+            .shadow(color: Color.nomadInk.opacity(0.16), radius: 12, y: 7)
     }
     private func icon(_ tool: String) -> String { [ChecklistTool.packingList:"checklist", "Timezone":"clock.fill", "Currency":"banknote.fill", "Insurance":"cross.case.fill", "eSIM":"simcard.fill", "Transport":"tram.fill", "Security":"lock.shield.fill", "Residency":"calendar"][tool] ?? "square.grid.2x2" }
     private func saveToolOrder() { storedToolOrder = toolOrder.joined(separator: "|") }

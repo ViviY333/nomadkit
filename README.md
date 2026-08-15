@@ -1,6 +1,6 @@
 # Nomad Kit
 
-Nomad Kit is a native iPhone companion for Chinese-speaking digital nomads. It brings city essentials, travel-preparation checklists, city check-ins, badges, and a shareable passport into one offline-friendly SwiftUI app.
+Nomad Kit is a native iPhone companion for digital nomads. It brings city essentials, travel-preparation checklists, city check-ins, badges, and a shareable passport into one offline-friendly SwiftUI app.
 
 ## Current scope
 

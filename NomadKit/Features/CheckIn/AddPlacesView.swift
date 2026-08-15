@@ -59,7 +59,7 @@ struct AddPlacesView: View {
     @State private var selectedSuggestions: Set<PhotoPlaceSuggestion.ID> = []
     @State private var isScanning = false
     @State private var manualCity = ""
-    @State private var manualCountryCode = "TH"
+    @State private var manualCountryCode = ""
     @State private var isResolving = false
     @State private var errorMessage: String?
 
@@ -138,10 +138,11 @@ struct AddPlacesView: View {
 
     @ViewBuilder private var manualSection: some View {
         Section("地点信息") {
-            TextField("城市，例如 Chiang Mai", text: $manualCity)
+            TextField("城市，例如 北京 / Beijing", text: $manualCity)
                 .textInputAutocapitalization(.words)
-            TextField("国家代码，例如 TH / JP", text: $manualCountryCode)
-                .textInputAutocapitalization(.characters)
+            TextField("国家或地区（可选）", text: $manualCountryCode)
+                .textInputAutocapitalization(.words)
+                .autocorrectionDisabled()
         }
         Section {
             Button {
@@ -164,9 +165,14 @@ struct AddPlacesView: View {
     private func resolveManualPlace() async {
         isResolving = true
         errorMessage = nil
-        let code = CountryCatalog.code(for: manualCountryCode)
+        let city = manualCity.trimmingCharacters(in: .whitespacesAndNewlines)
+        let countryInput = manualCountryCode.trimmingCharacters(in: .whitespacesAndNewlines)
+        let requestedCode = CountryCatalog.code(for: countryInput)
+        let countryQuery = requestedCode.count == 2 ? CountryCatalog.name(for: requestedCode).en : countryInput
         do {
-            let place = try await LocationService().resolve(city: manualCity, countryName: CountryCatalog.name(for: code).en)
+            let place = try await LocationService().resolve(city: city, countryName: countryQuery)
+            let code = CountryCatalog.code(for: place.countryCode)
+            guard code.count == 2 else { throw CLError(.geocodeFoundNoResult) }
             let name = LocalizedCopy(zhHans: place.city, en: place.city)
             if userData.addPlace(cityID: "manual-\(code)-\(place.city.lowercased().replacingOccurrences(of: " ", with: "-"))", cityName: name, countryCode: code, countryName: CountryCatalog.name(for: code), latitude: place.latitude, longitude: place.longitude, source: .manual) {
                 dismiss()
@@ -174,7 +180,7 @@ struct AddPlacesView: View {
                 errorMessage = "这个地点已经添加过了。"
             }
         } catch {
-            errorMessage = "没有找到这个地点，请检查城市和国家代码。"
+            errorMessage = "没有找到这个地点，请检查城市名称，或补充国家和地区。"
         }
         isResolving = false
     }

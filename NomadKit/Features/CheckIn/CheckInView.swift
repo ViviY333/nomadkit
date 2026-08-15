@@ -63,10 +63,9 @@ struct CheckInView: View {
                 GeometryReader { proxy in
                     let globeSize = min(proxy.size.width, 390)
 
-                    ZStack(alignment: .bottom) {
+                    ZStack(alignment: .top) {
                         NomadGlobeView(visits: [])
                             .frame(width: globeSize, height: globeSize)
-                            .offset(y: -globeSize * 0.08)
 
                         Button { showingAddPlaces = true } label: {
                             Label("Add places you've been", systemImage: "plus.circle.fill")
@@ -78,7 +77,7 @@ struct CheckInView: View {
                         }
                         .buttonStyle(.plain)
                         .accessibilityHint("从相册扫描或手动添加去过的地点")
-                        .padding(.bottom, 18)
+                        .padding(.top, globeSize * 0.54)
                         .zIndex(1)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

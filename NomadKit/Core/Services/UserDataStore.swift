@@ -65,16 +65,26 @@ final class LocationService: NSObject {
     }
 
     func resolve(city: String, countryName: String) async throws -> ResolvedPlace {
+        let city = city.trimmingCharacters(in: .whitespacesAndNewlines)
+        let countryName = countryName.trimmingCharacters(in: .whitespacesAndNewlines)
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "\(city), \(countryName)"
+        request.naturalLanguageQuery = countryName.isEmpty ? city : "\(city), \(countryName)"
         request.resultTypes = .address
         let response = try await MKLocalSearch(request: request).start()
-        guard let item = response.mapItems.first else { throw CLError(.geocodeFoundNoResult) }
+        guard let item = response.mapItems.first,
+              let countryCode = item.placemark.countryCode,
+              !countryCode.isEmpty else {
+            throw CLError(.geocodeFoundNoResult)
+        }
         let coordinate = item.placemark.coordinate
+        let resolvedCity = item.placemark.locality
+            ?? item.placemark.subAdministrativeArea
+            ?? item.placemark.administrativeArea
+            ?? city
         return ResolvedPlace(
-            city: item.placemark.locality ?? city,
-            district: Self.district(from: item.placemark, excluding: city),
-            countryCode: item.placemark.countryCode ?? "",
+            city: resolvedCity,
+            district: Self.district(from: item.placemark, excluding: resolvedCity),
+            countryCode: countryCode,
             latitude: coordinate.latitude,
             longitude: coordinate.longitude
         )
@@ -475,6 +485,18 @@ final class UserDataStore {
         date: Date = .now
     ) -> Bool {
         let code = CountryCatalog.code(for: countryCode)
+        if source == .manual, let latitude, let longitude {
+            visits.removeAll { visit in
+                guard visit.source == .manual,
+                      visit.countryID != code,
+                      let existingLatitude = visit.latitude,
+                      let existingLongitude = visit.longitude else {
+                    return false
+                }
+                return abs(existingLatitude - latitude) < 0.01
+                    && abs(existingLongitude - longitude) < 0.01
+            }
+        }
         guard !visits.contains(where: { $0.cityID == cityID && $0.countryID == code }) else { return false }
         visits.append(TravelVisit(
             cityID: cityID, cityName: cityName, countryID: code, countryName: countryName,

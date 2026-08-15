@@ -177,4 +177,37 @@ final class NomadKitTests: XCTestCase {
         XCTAssertEqual(store.travelStats.countryCount, 2)
         XCTAssertEqual(store.visits.first(where: { $0.cityID == city.id })?.countryID, "TH")
     }
+
+    func testManualBeijingPlaceDrivesChinaMarkerStatsAndStamp() throws {
+        let suiteName = "NomadKitBeijingPlaceTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        let store = UserDataStore(defaults: defaults)
+        XCTAssertTrue(store.addPlace(
+            cityID: "manual-TH-beijing",
+            cityName: LocalizedCopy(zhHans: "北京", en: "Beijing"),
+            countryCode: "TH",
+            countryName: CountryCatalog.name(for: "TH"),
+            latitude: 39.9042,
+            longitude: 116.4074,
+            source: .manual
+        ))
+        XCTAssertTrue(store.addPlace(
+            cityID: "manual-CN-beijing",
+            cityName: LocalizedCopy(zhHans: "北京", en: "Beijing"),
+            countryCode: "CN",
+            countryName: CountryCatalog.name(for: "CN"),
+            latitude: 39.9042,
+            longitude: 116.4074,
+            source: .manual
+        ))
+
+        let visit = try XCTUnwrap(store.visits.first)
+        XCTAssertEqual(store.visits.count, 1)
+        XCTAssertEqual(visit.countryID, "CN")
+        XCTAssertEqual(visit.coordinate?.latitude, 39.9042)
+        XCTAssertEqual(store.travelStats, TravelStats(cityCount: 1, countryCount: 1, totalDays: 1))
+        XCTAssertEqual(CountryCatalog.stampAsset(for: visit.countryID), "StampCN")
+    }
 }

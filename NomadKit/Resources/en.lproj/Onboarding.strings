@@ -5,10 +5,15 @@
 "journey.accessibility" = "Travel stage selector";
 "journey.traveling" = "Currently traveling";
 "journey.preparing" = "Planning my next trip";
-"journey.notTraveling" = "No plans yet, just exploring";
+"journey.notTraveling" = "Exploring my options";
+"journey.preparing.detail" = "Prepare what you need for your next stop";
+"journey.notTraveling.detail" = "Keep your memories and explore what is next";
+"journey.traveling.detail" = "Settle into local life and work";
 
-"destination.title" = "Where are you heading next?";
+"destination.title" = "Which country do you want to visit next?";
 "destination.subtitle" = "We'll prepare the tools you need for your next destination.";
+"cities.search" = "Search city or country";
+"cities.available" = "Cities available to explore";
 
 "location.title" = "Confirm your current location";
 "location.subtitle" = "We'll use it for weather, local resources, and nearby places to work.";
@@ -21,6 +26,7 @@
 "location.change" = "Choose another country";
 "location.searchPlaceholder" = "Search countries";
 "location.countryResult" = "Country or region";
+"location.openSettings" = "Open System Settings";
 "cancel" = "Cancel";
 "back" = "Back";
 
@@ -42,6 +48,7 @@
 "tool.checklist" = "Check List";
 "tool.insurance" = "Insurance";
 "tool.weather" = "Weather";
+"tools.enterHome" = "Open My Nomad Home";
 
 "visited.title" = "Where have you lived as a nomad?";
 "visited.popular" = "Popular with digital nomads";

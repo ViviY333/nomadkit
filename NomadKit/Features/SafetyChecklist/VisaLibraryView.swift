@@ -8,7 +8,7 @@ struct VisaLibraryView: View {
         Group {
             if viewModel.articles.isEmpty, let error = viewModel.errorMessage {
                 ContentUnavailableView(
-                    String(localized: "visa.loadError.title", locale: locale),
+                    appLocalized("visa.loadError.title", locale: locale),
                     systemImage: "passport",
                     description: Text(error)
                 )
@@ -33,26 +33,19 @@ struct VisaLibraryView: View {
                 .refreshable { viewModel.load() }
             }
         }
-        .navigationTitle(String(localized: "visa.title", locale: locale))
+        .navigationTitle(locale.identifier.hasPrefix("zh") ? "数字游民签证" : "Digital Nomad Visas")
         .navigationBarTitleDisplayMode(.inline)
+        .nomadInteractiveBackGesture()
     }
 }
 
 private struct VisaLibraryHeader: View {
     @Environment(\.locale) private var locale
     var body: some View {
-        VStack(alignment: .leading, spacing: NomadSpacing.small) {
-            Label(String(localized: "visa.header.eyebrow", locale: locale), systemImage: "checkmark.seal.fill")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.tint)
-            Text(String(localized: "visa.header.title", locale: locale))
-                .font(.system(.title, design: .rounded, weight: .bold))
-            Text(String(localized: "visa.header.subtitle", locale: locale))
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .lineSpacing(3)
-        }
-        .padding(.top, NomadSpacing.small)
+        Text(appLocalized("visa.header.title", locale: locale))
+            .font(.system(.title3, design: .rounded, weight: .bold))
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.top, NomadSpacing.small)
     }
 }
 
@@ -72,12 +65,14 @@ private struct VisaArticleCard: View {
                     .font(.system(.title3, design: .rounded, weight: .bold))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: true)
-                Label(String.localizedStringWithFormat(String(localized: "visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
+                Label(String.localizedStringWithFormat(appLocalized("visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
                     .font(.caption.weight(.medium))
                     .foregroundStyle(.white.opacity(0.78))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.9)
             }
             .padding(.horizontal, 18)
-            .padding(.bottom, 12)
+            .padding(.bottom, 20)
         }
         .frame(height: 193)
         .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -113,7 +108,7 @@ private struct VisaLibraryNotice: View {
     @Environment(\.locale) private var locale
     var body: some View {
         Label(
-            String(localized: "visa.disclaimer", locale: locale),
+            appLocalized("visa.disclaimer", locale: locale),
             systemImage: "exclamationmark.shield"
         )
         .font(.caption)
@@ -125,11 +120,21 @@ private struct VisaLibraryNotice: View {
 struct VisaArticleView: View {
     let article: VisaArticle
     @Environment(\.locale) private var locale
+    @Environment(SubscriptionStore.self) private var subscriptionStore
+    @State private var showsAssessmentPaywall = false
+    @State private var showsAssessmentPlaceholder = false
 
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: NomadSpacing.xLarge) {
                 VisaArticleHero(article: article)
+                VisaAssessmentEntryCard(article: article) {
+                    if subscriptionStore.hasProAccess {
+                        showsAssessmentPlaceholder = true
+                    } else {
+                        showsAssessmentPaywall = true
+                    }
+                }
                 VisaFactStrip(facts: article.keyFacts, tone: article.tone)
                 VisaNoticeBlock(notice: article.notice)
 
@@ -151,6 +156,71 @@ struct VisaArticleView: View {
         .background(Color.nomadBackground)
         .navigationTitle(article.country.value(for: locale))
         .navigationBarTitleDisplayMode(.inline)
+        .nomadInteractiveBackGesture()
+        .sheet(isPresented: $showsAssessmentPaywall) {
+            SubscriptionPaywallView(entryPoint: .visaAssessment) {
+                showsAssessmentPaywall = false
+            }
+        }
+        .sheet(isPresented: $showsAssessmentPlaceholder) {
+            NavigationStack {
+                ContentUnavailableView(
+                    locale.identifier.hasPrefix("zh") ? "准备度评估即将开放" : "Readiness assessment coming soon",
+                    systemImage: "checklist.checked",
+                    description: Text(locale.identifier.hasPrefix("zh") ? "问卷内容将在后续版本加入。" : "The questionnaire will be added in a future update.")
+                )
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button(locale.identifier.hasPrefix("zh") ? "完成" : "Done") {
+                            showsAssessmentPlaceholder = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private struct VisaAssessmentEntryCard: View {
+    let article: VisaArticle
+    let action: () -> Void
+    @Environment(\.locale) private var locale
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: NomadSpacing.medium) {
+                Image(systemName: "checklist.checked")
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.tone(article.tone))
+                    .frame(width: 46, height: 46)
+                    .background(Color.tone(article.tone).opacity(0.12), in: RoundedRectangle(cornerRadius: 8))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 6) {
+                        Text(locale.identifier.hasPrefix("zh") ? "准备度评估" : "Readiness assessment")
+                            .font(.headline)
+                        Text("PRO")
+                            .font(.caption2.weight(.bold))
+                            .padding(.horizontal, 7)
+                            .padding(.vertical, 3)
+                            .background(Color.nomadInk, in: Capsule())
+                            .foregroundStyle(.white)
+                    }
+                    Text(locale.identifier.hasPrefix("zh") ? "回答几个问题，查看你还缺哪些条件和材料。" : "Answer a few questions to find missing conditions and documents.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+            }
+            .padding(NomadSpacing.large)
+            .background(Color.nomadSurface, in: RoundedRectangle(cornerRadius: 8))
+        }
+        .buttonStyle(PressableScaleButtonStyle())
+        .accessibilityIdentifier("visa.assessment.entry")
     }
 }
 
@@ -170,7 +240,7 @@ private struct VisaArticleHero: View {
                     .font(.system(.title, design: .rounded, weight: .bold))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: true)
-                Label(String.localizedStringWithFormat(String(localized: "visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
+                Label(String.localizedStringWithFormat(appLocalized("visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
                     .font(.caption.weight(.medium))
                     .foregroundStyle(.white.opacity(0.8))
             }
@@ -310,10 +380,10 @@ private struct VisaSourcesSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: NomadSpacing.medium) {
             HStack(alignment: .firstTextBaseline) {
-                Text(String(localized: "visa.sources.title", locale: locale))
+                Text(appLocalized("visa.sources.title", locale: locale))
                     .font(.title2.weight(.bold))
                 Spacer()
-                Text(String.localizedStringWithFormat(String(localized: "visa.sources.updated", locale: locale), updatedAt))
+                Text(String.localizedStringWithFormat(appLocalized("visa.sources.updated", locale: locale), updatedAt))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

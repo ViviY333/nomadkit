@@ -16,11 +16,14 @@ enum MockDataError: LocalizedError {
 
 struct MockDataService {
     func loadCities(bundle: Bundle = .main) throws -> [CitySnapshot] {
-        guard let url = bundle.url(forResource: "cities", withExtension: "json") else {
+        let data: Data
+        if let url = bundle.url(forResource: "cities", withExtension: "json") {
+            data = try Data(contentsOf: url)
+        } else if let cachedURL = Self.offlineURL(for: "cities") {
+            data = try Data(contentsOf: cachedURL)
+        } else {
             throw MockDataError.missingResource
         }
-
-        let data = try Data(contentsOf: url)
         return try decodeCities(from: data)
     }
 
@@ -64,9 +67,20 @@ struct MockDataService {
     }
 
     private func resourceData(named name: String, bundle: Bundle) throws -> Data {
-        guard let url = bundle.url(forResource: name, withExtension: "json") else {
-            throw MockDataError.missingResource
+        if let url = bundle.url(forResource: name, withExtension: "json") {
+            return try Data(contentsOf: url)
         }
-        return try Data(contentsOf: url)
+        if let cachedURL = Self.offlineURL(for: name) {
+            return try Data(contentsOf: cachedURL)
+        }
+        throw MockDataError.missingResource
+    }
+
+    private static func offlineURL(for resource: String) -> URL? {
+        let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+        let url = base?.appendingPathComponent("OfflineCityPackage", isDirectory: true)
+            .appendingPathComponent("\(resource).json")
+        guard let url, FileManager.default.fileExists(atPath: url.path) else { return nil }
+        return url
     }
 }

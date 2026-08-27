@@ -46,6 +46,7 @@ struct SavedItemsView: View {
                                 }
                                 .swipeActions {
                                     Button("saved.remove", role: .destructive) {
+                                        NomadHaptics.play(.delete)
                                         userData.toggleWorkspaceFavorite(
                                             cityID: entry.city.id,
                                             workspaceID: entry.workspace.id
@@ -70,6 +71,7 @@ struct SavedItemsView: View {
                                 }
                                 .swipeActions {
                                     Button("saved.remove", role: .destructive) {
+                                        NomadHaptics.play(.delete)
                                         userData.toggleChannelFavorite(
                                             cityID: entry.city.id,
                                             channelID: entry.channel.id
@@ -83,6 +85,7 @@ struct SavedItemsView: View {
             }
         }
         .navigationTitle("saved.title")
+        .nomadInteractiveBackGesture()
         .task {
             cities = (try? MockDataService().loadCities()) ?? []
         }
@@ -145,6 +148,7 @@ struct WorkspaceDetailView: View {
         }
         .navigationTitle(workspace.name)
         .navigationBarTitleDisplayMode(.inline)
+        .nomadInteractiveBackGesture()
     }
 }
 
@@ -171,5 +175,6 @@ struct ChannelDetailView: View {
         }
         .navigationTitle(channel.title.value)
         .navigationBarTitleDisplayMode(.inline)
+        .nomadInteractiveBackGesture()
     }
 }

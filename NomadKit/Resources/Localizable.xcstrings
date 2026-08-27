@@ -1,69 +1,27 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
-    "packing.add.accessibility" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Add item"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"添加物品"}}}},
-    "packing.add.placeholder" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Item name"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"物品名称"}}}},
-    "packing.add.title" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Add Item"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"添加物品"}}}},
-    "packing.category.accessibility" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"%1$@, %2$lld items, %3$lld packed"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"%1$@，共 %2$lld 个项目，已收好 %3$lld 个项目"}}}},
-    "packing.category.clothes" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Clothes & Shoes"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"衣物鞋履"}}}},
-    "packing.category.documents" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Documents"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"证件资料"}}}},
-    "packing.category.essentials" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Essentials"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"随身小物"}}}},
-    "packing.category.hint" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Double-tap to view items"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"双击查看具体物品"}}}},
-    "packing.category.luggage" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Luggage"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"行李装备"}}}},
-    "packing.category.tech" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Tech"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"电子设备"}}}},
-    "packing.category.toiletries" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Toiletries"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"洗漱护理"}}}},
-    "packing.item.adapter" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Travel adapter"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"转换插头"}}}},
-    "packing.item.backpack" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Daypack"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"随身背包"}}}},
-    "packing.item.bottoms" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Bottoms"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"裤装"}}}},
-    "packing.item.bottle" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Water bottle"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"水杯"}}}},
-    "packing.item.chargers" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Chargers"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"充电器"}}}},
-    "packing.item.headphones" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Headphones"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"耳机"}}}},
-    "packing.item.insurance" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Travel insurance"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"旅行保险"}}}},
-    "packing.item.jacket" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Jacket"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"外套"}}}},
-    "packing.item.keys" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Keys"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"钥匙"}}}},
-    "packing.item.laptop" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Laptop"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"电脑"}}}},
-    "packing.item.medicine" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Medication"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"常用药"}}}},
-    "packing.item.notebook" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Notebook & pen"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"纸笔"}}}},
-    "packing.item.packingCubes" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Packing cubes"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"收纳袋"}}}},
-    "packing.item.passport" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Passport"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"护照"}}}},
-    "packing.item.phone" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Phone"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"手机"}}}},
-    "packing.item.shoes" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Shoes"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"鞋子"}}}},
-    "packing.item.sim" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"eSIM / SIM card"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"eSIM / SIM 卡"}}}},
-    "packing.item.skincare" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Skincare"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"护肤品"}}}},
-    "packing.item.sleepwear" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Sleepwear"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"睡衣"}}}},
-    "packing.item.suitcase" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Suitcase"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"行李箱"}}}},
-    "packing.item.sunglasses" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Sunglasses"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"太阳镜"}}}},
-    "packing.item.tickets" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Tickets & itinerary"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"机票与行程单"}}}},
-    "packing.item.toiletryBag" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Toiletry bag"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"洗漱包"}}}},
-    "packing.item.toothbrush" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Toothbrush & toothpaste"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"牙刷牙膏"}}}},
-    "packing.item.tops" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Tops"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"上衣"}}}},
-    "packing.item.towel" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Towel"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"毛巾"}}}},
-    "packing.item.umbrella" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Folding umbrella"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"折叠伞"}}}},
-    "packing.item.underwear" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Underwear"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"贴身衣物"}}}},
-    "packing.item.visa" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Visa documents"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"签证资料"}}}},
-    "packing.item.wallet" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Wallet & cash"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"钱包与现金"}}}},
-    "packing.progress.compact" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"%1$lld/%2$lld packed"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"%1$lld/%2$lld 已收好"}}}},
-    "packing.progress.detail" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"%1$lld/%2$lld packed"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"已收好 %1$lld/%2$lld"}}}},
-    "packing.title" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Travel Checklist"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"旅行清单"}}}},
-    "packing.tool.name" : {"localizations":{"en":{"stringUnit":{"state":"translated","value":"Check List"}},"zh-Hans":{"stringUnit":{"state":"translated","value":"旅行清单"}}}},
+    "-" : {
+
+    },
+    "·" : {
+
+    },
     "/200" : {
 
     },
     "%@" : {
 
     },
-    "%@ · %@" : {
+    "%@  %@ · %@" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@ · %2$@"
+            "value" : "%1$@  %2$@ · %3$@"
           }
         }
       }
-    },
-    "%@ / 183 days" : {
-
     },
     "%@, %@" : {
       "localizations" : {
@@ -75,10 +33,17 @@
         }
       }
     },
-    "• Finish report by 3pm\n• Book train tickets\n• Water the plants" : {
-
+    "%@%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@%2$@"
+          }
+        }
+      }
     },
-    "❤️" : {
+    "• Finish report by 3pm\n• Book train tickets\n• Water the plants" : {
 
     },
     "25℃" : {
@@ -86,6 +51,601 @@
     },
     "30" : {
 
+    },
+    "addplaces.countryPicker.backToCountries" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All countries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返回国家列表"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.cityAction" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add city"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加城市"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.cityErrorTitle" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "City not found"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到城市"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.cityPlaceholder" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a city"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入城市名称"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.citySection" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "City"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "城市"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.cityTitle" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add city"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加城市"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.noCities" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No cities found for this country."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时没有找到该国家的城市。"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.noSearchResults" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No matching cities found."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到匹配的城市。"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.search" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search countries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索国家"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.searchCity" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.selectedCountry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selected country"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选国家"
+          }
+        }
+      }
+    },
+    "addplaces.countryPicker.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose country or region"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择国家或地区"
+          }
+        }
+      }
+    },
+    "addplaces.done" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
+    "addplaces.error.alreadyAdded" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This place has already been added."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个地点已经添加过了。"
+          }
+        }
+      }
+    },
+    "addplaces.error.notFound" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place not found. Check the city name or add a country or region."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到这个地点，请检查城市名称，或补充国家和地区。"
+          }
+        }
+      }
+    },
+    "addplaces.manual.city" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "City, e.g. Beijing"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "城市，例如 北京 / Beijing"
+          }
+        }
+      }
+    },
+    "addplaces.manual.countries" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Countries and regions you've visited"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "去过的国家和地区"
+          }
+        }
+      }
+    },
+    "addplaces.manual.country" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Country or region (optional)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "国家或地区（可选）"
+          }
+        }
+      }
+    },
+    "addplaces.manual.details" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place details"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "地点信息"
+          }
+        }
+      }
+    },
+    "addplaces.manual.resolve" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find and add place"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解析并添加地点"
+          }
+        }
+      }
+    },
+    "addplaces.mode.label" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add method"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加方式"
+          }
+        }
+      }
+    },
+    "addplaces.mode.manual" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add manually"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动添加"
+          }
+        }
+      }
+    },
+    "addplaces.mode.photos" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan photos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相册扫描"
+          }
+        }
+      }
+    },
+    "addplaces.photos.addSelected" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add selected places"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加选中的地点"
+          }
+        }
+      }
+    },
+    "addplaces.photos.autoScan" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan your photo library"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描整个相册"
+          }
+        }
+      }
+    },
+    "addplaces.photos.autoScanDetail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NomadKit will find places from photo location data automatically."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NomadKit 会自动从照片定位信息中识别去过的地点。"
+          }
+        }
+      }
+    },
+    "addplaces.photos.choose" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose photos and scan locations"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择照片并扫描定位"
+          }
+        }
+      }
+    },
+    "addplaces.photos.count" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$lld photos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$lld 张照片"
+          }
+        }
+      }
+    },
+    "addplaces.photos.detected" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Places found"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "识别到的地点"
+          }
+        }
+      }
+    },
+    "addplaces.photos.noResults" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No geotagged photos found. Try adding a place manually."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到带定位的照片，请改用手动添加。"
+          }
+        }
+      }
+    },
+    "addplaces.photos.openSettings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow more photos in Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往设置允许更多照片"
+          }
+        }
+      }
+    },
+    "addplaces.photos.privacy" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We only read location data from your photo library—nothing is uploaded."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅读取相册照片的定位信息，不会上传照片。"
+          }
+        }
+      }
+    },
+    "addplaces.photos.progress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "addplaces.photos.scanning" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading photo locations…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取照片定位…"
+          }
+        }
+      }
+    },
+    "addplaces.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add places"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加地点"
+          }
+        }
+      }
     },
     "channel.mock.notice" : {
       "extractionState" : "stale",
@@ -117,6 +677,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "标记“我来过这里”"
+          }
+        }
+      }
+    },
+    "checkin.addPlace.accessibility" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a visited place"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加去过的地点"
           }
         }
       }
@@ -155,6 +732,40 @@
         }
       }
     },
+    "checkin.badgeEarned.share" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享"
+          }
+        }
+      }
+    },
+    "checkin.badgeEarned.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New stamp earned"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获得新印章"
+          }
+        }
+      }
+    },
     "checkin.badges.progress" : {
       "comment" : "Unlocked badge count",
       "extractionState" : "stale",
@@ -174,6 +785,7 @@
       }
     },
     "checkin.badges.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -305,6 +917,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "数字游民护照"
+          }
+        }
+      }
+    },
+    "checkin.globe.accessibility" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3D travel globe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3D 星空旅行地球"
           }
         }
       }
@@ -500,6 +1129,22 @@
         }
       }
     },
+    "checkin.placesBeen.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Places I've Been"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我去过的地方"
+          }
+        }
+      }
+    },
     "checkin.share" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -531,6 +1176,122 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我的数字游民护照：%1$@ · %2$lld 座城市 · 在路上 %3$lld 天"
+          }
+        }
+      }
+    },
+    "checkin.stamps.comingSoon" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stamp coming soon"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "印章即将上线"
+          }
+        }
+      }
+    },
+    "checkin.stamps.count" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld countries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个国家或地区"
+          }
+        }
+      }
+    },
+    "checkin.stamps.detailTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport stamp"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "护照印章"
+          }
+        }
+      }
+    },
+    "checkin.stamps.empty" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No stamps yet"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有印章"
+          }
+        }
+      }
+    },
+    "checkin.stamps.emptyDetail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a visited country or city to earn your first stamp."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加去过的国家或城市后，就能获得第一个印章。"
+          }
+        }
+      }
+    },
+    "checkin.stamps.recordedOn" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RECORDED ON"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录日期"
+          }
+        }
+      }
+    },
+    "checkin.stamps.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport stamps"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "护照印章"
           }
         }
       }
@@ -569,6 +1330,23 @@
         }
       }
     },
+    "checkin.stat.coverage" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "World covered"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "世界覆盖率"
+          }
+        }
+      }
+    },
     "checkin.stat.days" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -587,17 +1365,18 @@
       }
     },
     "checkin.summary" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A lightweight travel record with no GPS requirement and no social feed."
+            "value" : "Your journey, mapped one place at a time."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "手动确认自己真正生活过的地方，不依赖 GPS，也不做重社交。"
+            "value" : "把走过的地方，一站一站留在地图上。"
           }
         }
       }
@@ -1147,6 +1926,7 @@
       }
     },
     "checklist.visaCount" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1158,6 +1938,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "7 种旅游签证要求"
+          }
+        }
+      }
+    },
+    "checklist.visaTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digital nomad visa requirements"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数字游民签证要求"
+          }
+        }
+      }
+    },
+    "cityDirectory.attribution" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "City directory data by GeoNames"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "城市目录数据来自 GeoNames"
           }
         }
       }
@@ -1175,6 +1988,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "添加"
+          }
+        }
+      }
+    },
+    "common.back" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上一步"
           }
         }
       }
@@ -1209,6 +2039,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭"
+          }
+        }
+      }
+    },
+    "common.continue" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续"
           }
         }
       }
@@ -1265,6 +2112,7 @@
       }
     },
     "Currency converter" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1276,6 +2124,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "汇率换算"
+          }
+        }
+      }
+    },
+    "currency.amount" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount to convert"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换算金额"
           }
         }
       }
@@ -1309,6 +2174,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在获取…"
+          }
+        }
+      }
+    },
+    "currency.usd.unit" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dollar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "美元"
           }
         }
       }
@@ -1368,15 +2250,243 @@
       }
     },
     "esim.disclaimer" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans, coverage, speed, and prices can change. Check the provider's latest terms before purchase."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "套餐、覆盖范围、网速和价格可能变化，购买前请查看服务商的最新条款。"
+          }
+        }
+      }
+    },
+    "esim.plan.airalo.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From $4.50"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$4.50 起"
+          }
+        }
+      }
+    },
+    "esim.plan.airalo.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uses AIS and True networks; handy for multi-country travel or backup data."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "覆盖 AIS 与 True 网络，适合多国移动或作为备用流量。"
+          }
+        }
+      }
+    },
+    "esim.plan.ais.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From ฿299"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "฿299 起"
+          }
+        }
+      }
+    },
+    "esim.plan.ais.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local Thai 5G for city stays and island trips."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国本地 5G，适合城市旅居与海岛行程。"
+          }
+        }
+      }
+    },
+    "esim.plan.dtac.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From ฿299"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "฿299 起"
+          }
+        }
+      }
+    },
+    "esim.plan.dtac.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local number and high-speed data; available at airports and stores."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含本地号码和高速流量，可在机场与门店办理。"
+          }
+        }
+      }
+    },
+    "esim.plan.holafly.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From $19"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$19 起"
+          }
+        }
+      }
+    },
+    "esim.plan.holafly.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited data for frequent video calls and longer stays."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无限流量，适合频繁视频通话与较长时间旅居。"
+          }
+        }
+      }
+    },
+    "esim.plan.nomad.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From $5 / 1 GB"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$5 / 1 GB 起"
+          }
+        }
+      }
+    },
+    "esim.plan.nomad.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "High-data plans for remote work and hotspot sharing."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大流量套餐，适合远程办公与热点共享。"
+          }
+        }
+      }
+    },
+    "esim.plan.true.price" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From ฿449"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "฿449 起"
+          }
+        }
+      }
+    },
+    "esim.plan.true.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited data plans for 8, 15, or 30 days."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无限流量套餐，可选择 8、15 或 30 天。"
+          }
+        }
+      }
     },
     "esim.title" : {
-
-    },
-    "hold to move" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recommended eSIMs"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "推荐列表"
+          }
+        }
+      }
     },
     "insurance.details" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1408,6 +2518,294 @@
         }
       }
     },
+    "insurance.plan.genki.explorer.monthly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About €52 / month"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 €52 / 月"
+          }
+        }
+      }
+    },
+    "insurance.plan.genki.explorer.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portable cover for frequent cross-border travel and urgent medical needs."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适合频繁跨国移动，覆盖紧急医疗和旅途风险。"
+          }
+        }
+      }
+    },
+    "insurance.plan.genki.explorer.yearly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About €624 / year"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 €624 / 年"
+          }
+        }
+      }
+    },
+    "insurance.plan.genki.native.monthly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About €39 / month"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 €39 / 月"
+          }
+        }
+      }
+    },
+    "insurance.plan.genki.native.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Long-term global health cover with a monthly subscription model."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "面向长期旅居者的全球医疗保障，支持月度订阅。"
+          }
+        }
+      }
+    },
+    "insurance.plan.genki.native.yearly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About €468 / year"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 €468 / 年"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.complete.monthly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About $177.50 / month"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 $177.50 / 月"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.complete.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A broader global medical plan with routine care and mental health support."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更完整的全球医疗方案，包含常规医疗与心理健康支持。"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.complete.yearly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About $2,130 / year"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 $2,130 / 年"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.monthly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$62.72 / 4 weeks"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$62.72 / 4 周"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel medical cover designed for remote workers moving between countries."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "面向跨国移动办公者的旅行医疗保障方案。"
+          }
+        }
+      }
+    },
+    "insurance.plan.safetywing.yearly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About $690 / year"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "约 $690 / 年"
+          }
+        }
+      }
+    },
+    "insurance.plan.worldnomads.monthly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quote by trip"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按行程报价"
+          }
+        }
+      }
+    },
+    "insurance.plan.worldnomads.summary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medical, evacuation, and activity-focused travel cover for planned trips."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "覆盖医疗、紧急撤离和活动风险，适合有明确行程安排的旅居者。"
+          }
+        }
+      }
+    },
+    "insurance.plan.worldnomads.yearly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quote by trip"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按行程报价"
+          }
+        }
+      }
+    },
+    "insurance.summary.disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coverage, eligibility, exclusions, and prices vary. Confirm the policy wording at the source before purchase."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保障、资格、除外责任和价格可能不同，购买前请通过出处确认保单条款。"
+          }
+        }
+      }
+    },
+    "insurance.summary.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan summary"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "方案总结"
+          }
+        }
+      }
+    },
     "insurance.title" : {
       "localizations" : {
         "en" : {
@@ -1423,9 +2821,6 @@
           }
         }
       }
-    },
-    "Live rate from" : {
-
     },
     "May Saturday" : {
 
@@ -1457,23 +2852,785 @@
 
     },
     "Nomad Map" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nomad Map"
+            "value" : "Nomad Passport"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nomad Map"
+            "value" : "Nomad Passport"
           }
         }
       }
     },
-    "Nomad visa" : {
-
+    "packing.add.accessibility" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add item"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加物品"
+          }
+        }
+      }
+    },
+    "packing.add.placeholder" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item name"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "物品名称"
+          }
+        }
+      }
+    },
+    "packing.add.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Item"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加物品"
+          }
+        }
+      }
+    },
+    "packing.category.accessibility" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, %2$lld items, %3$lld packed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@，共 %2$lld 个项目，已收好 %3$lld 个项目"
+          }
+        }
+      }
+    },
+    "packing.category.clothes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clothes & Shoes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物鞋履"
+          }
+        }
+      }
+    },
+    "packing.category.documents" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documents"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "证件资料"
+          }
+        }
+      }
+    },
+    "packing.category.essentials" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essentials"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随身小物"
+          }
+        }
+      }
+    },
+    "packing.category.hint" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double-tap to view items"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击查看具体物品"
+          }
+        }
+      }
+    },
+    "packing.category.luggage" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bags & packing"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行李与收纳"
+          }
+        }
+      }
+    },
+    "packing.category.tech" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Electronics"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电子设备"
+          }
+        }
+      }
+    },
+    "packing.category.toiletries" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toiletries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洗漱护理"
+          }
+        }
+      }
+    },
+    "packing.item.adapter" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel adapter"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转换插头"
+          }
+        }
+      }
+    },
+    "packing.item.backpack" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daypack"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随身背包"
+          }
+        }
+      }
+    },
+    "packing.item.bottle" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Water bottle"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水杯"
+          }
+        }
+      }
+    },
+    "packing.item.bottoms" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bottoms"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裤装"
+          }
+        }
+      }
+    },
+    "packing.item.chargers" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargers"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器"
+          }
+        }
+      }
+    },
+    "packing.item.headphones" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Headphones"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "耳机"
+          }
+        }
+      }
+    },
+    "packing.item.insurance" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel insurance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行保险"
+          }
+        }
+      }
+    },
+    "packing.item.jacket" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jacket"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外套"
+          }
+        }
+      }
+    },
+    "packing.item.keys" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keys"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钥匙"
+          }
+        }
+      }
+    },
+    "packing.item.laptop" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laptop"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电脑"
+          }
+        }
+      }
+    },
+    "packing.item.medicine" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medication"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常用药"
+          }
+        }
+      }
+    },
+    "packing.item.notebook" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notebook & pen"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "纸笔"
+          }
+        }
+      }
+    },
+    "packing.item.packingCubes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packing cubes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收纳袋"
+          }
+        }
+      }
+    },
+    "packing.item.passport" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "护照"
+          }
+        }
+      }
+    },
+    "packing.item.phone" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手机"
+          }
+        }
+      }
+    },
+    "packing.item.shoes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shoes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鞋子"
+          }
+        }
+      }
+    },
+    "packing.item.sim" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "eSIM / SIM card"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "eSIM / SIM 卡"
+          }
+        }
+      }
+    },
+    "packing.item.skincare" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skincare"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "护肤品"
+          }
+        }
+      }
+    },
+    "packing.item.sleepwear" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleepwear"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "睡衣"
+          }
+        }
+      }
+    },
+    "packing.item.suitcase" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suitcase"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行李箱"
+          }
+        }
+      }
+    },
+    "packing.item.sunglasses" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunglasses"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太阳镜"
+          }
+        }
+      }
+    },
+    "packing.item.tickets" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tickets & itinerary"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "机票与行程单"
+          }
+        }
+      }
+    },
+    "packing.item.toiletryBag" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toiletry bag"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洗漱包"
+          }
+        }
+      }
+    },
+    "packing.item.toothbrush" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toothbrush & toothpaste"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "牙刷牙膏"
+          }
+        }
+      }
+    },
+    "packing.item.tops" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tops"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上衣"
+          }
+        }
+      }
+    },
+    "packing.item.towel" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Towel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "毛巾"
+          }
+        }
+      }
+    },
+    "packing.item.umbrella" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folding umbrella"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "折叠伞"
+          }
+        }
+      }
+    },
+    "packing.item.underwear" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Underwear"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "贴身衣物"
+          }
+        }
+      }
+    },
+    "packing.item.visa" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa documents"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "签证资料"
+          }
+        }
+      }
+    },
+    "packing.item.wallet" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallet & cash"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钱包与现金"
+          }
+        }
+      }
+    },
+    "packing.progress.compact" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld packed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld 已收好"
+          }
+        }
+      }
+    },
+    "packing.progress.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld packed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已收好 %1$lld/%2$lld"
+          }
+        }
+      }
+    },
+    "packing.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel Checklist"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行清单"
+          }
+        }
+      }
+    },
+    "packing.tool.name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check List"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行清单"
+          }
+        }
+      }
     },
     "passport.image.badges" : {
       "extractionState" : "stale",
@@ -1543,6 +3700,7 @@
     },
     "passport.image.named.title" : {
       "comment" : "Named nomad passport title",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1608,6 +3766,9 @@
           }
         }
       }
+    },
+    "PRO" : {
+
     },
     "profile.basic" : {
       "extractionState" : "stale",
@@ -1762,8 +3923,575 @@
         }
       }
     },
-    "Rating unavailable in Apple Maps" : {
-
+    "residency.calendar.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Residency calendar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅居日历"
+          }
+        }
+      }
+    },
+    "residency.change" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更换"
+          }
+        }
+      }
+    },
+    "residency.check.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check before travel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出发前核对"
+          }
+        }
+      }
+    },
+    "residency.countryPicker.search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search countries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索国家"
+          }
+        }
+      }
+    },
+    "residency.countryPicker.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a country"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择国家"
+          }
+        }
+      }
+    },
+    "residency.disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verify current rules before booking."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预订前请确认最新规定。"
+          }
+        }
+      }
+    },
+    "residency.empty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No destinations in this category."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此分类暂无目的地。"
+          }
+        }
+      }
+    },
+    "residency.general.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the official immigration authority before booking."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预订前请向官方移民机构核对要求。"
+          }
+        }
+      }
+    },
+    "residency.general.malaysia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malaysia"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "马来西亚"
+          }
+        }
+      }
+    },
+    "residency.general.singapore" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Singapore"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新加坡"
+          }
+        }
+      }
+    },
+    "residency.general.stay" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verify"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需核对"
+          }
+        }
+      }
+    },
+    "residency.general.thailand" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thailand"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国"
+          }
+        }
+      }
+    },
+    "residency.general.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destination checks"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目的地核对"
+          }
+        }
+      }
+    },
+    "residency.list.search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search destinations"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索目的地"
+          }
+        }
+      }
+    },
+    "residency.loadError" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa information is unavailable. Check your connection and try again."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法获取签证信息，请检查网络后重试。"
+          }
+        }
+      }
+    },
+    "residency.loading" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading visa access…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在获取签证信息…"
+          }
+        }
+      }
+    },
+    "residency.progress.days" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 183 days"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 183 天"
+          }
+        }
+      }
+    },
+    "residency.progress.remaining" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld days until the common 183-day residency threshold."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离常见的 183 天税务居民门槛还有 %lld 天。"
+          }
+        }
+      }
+    },
+    "residency.setup.action" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set up now"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现在设置"
+          }
+        }
+      }
+    },
+    "residency.setup.arrival" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrival"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抵达日期"
+          }
+        }
+      }
+    },
+    "residency.setup.country.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose country"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择国家"
+          }
+        }
+      }
+    },
+    "residency.setup.dates.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose dates"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择日期"
+          }
+        }
+      }
+    },
+    "residency.setup.departure" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Departure"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "离开日期"
+          }
+        }
+      }
+    },
+    "residency.setup.empty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where you're staying and add your dates."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择旅居国家和起止日期。"
+          }
+        }
+      }
+    },
+    "residency.setup.hint" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These dates power your residency day count. You can edit them anytime."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们会根据这段日期计算旅居天数，之后可随时修改。"
+          }
+        }
+      }
+    },
+    "residency.source" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源："
+          }
+        }
+      }
+    },
+    "residency.status.check" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需核对"
+          }
+        }
+      }
+    },
+    "residency.status.eTA" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "eTA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电子许可"
+          }
+        }
+      }
+    },
+    "residency.status.eVisa" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "eVisa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电子签"
+          }
+        }
+      }
+    },
+    "residency.status.visaFree" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa-free"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免签"
+          }
+        }
+      }
+    },
+    "residency.status.visaOnArrival" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On arrival"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "落地签"
+          }
+        }
+      }
+    },
+    "residency.status.visaRequired" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa required"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需签证"
+          }
+        }
+      }
+    },
+    "residency.viewAll" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View all"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看全部"
+          }
+        }
+      }
+    },
+    "residency.visaFree.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa-free"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免签目的地"
+          }
+        }
+      }
     },
     "saved.add" : {
       "extractionState" : "stale",
@@ -1883,14 +4611,293 @@
         }
       }
     },
+    "security.dialing.otherCountry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These numbers are for Thailand. In %@, use local emergency numbers and dial them without a country code."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以上号码仅适用于泰国。在%@，请使用当地紧急号码，并直接拨打而无需添加国家代码。"
+          }
+        }
+      }
+    },
+    "security.dialing.thailand" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Thailand, dial these numbers directly—do not add the +66 country code."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在泰国，请直接拨打以上紧急号码，无需添加国家代码 +66。"
+          }
+        }
+      }
+    },
     "security.disclaimer" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emergency numbers and guidance are for Thailand. Confirm local numbers and rules when you cross a border."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "紧急号码和提示适用于泰国；跨境后请重新确认当地号码与规定。"
+          }
+        }
+      }
+    },
+    "security.tip.ambulance.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medical emergencies and ambulance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "医疗急救与救护车"
+          }
+        }
+      }
+    },
+    "security.tip.ambulance.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ambulance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "救护车"
+          }
+        }
+      }
+    },
+    "security.tip.documents" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep passport and insurance copies offline."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "离线保存护照和保险资料。"
+          }
+        }
+      }
+    },
+    "security.tip.fire.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fire and rescue"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火灾与消防救援"
+          }
+        }
+      }
+    },
+    "security.tip.fire.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fire"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火警"
+          }
+        }
+      }
+    },
+    "security.tip.insurer" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save your insurer's emergency assistance number."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存保险公司的紧急援助电话。"
+          }
+        }
+      }
+    },
+    "security.tip.motorbike" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wear a helmet and confirm licence requirements before riding."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "骑行前佩戴头盔并确认驾照要求。"
+          }
+        }
+      }
+    },
+    "security.tip.police.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Police and public safety emergencies"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报警与治安事件"
+          }
+        }
+      }
+    },
+    "security.tip.police.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Police"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报警与治安"
+          }
+        }
+      }
+    },
+    "security.tip.tourism.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tourism information and assistance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国旅游局信息咨询"
+          }
+        }
+      }
+    },
+    "security.tip.tourism.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tourism hotline"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅游热线"
+          }
+        }
+      }
+    },
+    "security.tip.touristPolice.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "24-hour tourist police and English assistance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "24 小时旅游警察与英文协助"
+          }
+        }
+      }
+    },
+    "security.tip.touristPolice.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tourist Police"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅游警察"
+          }
+        }
+      }
     },
     "security.title" : {
-
-    },
-    "Settings" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emergency contacts"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "紧急联系"
+          }
+        }
+      }
     },
     "settings.all.languages" : {
       "extractionState" : "stale",
@@ -2351,6 +5358,22 @@
         }
       }
     },
+    "summary.source" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出处"
+          }
+        }
+      }
+    },
     "tab.checkin" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2402,10 +5425,8 @@
         }
       }
     },
-    "This personalizes tourist visa access and stay limits. Your selection is saved to Settings." : {
-
-    },
     "Timezone" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2439,7 +5460,6 @@
       }
     },
     "timezone.city" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2455,10 +5475,95 @@
         }
       }
     },
+    "timezone.daytime" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daytime"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白天"
+          }
+        }
+      }
+    },
+    "timezone.delete" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
+          }
+        }
+      }
+    },
+    "timezone.empty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a timezone to compare local time."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加时区后即可对比当地时间。"
+          }
+        }
+      }
+    },
+    "timezone.nighttime" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nighttime"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "夜间"
+          }
+        }
+      }
+    },
+    "timezone.relative.format" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today %@ h"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天 %@ 小时"
+          }
+        }
+      }
+    },
     "To - do list" : {
 
     },
     "To-do List" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2514,13 +5619,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Back to today's overview"
+            "value" : "Back to today"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回今日情况"
+            "value" : "回到今天"
           }
         }
       }
@@ -2902,22 +6007,6 @@
         }
       }
     },
-    "today.workspaceNotice" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cafe and library results are workspace candidates. Outlet and Wi-Fi availability should be confirmed with the venue."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "咖啡馆和图书馆结果可作为工作地点候选，插座和 Wi-Fi 情况请向场所确认。"
-          }
-        }
-      }
-    },
     "today.workspaces.title" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2988,6 +6077,7 @@
       }
     },
     "todo.dayLabel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3020,14 +6110,480 @@
         }
       }
     },
-    "Tourism rules can change and may depend on entry history, onward travel, and the issuing mission. Confirm requirements with the destination's official immigration authority before departure." : {
-
+    "transport.disclaimer" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap a resource to read a short summary and its official source."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击条目查看要点总结和官方出处。"
+          }
+        }
+      }
     },
-    "Tourist access for" : {
-
+    "transport.note.japan" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Public transport is extensive; confirm international licence and Japanese translation requirements before driving."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本公共交通覆盖广；驾车前请确认国际驾照或官方日文翻译要求。"
+          }
+        }
+      }
     },
-    "Where to find local talent" : {
-
+    "transport.note.malaysia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your licence, an international permit translation, and insurance before driving."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "驾驶前请确认驾照、国际驾照翻译件和保险符合当地规定。"
+          }
+        }
+      }
+    },
+    "transport.note.thailand" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Before renting a motorbike, verify your licence, insurance, and helmet requirements."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "租用摩托车前，请核对有效驾照、保险范围与头盔要求。"
+          }
+        }
+      }
+    },
+    "transport.resource.dlt.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Official information on international licences and driving services in Thailand."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国国际驾照与驾驶业务的官方信息入口。"
+          }
+        }
+      }
+    },
+    "transport.resource.dlt.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Department of Land Transport"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国陆路运输厅"
+          }
+        }
+      }
+    },
+    "transport.resource.jaf.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foreign licence and driving rules from the Japan Automobile Federation."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本汽车联合会提供的外国驾照与驾驶规则说明。"
+          }
+        }
+      }
+    },
+    "transport.resource.jaf.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JAF: Driving in Japan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JAF：在日本驾驶"
+          }
+        }
+      }
+    },
+    "transport.resource.jnto.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Official guide to trains, buses, and city transport in Japan."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本铁路、巴士与城市交通的官方指南。"
+          }
+        }
+      }
+    },
+    "transport.resource.jnto.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JNTO: Getting around Japan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JNTO：日本出行指南"
+          }
+        }
+      }
+    },
+    "transport.resource.jpj.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malaysia's official portal for foreign licences and licence services."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "马来西亚外国驾照与驾驶执照服务的官方入口。"
+          }
+        }
+      }
+    },
+    "transport.resource.jpj.road.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check current road, vehicle, and driving requirements before departure."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出发前查询最新道路、车辆与驾驶要求。"
+          }
+        }
+      }
+    },
+    "transport.resource.jpj.road.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malaysia Road Transport Department"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "马来西亚陆路交通局"
+          }
+        }
+      }
+    },
+    "transport.resource.jpj.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JPJ: Driving licence services"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JPJ：驾驶执照服务"
+          }
+        }
+      }
+    },
+    "transport.resource.tat.detail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Official guide to local transport and getting around Thailand."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国旅游局提供的本地交通与出行指南。"
+          }
+        }
+      }
+    },
+    "transport.resource.tat.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TAT: Getting around Thailand"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泰国旅游局：本地交通"
+          }
+        }
+      }
+    },
+    "transport.summary.disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rules can change. Use the source below to confirm the latest requirements."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "规定可能变化，请通过下方出处确认最新要求。"
+          }
+        }
+      }
+    },
+    "transport.summary.japan.jaf" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the licence format, translation, and driving conditions required for visitors in Japan."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用于核对访日驾驶所需的驾照格式、翻译件与驾驶条件。"
+          }
+        }
+      }
+    },
+    "transport.summary.japan.jnto" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A practical overview of trains, buses, IC cards, and city transport options for Japan."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "概括日本铁路、巴士、交通卡和城市出行选择。"
+          }
+        }
+      }
+    },
+    "transport.summary.malaysia.jpj" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check whether your foreign licence and supporting documents meet Malaysia's current driving requirements."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用于核对外国驾照及配套材料是否符合马来西亚当前驾驶要求。"
+          }
+        }
+      }
+    },
+    "transport.summary.malaysia.road" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use the transport authority's current notices for road, vehicle, and licence information."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过交通主管部门的最新通知查询道路、车辆与驾照信息。"
+          }
+        }
+      }
+    },
+    "transport.summary.thailand.dlt" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use this official portal to check licence eligibility, international driving permit guidance, and driving-related services in Thailand."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可在此官方入口核对泰国驾照资格、国际驾照指引和驾驶相关服务。"
+          }
+        }
+      }
+    },
+    "transport.summary.thailand.tat" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Covers common ways to move around Thailand, including local transport planning for cities and destinations."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "概括泰国城市与目的地的常见交通方式，适合出发前规划本地出行。"
+          }
+        }
+      }
+    },
+    "transport.summary.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Key points"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要点总结"
+          }
+        }
+      }
+    },
+    "transport.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting around"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交通"
+          }
+        }
+      }
+    },
+    "visa.disclaimer" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa rules can change. Confirm the latest requirements with official sources before applying."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "签证政策可能变化，申请前请以官方渠道的最新要求为准。"
+          }
+        }
+      }
+    },
+    "visa.header.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to apply for digital nomad visas in popular countries"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "热门国家的数字游民签证怎么申请"
+          }
+        }
+      }
+    },
+    "visa.readTime" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min read"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 分钟读完"
+          }
+        }
+      }
     },
     "workspace.distance" : {
       "extractionState" : "stale",
@@ -3062,15 +6618,6 @@
           }
         }
       }
-    },
-    "清迈 · 5 个推荐" : {
-
-    },
-    "第三方服务链接，仅作信息参考；请以服务商最新价格、承保国家和条款为准。" : {
-
-    },
-    "链接指向当地官方机构；出发或租车前请以最新法规和租赁条款为准。" : {
-
     }
   },
   "version" : "1.0"

@@ -5,11 +5,35 @@ xcuserdata/
 
 # Local dependencies and generated development artifacts
 node_modules/
+**/node_modules/
+**/dist/
+**/.npm-cache/
+**/_logs/
 .codex-artifacts/
 .codex-backups/
 .codex-derived/
 .playwright-cli/
 output/
+
+# Xcode build and distribution artifacts
+build/
+DerivedData/
+*.xcarchive/
+*.ipa
+ExportOptions*.plist
+
+# Local exports, backups, and generated review/media files
+audit/
+reels/
+marketing-dashboard/
+stamps/
+ios 提交截图/
+*.backup
+*.bak
+new passport.png
+
+# Local reference images and generated web bundles
+NomadKit/Resources/Web/*.bundle.js
 
 # Local reference and working files, not required to build the app
 截图参考/

@@ -98,11 +98,6 @@ enum VisitSource: String, Codable, Hashable {
 }
 
 enum CountryCatalog {
-    static let stampAssets: [String: String] = [
-        "AU": "StampAU", "DE": "StampDE", "FR": "StampFR", "CA": "StampCA", "GB": "StampGB",
-        "JP": "StampJP", "CN": "StampCN", "US": "StampUS", "IT": "StampIT"
-    ]
-
     static func code(for value: String) -> String {
         let normalized = value.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if normalized.count == 2 { return normalized }
@@ -110,11 +105,18 @@ enum CountryCatalog {
     }
 
     static func name(for code: String) -> LocalizedCopy {
-        names[code.uppercased()] ?? LocalizedCopy(zhHans: code, en: code)
+        let normalized = code.uppercased()
+        if let knownName = names[normalized] { return knownName }
+
+        let english = Locale(identifier: "en").localizedString(forRegionCode: normalized) ?? normalized
+        let simplifiedChinese = Locale(identifier: "zh-Hans").localizedString(forRegionCode: normalized) ?? english
+        return LocalizedCopy(zhHans: simplifiedChinese, en: english)
     }
 
     static func stampAsset(for code: String) -> String? {
-        stampAssets[code.uppercased()]
+        let normalized = code.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        guard normalized.count == 2, normalized.allSatisfy(\.isLetter) else { return nil }
+        return "Stamp\(normalized)"
     }
 
     private static let legacyCodes: [String: String] = [
@@ -138,4 +140,12 @@ struct TravelStats: Equatable {
     let cityCount: Int
     let countryCount: Int
     let totalDays: Int
+    let worldCoveragePercent: Int
+
+    init(cityCount: Int, countryCount: Int, totalDays: Int, worldCoveragePercent: Int? = nil) {
+        self.cityCount = cityCount
+        self.countryCount = countryCount
+        self.totalDays = totalDays
+        self.worldCoveragePercent = worldCoveragePercent ?? min(100, Int((Double(countryCount) / 195.0 * 100.0).rounded()))
+    }
 }

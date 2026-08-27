@@ -5,10 +5,15 @@
 "journey.accessibility" = "旅程状态选择器";
 "journey.traveling" = "正在旅居";
 "journey.preparing" = "准备出发，正在做计划";
-"journey.notTraveling" = "暂时没有计划，观望中";
+"journey.notTraveling" = "在做计划";
+"journey.preparing.detail" = "先把下一站需要的事准备好";
+"journey.notTraveling.detail" = "记录足迹，也慢慢看看下一站";
+"journey.traveling.detail" = "把当地生活和工作安排明白";
 
 "destination.title" = "下一站想去哪个国家？";
 "destination.subtitle" = "我们会先把和下一站有关的工具准备好。";
+"cities.search" = "搜索城市或国家";
+"cities.available" = "当前可浏览的城市";
 
 "location.title" = "获取并确认当前位置";
 "location.subtitle" = "用当前位置为你准备天气、本地渠道和附近的工作地点。";
@@ -21,6 +26,7 @@
 "location.change" = "换一个国家";
 "location.searchPlaceholder" = "搜索国家";
 "location.countryResult" = "国家或地区";
+"location.openSettings" = "打开系统设置";
 "cancel" = "取消";
 "back" = "返回上一步";
 
@@ -42,6 +48,7 @@
 "tool.checklist" = "出发清单";
 "tool.insurance" = "保险";
 "tool.weather" = "天气";
+"tools.enterHome" = "进入我的旅居首页";
 
 "visited.title" = "你去过哪些地方游民？";
 "visited.popular" = "数字游民热门";

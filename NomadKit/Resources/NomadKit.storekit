@@ -1,0 +1,102 @@
+{
+  "identifier" : "8A4C3A0A",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_locale" : "en_US",
+    "_storefront" : "USA"
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "4E8A8B9C",
+      "localizations" : [
+        {
+          "description" : "Practical travel tools and unlimited journey records.",
+          "displayName" : "Nomad Kit Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "旅居实用工具与无限足迹记录。",
+          "displayName" : "Nomad Kit Pro",
+          "locale" : "zh_CN"
+        }
+      ],
+      "name" : "Nomad Kit Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "F15D4E61",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Full city references, important-date tools, and unlimited Nomad Map footprints.",
+              "displayName" : "Nomad Kit Pro Monthly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "完整城市参考、重要日期工具与无限 Nomad Map 足迹。",
+              "displayName" : "Nomad Kit Pro 月付",
+              "locale" : "zh_CN"
+            }
+          ],
+          "productID" : "6802223981",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Nomad Kit Pro Monthly",
+          "subscriptionGroupID" : "4E8A8B9C",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "19.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "C691E4AF",
+          "introductoryOffer" : {
+            "displayPrice" : "0",
+            "internalID" : "337D362C",
+            "paymentMode" : "FreeTrial",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Full city references, important-date tools, and unlimited Nomad Map footprints.",
+              "displayName" : "Nomad Kit Pro Annual",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "完整城市参考、重要日期工具与无限 Nomad Map 足迹。",
+              "displayName" : "Nomad Kit Pro 年付",
+              "locale" : "zh_CN"
+            }
+          ],
+          "productID" : "6802340703",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Nomad Kit Pro Annual",
+          "subscriptionGroupID" : "4E8A8B9C",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

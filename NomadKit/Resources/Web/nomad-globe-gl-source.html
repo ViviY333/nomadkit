@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body, #globeViz { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      position: relative;
+      background: #020812;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      touch-action: none;
+    }
+    #globeViz::before {
+      content: "";
+      position: absolute;
+      width: 76%;
+      aspect-ratio: 1;
+      left: 12%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 38px 11px rgba(74, 174, 255, .58), 0 0 78px 25px rgba(35, 116, 221, .35), 0 0 142px 46px rgba(11, 67, 148, .2);
+      z-index: 0;
+    }
+    canvas { display: block; position: relative; z-index: 1; }
+    .globe-label {
+      min-width: max-content;
+      padding: 7px 11px 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(4, 22, 44, .14);
+      color: #102841;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .globe-label.is-current { color: #fff; background: #112842; border-color: rgba(255,255,255,.2); }
+    body.labels-hidden .globe-label { opacity: 0; pointer-events: none; transform: translate(-50%, -42%) scale(.92); }
+    .label-flag { display: inline-block; width: 18px; height: 12px; margin-right: 7px; border-radius: 3px; vertical-align: -1px; box-shadow: 0 0 0 1px rgba(12,25,55,.12); }
+    .label-flag-emoji { display: inline-block; width: 18px; margin-right: 7px; font-size: 14px; line-height: 12px; vertical-align: -1px; }
+    .flag-th { background: linear-gradient(#b8323f 0 20%, #f5f5f3 20% 34%, #293f78 34% 66%, #f5f5f3 66% 80%, #b8323f 80%); }
+    .flag-tw { background: #d23d48; }
+    .flag-tw::before { content: ""; display: block; width: 9px; height: 6px; background: #294a86; }
+    .flag-jp { background: radial-gradient(circle, #d92e3b 0 42%, transparent 44%), #fff; }
+    .flag-ph { background: linear-gradient(150deg, #2b59a1 0 50%, #d64655 50%); }
+    .flag-id { background: linear-gradient(#d7444e 0 50%, #fff 50%); }
+    .label-copy { vertical-align: middle; }
+    .country-label {
+      min-width: max-content;
+      color: rgba(248,252,255,.76);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .025em;
+      line-height: 1;
+      text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 0 8px rgba(1,8,18,.8);
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .country-label.is-large { font-size: 11px; color: rgba(255,255,255,.84); }
+    body.labels-hidden .country-label { opacity: 0; }
+  </style>
+</head>
+<body class="labels-hidden">
+  <div id="globeViz"></div>
+  <script src="globe.bundle.js"></script>
+  <script>
+    const Globe = GlobeGL.default || GlobeGL;
+    const mount = document.getElementById('globeViz');
+    const countriesGeoJSON = __COUNTRIES_GEOJSON__;
+    let visits = [];
+    let cityVisitLabels = [];
+    let countryVisitLabels = [];
+    let dayVisitLabels = [];
+    let labelMode = 'none';
+    let localeIdentifier = 'zh-Hans';
+    let globe;
+    const visitedCountryCodes = new Set();
+    const countryFeatures = countriesGeoJSON.features || [];
+    const countryFeatureByCode = new Map(countryFeatures.flatMap(feature => {
+      const properties = feature.properties || {};
+      return [properties.ISO_A2, properties.WB_A2, properties.ADM0_A3]
+        .filter(code => code && code !== '-99')
+        .map(code => [String(code).toUpperCase(), feature]);
+    }));
+
+    function ringArea(ring) {
+      let area = 0;
+      for (let index = 0; index < ring.length - 1; index += 1) {
+        area += ring[index][0] * ring[index + 1][1] - ring[index + 1][0] * ring[index][1];
+      }
+      return Math.abs(area) / 2;
+    }
+
+    function ringCenter(ring) {
+      let area = 0;
+      let lng = 0;
+      let lat = 0;
+      for (let index = 0; index < ring.length - 1; index += 1) {
+        const [x1, y1] = ring[index];
+        const [x2, y2] = ring[index + 1];
+        const cross = x1 * y2 - x2 * y1;
+        area += cross;
+        lng += (x1 + x2) * cross;
+        lat += (y1 + y2) * cross;
+      }
+      if (Math.abs(area) < 1e-7) return ring[Math.floor(ring.length / 2)] || [0, 0];
+      return [lng / (3 * area), lat / (3 * area)];
+    }
+
+    function featureLabelPoint(feature) {
+      const polygons = feature.geometry?.type === 'Polygon'
+        ? [feature.geometry.coordinates]
+        : (feature.geometry?.coordinates || []);
+      const outerRings = polygons.map(polygon => polygon[0]).filter(ring => ring?.length > 3);
+      if (!outerRings.length) return [0, 0];
+      const largestRing = outerRings.reduce((current, ring) => ringArea(ring) > ringArea(current) ? ring : current);
+      const center = ringCenter(largestRing);
+      const lngs = largestRing.map(point => point[0]);
+      const lats = largestRing.map(point => point[1]);
+      const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+      const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+      // Centroids can fall outside narrow or crescent-shaped countries. A
+      // bounded midpoint keeps labels on land for those cases.
+      return [
+        Math.min(maxLng, Math.max(minLng, center[0])),
+        Math.min(maxLat, Math.max(minLat, center[1]))
+      ];
+    }
+
+    function isChineseLocale() {
+      return String(localeIdentifier).toLowerCase().startsWith('zh');
+    }
+
+    function countryNameFor(code, fallback) {
+      try {
+        const language = isChineseLocale() ? 'zh-Hans' : 'en';
+        return new Intl.DisplayNames([language], { type: 'region' }).of(code) || fallback || code;
+      } catch (_) {
+        return fallback || code;
+      }
+    }
+
+    function cityNameFor(visit) {
+      return isChineseLocale()
+        ? (visit.cityName?.zhHans || visit.cityName?.en || '地点')
+        : (visit.cityName?.en || visit.cityName?.zhHans || 'Place');
+    }
+
+    function dayCountLabel(days) {
+      const count = Math.max(0, Number(days) || 0);
+      if (isChineseLocale()) return `${count} 天`;
+      return `${count} ${count === 1 ? 'day' : 'days'}`;
+    }
+
+    function countryFlagEmoji(code) {
+      const normalized = String(code || '').toUpperCase();
+      if (!/^[A-Z]{2}$/.test(normalized)) return '';
+      return String.fromCodePoint(...normalized.split('').map(letter => 127397 + letter.charCodeAt(0)));
+    }
+
+    function countryCodeForFeature(feature) {
+      const properties = feature.properties || {};
+      const candidate = [properties.ISO_A2, properties.WB_A2, properties.ADM0_A3]
+        .find(code => code && code !== '-99');
+      return String(candidate || '').toUpperCase();
+    }
+
+    function isVisitedCountry(feature) {
+      const properties = feature.properties || {};
+      return [properties.ISO_A2, properties.WB_A2, properties.ADM0_A3]
+        .some(code => visitedCountryCodes.has(String(code || '').toUpperCase()));
+    }
+
+    function countryFillColor(feature) {
+      return isVisitedCountry(feature)
+        ? 'rgba(245,132,43,0.68)'
+        : 'rgba(255,255,255,0.018)';
+    }
+
+    function countrySideColor(feature) {
+      return isVisitedCountry(feature)
+        ? 'rgba(222,91,24,0.42)'
+        : 'rgba(255,255,255,0.012)';
+    }
+
+    function countryStrokeColor(feature) {
+      return isVisitedCountry(feature)
+        ? 'rgba(255,179,88,0.95)'
+        : 'rgba(214,232,255,0.42)';
+    }
+
+    function refreshCountryPolygons() {
+      if (!globe) return;
+      globe
+        .polygonCapColor(countryFillColor)
+        .polygonSideColor(countrySideColor)
+        .polygonStrokeColor(countryStrokeColor);
+    }
+
+    const staticCountryLabels = countryFeatures.map(feature => {
+      const [lng, lat] = featureLabelPoint(feature);
+      const code = countryCodeForFeature(feature);
+      return {
+        id: `country-${feature.properties?.ADM0_A3 || feature.properties?.ADMIN}`,
+        code,
+        name: countryNameFor(code, feature.properties?.ADMIN),
+        lat,
+        lng,
+        labelRank: Number(feature.properties?.LABELRANK) || 99,
+        populationRank: Number(feature.properties?.POP_RANK) || 99,
+        large: Number(feature.properties?.LABELRANK) <= 2 && Number(feature.properties?.POP_RANK) >= 14
+      };
+    }).filter(item => item.code);
+    function makeCapsuleLabel(data) {
+      const element = document.createElement('div');
+      element.className = `globe-label${data.current ? ' is-current' : ''}`;
+
+      const normalizedFlag = String(data.flag || '').toLowerCase();
+      const knownFlags = new Set(['th', 'tw', 'jp', 'ph', 'id']);
+      const flag = document.createElement('span');
+      if (knownFlags.has(normalizedFlag)) {
+        flag.className = `label-flag flag-${normalizedFlag}`;
+      } else {
+        flag.className = 'label-flag-emoji';
+        flag.textContent = countryFlagEmoji(normalizedFlag);
+      }
+
+      const copy = document.createElement('span');
+      copy.className = 'label-copy';
+      copy.textContent = data.name;
+      element.append(flag, copy);
+      return element;
+    }
+
+    function activeVisitLabels() {
+      switch (labelMode) {
+        case 'cities': return cityVisitLabels;
+        case 'countries': return countryVisitLabels;
+        case 'days': return dayVisitLabels;
+        default: return [];
+      }
+    }
+
+    function cameraDistanceInDegrees(lat1, lng1, lat2, lng2) {
+      const toRadians = value => value * Math.PI / 180;
+      const a = toRadians(lat1), b = toRadians(lat2);
+      const deltaLat = toRadians(lat2 - lat1);
+      const deltaLng = toRadians(lng2 - lng1);
+      const value = Math.sin(deltaLat / 2) ** 2 + Math.cos(a) * Math.cos(b) * Math.sin(deltaLng / 2) ** 2;
+      return Math.acos(Math.max(-1, Math.min(1, 1 - 2 * value))) * 180 / Math.PI;
+    }
+
+    function countryLabelBudget(altitude) {
+      if (altitude > 3.2) return 18;
+      if (altitude > 1.8) return 42;
+      return 96;
+    }
+
+    function visibleCountryLabels() {
+      const pov = globe?.pointOfView?.() || { lat: 0, lng: 0, altitude: 2.5 };
+      const budget = countryLabelBudget(Number(pov.altitude) || 2.5);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const candidates = staticCountryLabels
+        .filter(item => cameraDistanceInDegrees(pov.lat, pov.lng, item.lat, item.lng) < 94)
+        .map(item => ({ ...item, screen: globe.getScreenCoords(item.lat, item.lng, 0.02) }))
+        .filter(item => item.screen && Number.isFinite(item.screen.x) && Number.isFinite(item.screen.y))
+        .filter(item => item.screen.x > 12 && item.screen.x < width - 12 && item.screen.y > 32 && item.screen.y < height - 24)
+        .sort((a, b) => (a.labelRank - b.labelRank) || (a.populationRank - b.populationRank));
+      const occupied = [];
+      const accepted = [];
+      for (const item of candidates) {
+        if (accepted.length >= budget) break;
+        const labelWidth = Math.max(44, item.name.length * (isChineseLocale() ? 12 : 7) + 10);
+        const rect = { left: item.screen.x - labelWidth / 2, right: item.screen.x + labelWidth / 2, top: item.screen.y - 10, bottom: item.screen.y + 10 };
+        if (occupied.some(other => rect.left < other.right && rect.right > other.left && rect.top < other.bottom && rect.bottom > other.top)) continue;
+        occupied.push(rect);
+        accepted.push(item);
+      }
+      return accepted;
+    }
+
+    let countryLabelBuildFrame;
+    function scheduleCountryLabelBuild() {
+      if (countryLabelBuildFrame) return;
+      countryLabelBuildFrame = requestAnimationFrame(() => {
+        countryLabelBuildFrame = null;
+        buildCountryLabels();
+      });
+    }
+
+    function buildCountryLabels() {
+      const activeLabels = activeVisitLabels();
+      const visitedCodes = new Set(
+        labelMode === 'countries' ? activeLabels.map(item => item.code) : []
+      );
+      globe.htmlElementsData([
+        ...visibleCountryLabels()
+          .filter(item => !visitedCodes.has(item.code))
+          .map(item => ({ ...item, kind: 'country-name' })),
+        ...activeLabels
+      ])
+        .htmlLat(d => d.lat)
+        .htmlLng(d => d.lng)
+        .htmlAltitude(d => d.kind === 'country-name' ? 0.018 : (d.current ? 0.055 : 0.035))
+        .htmlElement(d => {
+          if (d.kind !== 'country-name') return makeCapsuleLabel(d);
+          const element = document.createElement('div');
+          element.className = `country-label${d.large ? ' is-large' : ''}`;
+          element.textContent = countryNameFor(d.code, d.name);
+          return element;
+        })
+        .htmlTransitionDuration(240);
+    }
+
+    function rebuildVisitLabels() {
+      const coordinateVisits = visits.filter(visit => {
+        const hasCoordinates = visit.latitude !== null && visit.longitude !== null
+          && Number.isFinite(Number(visit.latitude)) && Number.isFinite(Number(visit.longitude));
+        return hasCoordinates && !String(visit.cityID || '').startsWith('country-');
+      });
+
+      cityVisitLabels = coordinateVisits.map((visit, index) => ({
+        id: `city-${visit.countryID || 'place'}-${visit.cityID || index}`,
+        name: cityNameFor(visit),
+        code: String(visit.countryID || '').toUpperCase(),
+        flag: String(visit.countryID || '').toLowerCase(),
+        lat: Number(visit.latitude),
+        lng: Number(visit.longitude),
+        kind: 'city',
+        current: index === 0
+      }));
+
+      dayVisitLabels = coordinateVisits
+        .filter(visit => Number(visit.days) > 0)
+        .map((visit, index) => ({
+          id: `days-${visit.countryID || 'place'}-${visit.cityID || index}`,
+          name: `${cityNameFor(visit)} · ${dayCountLabel(visit.days)}`,
+          code: String(visit.countryID || '').toUpperCase(),
+          flag: String(visit.countryID || '').toLowerCase(),
+          lat: Number(visit.latitude),
+          lng: Number(visit.longitude),
+          kind: 'days'
+        }));
+
+      const countriesByCode = new Map();
+      visitedCountryCodes.clear();
+      visits.forEach(visit => {
+        const code = String(visit.countryID || '').toUpperCase();
+        if (!code) return;
+        visitedCountryCodes.add(code);
+        if (!countriesByCode.has(code)) countriesByCode.set(code, visit);
+      });
+      countryVisitLabels = Array.from(countriesByCode, ([code, visit]) => {
+        const feature = countryFeatureByCode.get(code);
+        const [lng, lat] = feature
+          ? featureLabelPoint(feature)
+          : [Number(visit.longitude), Number(visit.latitude)];
+        if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+        const localizedFallback = isChineseLocale() ? visit.countryName?.zhHans : visit.countryName?.en;
+        return {
+          id: `visited-country-${code}`,
+          code,
+          name: countryNameFor(code, localizedFallback || feature.properties?.ADMIN || code),
+          flag: code.toLowerCase(),
+          lat,
+          lng,
+          kind: 'country'
+        };
+      }).filter(Boolean);
+
+      buildCountryLabels();
+      refreshCountryPolygons();
+    }
+
+    globe = new Globe(mount, { animateIn: true, waitForGlobeReady: true, rendererConfig: { antialias: true, alpha: true, powerPreference: 'high-performance' } })
+      .globeImageUrl('__EARTH_BLUE_MARBLE__')
+      .bumpImageUrl('__EARTH_WATER__')
+      .backgroundImageUrl('__NIGHT_SKY__')
+      .showAtmosphere(true)
+      .atmosphereColor('#4fa8ff')
+      .atmosphereAltitude(0.18)
+      .showGraticules(false)
+      .polygonsData(countryFeatures)
+      .polygonAltitude(0.006)
+      .polygonCapColor(countryFillColor)
+      .polygonSideColor(countrySideColor)
+      .polygonStrokeColor(countryStrokeColor)
+      .polygonCapCurvatureResolution(3)
+      .enablePointerInteraction(true);
+
+    const controls = globe.controls();
+    controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.22;
+    controls.minDistance = 118;
+    controls.maxDistance = 680;
+    globe.onZoom(() => scheduleCountryLabelBuild());
+
+    buildCountryLabels();
+    const initialAltitude = window.innerHeight > window.innerWidth * 1.2 ? 4.8 : 1.75;
+    globe.pointOfView({ lat: 20, lng: 105, altitude: initialAltitude }, 0);
+    buildCountryLabels();
+    globe.onGlobeClick(() => { controls.autoRotate = false; });
+
+    window.setGlobeLabels = (visible) => document.body.classList.toggle('labels-hidden', !visible);
+    window.setGlobeLabels(true);
+    window.setGlobeVisits = (value) => {
+      if (!Array.isArray(value)) return;
+      visits = value;
+      rebuildVisitLabels();
+    };
+    window.setGlobeLocale = (value) => {
+      localeIdentifier = value || 'zh-Hans';
+      rebuildVisitLabels();
+    };
+    window.setGlobeLabelMode = (value) => {
+      labelMode = ['cities', 'countries', 'days'].includes(value) ? value : 'none';
+      buildCountryLabels();
+    };
+    window.addEventListener('resize', () => globe.width(window.innerWidth).height(window.innerHeight));
+  </script>
+</body>
+</html>

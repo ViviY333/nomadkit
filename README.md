@@ -25,6 +25,10 @@ The v0.1 app uses bundled JSON and mock services so it remains testable without 
 
 The scheme passes `-onboarding-reset` during development so the onboarding flow is shown after each launch. Remove that launch argument to test persisted data.
 
+## Visa data
+
+Residency uses the keyless, MIT-licensed [Passport Index Data](https://github.com/imorte/passport-index-data) matrix by default, with Toshiko as a secondary fallback. To enable Travel Buddy's daily-updated passport map, subscribe to its free RapidAPI plan and add `TRAVEL_BUDDY_API_KEY` under **Scheme > Run > Arguments > Environment Variables**. Results are cached per passport for seven days; the key is not stored in the repository or app bundle.
+
 ## Tests
 
 Run the unit-test target from Xcode, or use:

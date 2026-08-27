@@ -3,6 +3,7 @@
     "build:cobe": "node scripts/build-cobe.mjs"
   },
   "dependencies": {
+    "globe.gl": "^2.46.1",
     "reicon-react": "^1.1.302",
     "world-countries": "^5.1.0"
   },

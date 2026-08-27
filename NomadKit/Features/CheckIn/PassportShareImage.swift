@@ -18,10 +18,11 @@ struct RenderedPassport: Identifiable {
 enum PassportImageRenderer {
     static let outputSize = CGSize(width: 1_080, height: 1_920)
 
-    static func render(content: PassportShareContent) -> UIImage? {
+    static func render(content: PassportShareContent, locale: Locale = .current) -> UIImage? {
         let card = PassportShareCard(content: content)
             .frame(width: 360, height: 640)
             .environment(\.colorScheme, .dark)
+            .environment(\.locale, locale)
 
         let renderer = ImageRenderer(content: card)
         renderer.scale = 3
@@ -31,6 +32,7 @@ enum PassportImageRenderer {
 }
 
 struct PassportShareCard: View {
+    @Environment(\.locale) private var locale
     let content: PassportShareContent
 
     var body: some View {
@@ -112,9 +114,9 @@ struct PassportShareCard: View {
 
     private var title: String {
         guard !content.travelerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            return String(localized: "passport.image.title")
+            return appLocalized("passport.image.title", locale: locale)
         }
-        let format = NSLocalizedString("passport.image.named.title", comment: "Named nomad passport title")
+        let format = appLocalized("passport.image.named.title", locale: locale)
         return String.localizedStringWithFormat(format, content.travelerName)
     }
 }

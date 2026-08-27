@@ -7,8 +7,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.0"
-    CURRENT_PROJECT_VERSION: 1
-    MARKETING_VERSION: 0.2.0
+    CURRENT_PROJECT_VERSION: 105
+    MARKETING_VERSION: 1.0.3
     CODE_SIGN_STYLE: Automatic
 targets:
   NomadKit:
@@ -18,7 +18,7 @@ targets:
       - path: NomadKit
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.app
+        PRODUCT_BUNDLE_IDENTIFIER: vvstudio.co.Nomad-toolkit
         PRODUCT_NAME: NomadKit
         GENERATE_INFOPLIST_FILE: NO
         INFOPLIST_FILE: NomadKit-Info.plist
@@ -28,7 +28,9 @@ targets:
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
         INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: NomadKit uses your location to show your current city and nearby essentials.
         TARGETED_DEVICE_FAMILY: 1
+        DEVELOPMENT_TEAM: D8YA5U2CHV
     scheme:
+      storeKitConfiguration: NomadKit/Resources/NomadKit.storekit
       commandLineArguments:
         "-onboarding-reset": true
       testTargets:
@@ -41,11 +43,15 @@ targets:
       - path: NomadKitTests
       - path: NomadKit/Resources/Data/cities.json
         buildPhase: resources
+      - path: NomadKit/Resources/Data/city_directory.json
+        buildPhase: resources
       - path: NomadKit/Resources/Data/safety_checklist.json
         buildPhase: resources
       - path: NomadKit/Resources/Data/visa_articles.json
         buildPhase: resources
       - path: NomadKit/Resources/Data/badges.json
+        buildPhase: resources
+      - path: NomadKit/Resources/NomadKit.storekit
         buildPhase: resources
     dependencies:
       - target: NomadKit

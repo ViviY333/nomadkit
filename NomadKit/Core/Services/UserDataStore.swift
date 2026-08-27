@@ -11,7 +11,61 @@ struct ResolvedPlace: Equatable {
     let longitude: Double
 }
 
-private enum LocationRequestError: LocalizedError {
+struct CityDirectoryEntry: Codable, Identifiable, Hashable {
+    let id: Int
+    let name: String
+    let asciiName: String
+    let alternateNames: [String]
+    let countryCode: String
+    let admin1: String
+    let latitude: Double
+    let longitude: Double
+    let population: Int
+}
+
+struct CityDirectory {
+    let cities: [CityDirectoryEntry]
+
+    init(bundle: Bundle = .main) {
+        guard let url = bundle.url(forResource: "city_directory", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let payload = try? JSONDecoder().decode(Payload.self, from: data) else {
+            cities = []
+            return
+        }
+        cities = payload.cities
+    }
+
+    func cities(for countryCode: String, limit: Int? = nil) -> [CityDirectoryEntry] {
+        let matches = cities.filter { $0.countryCode == countryCode.uppercased() }
+        guard let limit else { return matches }
+        return Array(matches.prefix(limit))
+    }
+
+    func search(_ query: String, countryCode: String) -> [CityDirectoryEntry] {
+        let normalizedQuery = Self.normalize(query)
+        guard !normalizedQuery.isEmpty else { return cities(for: countryCode) }
+        return cities(for: countryCode).filter { city in
+            ([city.name, city.asciiName] + city.alternateNames)
+                .contains(where: { Self.normalize($0).contains(normalizedQuery) })
+        }
+    }
+
+    private static func normalize(_ value: String) -> String {
+        value.folding(options: [.diacriticInsensitive, .caseInsensitive, .widthInsensitive], locale: .current)
+            .replacingOccurrences(of: "-", with: " ")
+            .split(whereSeparator: { $0.isWhitespace })
+            .joined(separator: " ")
+    }
+
+    private struct Payload: Codable {
+        let source: String
+        let attribution: String
+        let cities: [CityDirectoryEntry]
+    }
+}
+
+enum LocationRequestError: LocalizedError {
     case servicesDisabled
     case permissionDenied
     case unavailable
@@ -22,6 +76,21 @@ private enum LocationRequestError: LocalizedError {
         case .permissionDenied: "Location permission is denied. Enable Location Services for NomadKit in Settings."
         case .unavailable: "Your current location is temporarily unavailable. Try again or choose a country manually."
         }
+    }
+}
+
+func localizedLocationError(_ error: Error, locale: Locale) -> String {
+    let isChinese = locale.identifier.hasPrefix("zh")
+    guard let locationError = error as? LocationRequestError else {
+        return isChinese ? "无法解析这个位置，请稍后重试。" : "Unable to resolve this location. Try again."
+    }
+    switch locationError {
+    case .servicesDisabled:
+        return isChinese ? "定位服务已关闭，请在设置中开启后重试。" : "Location Services are turned off. Enable them in Settings and try again."
+    case .permissionDenied:
+        return isChinese ? "定位权限被拒绝，请在设置中允许 NomadKit 使用定位。" : "Location permission is denied. Enable Location Services for NomadKit in Settings."
+    case .unavailable:
+        return isChinese ? "暂时无法获取当前位置，请稍后重试或手动选择国家。" : "Your current location is temporarily unavailable. Try again or choose a country manually."
     }
 }
 
@@ -187,6 +256,10 @@ final class UserDataStore {
         didSet { defaults.set(plannedCountryCodes, forKey: Keys.plannedCountryCodes) }
     }
 
+    var plannedCityID: String {
+        didSet { defaults.set(plannedCityID, forKey: Keys.plannedCityID) }
+    }
+
     var preferredComponentIDs: [String] {
         didSet { defaults.set(preferredComponentIDs, forKey: Keys.preferredComponentIDs) }
     }
@@ -205,6 +278,10 @@ final class UserDataStore {
 
     var currentStayStartedAt: Date? {
         didSet { defaults.set(currentStayStartedAt, forKey: Keys.currentStayStartedAt) }
+    }
+
+    var residencyCountryCode: String {
+        didSet { defaults.set(residencyCountryCode, forKey: Keys.residencyCountryCode) }
     }
 
     var selectedCityID: String {
@@ -249,6 +326,13 @@ final class UserDataStore {
 
     var prefersDarkMode: Bool {
         didSet { defaults.set(prefersDarkMode, forKey: Keys.prefersDarkMode) }
+    }
+
+    var appearancePreference: AppearancePreference {
+        didSet {
+            defaults.set(appearancePreference.rawValue, forKey: Keys.appearancePreference)
+            prefersDarkMode = appearancePreference == .dark
+        }
     }
 
     var hasOfflineMapPackage: Bool {
@@ -297,23 +381,32 @@ final class UserDataStore {
         passportNationality = storedPassportNationality
         passportNationalities = defaults.stringArray(forKey: Keys.passportNationalities) ?? [storedPassportNationality]
         plannedCountryCodes = defaults.stringArray(forKey: Keys.plannedCountryCodes) ?? []
+        plannedCityID = defaults.string(forKey: Keys.plannedCityID) ?? ""
         preferredComponentIDs = defaults.stringArray(forKey: Keys.preferredComponentIDs) ?? []
         let storedVisitedCountryCodes = defaults.stringArray(forKey: Keys.visitedCountryCodes) ?? []
         visitedCountryCodes = storedVisitedCountryCodes
         journeyStageID = defaults.string(forKey: Keys.journeyStageID) ?? ""
-        allowedStayUntil = defaults.object(forKey: Keys.allowedStayUntil) as? Date
-        currentStayStartedAt = defaults.object(forKey: Keys.currentStayStartedAt) as? Date
+        let storedAllowedStayUntil = defaults.object(forKey: Keys.allowedStayUntil) as? Date
+        let storedCurrentStayStartedAt = defaults.object(forKey: Keys.currentStayStartedAt) as? Date
+        allowedStayUntil = storedAllowedStayUntil
+        currentStayStartedAt = storedCurrentStayStartedAt
+        residencyCountryCode = defaults.string(forKey: Keys.residencyCountryCode)
+            ?? ((storedAllowedStayUntil != nil && storedCurrentStayStartedAt != nil)
+                ? (defaults.string(forKey: Keys.currentCountryCode) ?? Self.countryCode(forCityID: storedSelectedCityID))
+                : "")
 #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("-onboarding-reset") {
             defaults.removeObject(forKey: Keys.onboardingCompleted)
             defaults.removeObject(forKey: Keys.passportNationality)
             defaults.removeObject(forKey: Keys.passportNationalities)
             defaults.removeObject(forKey: Keys.plannedCountryCodes)
+            defaults.removeObject(forKey: Keys.plannedCityID)
             defaults.removeObject(forKey: Keys.preferredComponentIDs)
             defaults.removeObject(forKey: Keys.visitedCountryCodes)
             defaults.removeObject(forKey: Keys.journeyStageID)
             defaults.removeObject(forKey: Keys.allowedStayUntil)
             defaults.removeObject(forKey: Keys.currentStayStartedAt)
+            defaults.removeObject(forKey: Keys.residencyCountryCode)
             defaults.removeObject(forKey: Keys.currentCountryCode)
             defaults.removeObject(forKey: Keys.currentCityName)
             defaults.removeObject(forKey: Keys.currentDistrictName)
@@ -323,11 +416,13 @@ final class UserDataStore {
             passportNationality = "CN"
             passportNationalities = ["CN"]
             plannedCountryCodes = []
+            plannedCityID = ""
             preferredComponentIDs = []
             visitedCountryCodes = []
             journeyStageID = ""
             allowedStayUntil = nil
             currentStayStartedAt = nil
+            residencyCountryCode = ""
         }
         if ProcessInfo.processInfo.arguments.contains("-ui-testing-reset") {
             onboardingCompleted = true
@@ -356,7 +451,11 @@ final class UserDataStore {
         preferredLanguageCode = defaults.string(forKey: Keys.preferredLanguageCode) ?? ""
         profileAvatarData = defaults.data(forKey: Keys.profileAvatarData)
         usesCurrentLocation = defaults.bool(forKey: Keys.usesCurrentLocation)
-        prefersDarkMode = defaults.bool(forKey: Keys.prefersDarkMode)
+        let storedPrefersDarkMode = defaults.bool(forKey: Keys.prefersDarkMode)
+        prefersDarkMode = storedPrefersDarkMode
+        appearancePreference = AppearancePreference(
+            rawValue: defaults.string(forKey: Keys.appearancePreference) ?? ""
+        ) ?? (storedPrefersDarkMode ? .dark : .system)
         hasOfflineMapPackage = defaults.bool(forKey: Keys.hasOfflineMapPackage)
         offlineMapCityName = defaults.string(forKey: Keys.offlineMapCityName) ?? ""
         appleUserIdentifier = defaults.string(forKey: Keys.appleUserIdentifier)
@@ -382,27 +481,31 @@ final class UserDataStore {
 
     func clearLocalData() {
         let keys = [
-            Keys.passportNationality, Keys.passportNationalities, Keys.plannedCountryCodes,
+            Keys.passportNationality, Keys.passportNationalities, Keys.plannedCountryCodes, Keys.plannedCityID,
             Keys.preferredComponentIDs, Keys.visitedCountryCodes, Keys.journeyStageID,
-            Keys.allowedStayUntil, Keys.currentStayStartedAt, Keys.selectedCityID, Keys.currentCountryCode, Keys.currentCityName,
+            Keys.allowedStayUntil, Keys.currentStayStartedAt, Keys.residencyCountryCode,
+            Keys.selectedCityID, Keys.currentCountryCode, Keys.currentCityName,
             Keys.currentDistrictName,
             Keys.currentLatitude, Keys.currentLongitude, Keys.profileDisplayName,
             Keys.preferredLanguageCode,
             Keys.profileAvatarData, Keys.completedSafetyItemIDs, Keys.visits,
             Keys.favoriteWorkspaceKeys, Keys.favoriteChannelKeys,
             Keys.usesCurrentLocation, Keys.prefersDarkMode, Keys.hasOfflineMapPackage,
-            Keys.offlineMapCityName, Keys.appleUserIdentifier, Keys.appleAccountEmail
+            Keys.offlineMapCityName, Keys.appleUserIdentifier, Keys.appleAccountEmail,
+            Keys.appearancePreference
         ]
         keys.forEach(defaults.removeObject(forKey:))
 
         passportNationality = "CN"
         passportNationalities = ["CN"]
         plannedCountryCodes = []
+        plannedCityID = ""
         preferredComponentIDs = []
         visitedCountryCodes = []
         journeyStageID = ""
         allowedStayUntil = nil
         currentStayStartedAt = nil
+        residencyCountryCode = ""
         selectedCityID = "chiang-mai"
         currentCountryCode = "TH"
         currentCityName = "Chiang Mai"
@@ -414,6 +517,7 @@ final class UserDataStore {
         profileAvatarData = nil
         usesCurrentLocation = false
         prefersDarkMode = false
+        appearancePreference = .system
         hasOfflineMapPackage = false
         offlineMapCityName = ""
         appleUserIdentifier = nil
@@ -531,10 +635,12 @@ final class UserDataStore {
     }
 
     var travelStats: TravelStats {
-        TravelStats(
+        let countryCount = Set(visits.map(\.countryID)).count
+        return TravelStats(
             cityCount: Set(visits.filter { !$0.cityID.hasPrefix("country-") }.map(\.cityID)).count,
-            countryCount: Set(visits.map(\.countryID)).count,
-            totalDays: visits.reduce(0) { $0 + $1.days }
+            countryCount: countryCount,
+            totalDays: visits.reduce(0) { $0 + $1.days },
+            worldCoveragePercent: min(100, Int((Double(countryCount) / 195.0 * 100.0).rounded()))
         )
     }
 
@@ -628,7 +734,8 @@ final class UserDataStore {
     private static func countryCode(forCityID cityID: String) -> String {
         switch cityID {
         case "taipei": "TW"
-        default: "TH"
+        case "chiang-mai", "bangkok": "TH"
+        default: ""
         }
     }
 
@@ -662,9 +769,12 @@ final class UserDataStore {
             ("bangkok", 13.7563, 100.5018),
             ("taipei", 25.0330, 121.5654)
         ]
-        return supported.min { lhs, rhs in
+        guard let closest = supported.min(by: { lhs, rhs in
             hypot(place.latitude - lhs.1, place.longitude - lhs.2) < hypot(place.latitude - rhs.1, place.longitude - rhs.2)
-        }?.0 ?? "chiang-mai"
+        }) else { return "custom-current" }
+
+        let distance = hypot(place.latitude - closest.1, place.longitude - closest.2)
+        return distance < 1.0 ? closest.0 : "custom-current"
     }
 
     private enum Keys {
@@ -678,16 +788,19 @@ final class UserDataStore {
         static let passportNationality = "user.passportNationality"
         static let passportNationalities = "user.passportNationalities"
         static let plannedCountryCodes = "user.plannedCountryCodes"
+        static let plannedCityID = "user.plannedCityID"
         static let preferredComponentIDs = "user.preferredComponentIDs"
         static let visitedCountryCodes = "user.visitedCountryCodes"
         static let journeyStageID = "user.journeyStageID"
         static let allowedStayUntil = "user.allowedStayUntil"
         static let currentStayStartedAt = "user.currentStayStartedAt"
+        static let residencyCountryCode = "user.residencyCountryCode"
         static let profileDisplayName = "user.profileDisplayName"
         static let preferredLanguageCode = "user.preferredLanguageCode"
         static let profileAvatarData = "user.profileAvatarData"
         static let usesCurrentLocation = "user.usesCurrentLocation"
         static let prefersDarkMode = "user.prefersDarkMode"
+        static let appearancePreference = "user.appearancePreference"
         static let hasOfflineMapPackage = "user.hasOfflineMapPackage"
         static let offlineMapCityName = "user.offlineMapCityName"
         static let appleUserIdentifier = "user.appleUserIdentifier"
@@ -696,5 +809,41 @@ final class UserDataStore {
         static let visits = "user.travelVisits"
         static let favoriteWorkspaceKeys = "user.favoriteWorkspaceKeys"
         static let favoriteChannelKeys = "user.favoriteChannelKeys"
+    }
+}
+
+@MainActor
+final class OfflineMapStore {
+    static let shared = OfflineMapStore()
+
+    private let fileManager = FileManager.default
+    private let packageDirectoryName = "OfflineCityPackage"
+    private let resources = ["cities", "safety_checklist", "visa_articles", "badges"]
+
+    private var packageURL: URL {
+        let base = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        return base.appendingPathComponent(packageDirectoryName, isDirectory: true)
+    }
+
+    func download() async throws {
+        try await Task.sleep(for: .milliseconds(250))
+        try fileManager.createDirectory(at: packageURL, withIntermediateDirectories: true)
+        for resource in resources {
+            guard let source = Bundle.main.url(forResource: resource, withExtension: "json") else { continue }
+            let destination = packageURL.appendingPathComponent("\(resource).json")
+            if fileManager.fileExists(atPath: destination.path) {
+                try fileManager.removeItem(at: destination)
+            }
+            try fileManager.copyItem(at: source, to: destination)
+        }
+    }
+
+    func remove() throws {
+        guard fileManager.fileExists(atPath: packageURL.path) else { return }
+        try fileManager.removeItem(at: packageURL)
+    }
+
+    var isAvailable: Bool {
+        fileManager.fileExists(atPath: packageURL.appendingPathComponent("cities.json").path)
     }
 }

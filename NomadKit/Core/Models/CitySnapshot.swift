@@ -20,6 +20,14 @@ struct CitySnapshot: Codable, Identifiable, Hashable {
     let stay: StayWindow
     let disclaimer: LocalizedCopy
 
+    var countryCode: String {
+        switch id {
+        case "taipei": "TW"
+        case "chiang-mai", "bangkok": "TH"
+        default: "TH"
+        }
+    }
+
     var arrivalStatus: String {
         let format = NSLocalizedString("today.arrival.format", comment: "City arrival status")
         return String.localizedStringWithFormat(format, name.value, arrivalDay)
@@ -65,6 +73,33 @@ struct Workspace: Codable, Identifiable, Hashable {
     let detail: LocalizedCopy
     let distanceMeters: Int
     let symbol: String
+    let manuallyVerified: Bool
+    let verifiedAt: String?
+
+    init(id: String, name: String, detail: LocalizedCopy, distanceMeters: Int, symbol: String, manuallyVerified: Bool = false, verifiedAt: String? = nil) {
+        self.id = id
+        self.name = name
+        self.detail = detail
+        self.distanceMeters = distanceMeters
+        self.symbol = symbol
+        self.manuallyVerified = manuallyVerified
+        self.verifiedAt = verifiedAt
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, name, detail, distanceMeters, symbol, manuallyVerified, verifiedAt
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        detail = try values.decode(LocalizedCopy.self, forKey: .detail)
+        distanceMeters = try values.decode(Int.self, forKey: .distanceMeters)
+        symbol = try values.decode(String.self, forKey: .symbol)
+        manuallyVerified = try values.decodeIfPresent(Bool.self, forKey: .manuallyVerified) ?? false
+        verifiedAt = try values.decodeIfPresent(String.self, forKey: .verifiedAt)
+    }
 }
 
 struct LocalReminder: Codable, Identifiable, Hashable {

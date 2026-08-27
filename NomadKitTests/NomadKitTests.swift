@@ -1,8 +1,43 @@
 import XCTest
+import StoreKit
+import StoreKitTest
 @testable import NomadKit
 
 @MainActor
 final class NomadKitTests: XCTestCase {
+    func testStoreKitConfigurationMatchesProductionCatalog() throws {
+        let configurationURL = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "NomadKit", withExtension: "storekit"))
+        _ = try SKTestSession(contentsOf: configurationURL)
+        let data = try Data(contentsOf: configurationURL)
+        let root = try XCTUnwrap(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        let groups = try XCTUnwrap(root["subscriptionGroups"] as? [[String: Any]])
+        let group = try XCTUnwrap(groups.first)
+        let subscriptions = try XCTUnwrap(group["subscriptions"] as? [[String: Any]])
+        let monthly = try XCTUnwrap(subscriptions.first { $0["productID"] as? String == SubscriptionProductID.monthly })
+        let annual = try XCTUnwrap(subscriptions.first { $0["productID"] as? String == SubscriptionProductID.annual })
+        let annualOffer = try XCTUnwrap(annual["introductoryOffer"] as? [String: Any])
+
+        XCTAssertEqual(monthly["displayPrice"] as? String, "2.99")
+        XCTAssertEqual(monthly["recurringSubscriptionPeriod"] as? String, "P1M")
+        XCTAssertEqual(annual["displayPrice"] as? String, "19.99")
+        XCTAssertEqual(annual["recurringSubscriptionPeriod"] as? String, "P1Y")
+        XCTAssertEqual(annualOffer["paymentMode"] as? String, "FreeTrial")
+        XCTAssertEqual(annualOffer["subscriptionPeriod"] as? String, "P3D")
+        XCTAssertEqual(monthly["groupNumber"] as? Int, annual["groupNumber"] as? Int)
+    }
+
+    func testSubscriptionAnalyticsPersistsAggregateEventCounts() throws {
+        let suiteName = "NomadKitSubscriptionAnalyticsTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let analytics = SubscriptionAnalytics(defaults: defaults)
+
+        analytics.track(.paywallViewed, entryPoint: .quickTool)
+        analytics.track(.paywallViewed, entryPoint: .settings)
+
+        XCTAssertEqual(analytics.count(for: .paywallViewed), 2)
+    }
+
     func testCityCatalogDecodesBundledData() throws {
         let bundle = Bundle(for: Self.self)
         let url = try XCTUnwrap(bundle.url(forResource: "cities", withExtension: "json"))
@@ -13,6 +48,36 @@ final class NomadKitTests: XCTestCase {
         XCTAssertEqual(cities.count, 3)
         XCTAssertEqual(cities.first?.id, "chiang-mai")
         XCTAssertEqual(cities.first?.moments.count, 3)
+    }
+
+    func testGlobalCityDirectorySupportsFilteringSearchAndCoordinates() throws {
+        let directory = CityDirectory(bundle: Bundle(for: Self.self))
+        XCTAssertGreaterThan(directory.cities.count, 60_000)
+
+        let thailand = directory.cities(for: "TH")
+        XCTAssertFalse(thailand.isEmpty)
+        XCTAssertEqual(thailand.first?.countryCode, "TH")
+        XCTAssertGreaterThanOrEqual(thailand.first?.population ?? 0, thailand.dropFirst().first?.population ?? 0)
+
+        let chiangMai = directory.search("chiang mai", countryCode: "TH")
+        XCTAssertTrue(chiangMai.contains { $0.asciiName.localizedCaseInsensitiveCompare("Chiang Mai") == .orderedSame })
+        let accented = directory.search("Sao Paulo", countryCode: "BR")
+        XCTAssertTrue(accented.contains { $0.asciiName.localizedCaseInsensitiveCompare("Sao Paulo") == .orderedSame })
+
+        for city in directory.cities(for: "US", limit: 20) {
+            XCTAssertGreaterThanOrEqual(city.latitude, -90)
+            XCTAssertLessThanOrEqual(city.latitude, 90)
+            XCTAssertGreaterThanOrEqual(city.longitude, -180)
+            XCTAssertLessThanOrEqual(city.longitude, 180)
+        }
+    }
+
+    func testKeyLocalizedCopyUsesRequestedLanguage() {
+        let copy = LocalizedCopy(zhHans: "今天 %@ 小时", en: "Today %@ h")
+        XCTAssertEqual(copy.value(for: Locale(identifier: "en")), "Today %@ h")
+        XCTAssertEqual(copy.value(for: Locale(identifier: "zh-Hans")), "今天 %@ 小时")
+        XCTAssertEqual(appLocalized("timezone.relative.format", locale: Locale(identifier: "en")), "Today %@ h")
+        XCTAssertEqual(appLocalized("timezone.relative.format", locale: Locale(identifier: "zh-Hans")), "今天 %@ 小时")
     }
 
     func testTravelCountdownIncludesEntryDay() throws {
@@ -102,6 +167,7 @@ final class NomadKitTests: XCTestCase {
         store.currentLongitude = 121.5654
         store.currentStayStartedAt = Date(timeIntervalSince1970: 1_700_000_000)
         store.allowedStayUntil = Date(timeIntervalSince1970: 1_701_000_000)
+        store.residencyCountryCode = "TW"
         store.preferredLanguageCode = "en"
         store.profileAvatarData = Data([1, 2, 3])
 
@@ -116,6 +182,7 @@ final class NomadKitTests: XCTestCase {
         XCTAssertEqual(restored.currentLongitude, 121.5654)
         XCTAssertEqual(restored.currentStayStartedAt, Date(timeIntervalSince1970: 1_700_000_000))
         XCTAssertEqual(restored.allowedStayUntil, Date(timeIntervalSince1970: 1_701_000_000))
+        XCTAssertEqual(restored.residencyCountryCode, "TW")
         XCTAssertEqual(restored.preferredLanguageCode, "en")
         XCTAssertEqual(restored.profileAvatarData, Data([1, 2, 3]))
 
@@ -130,8 +197,38 @@ final class NomadKitTests: XCTestCase {
         XCTAssertNil(restored.currentLongitude)
         XCTAssertNil(restored.currentStayStartedAt)
         XCTAssertNil(restored.allowedStayUntil)
+        XCTAssertEqual(restored.residencyCountryCode, "")
         XCTAssertEqual(restored.preferredLanguageCode, "")
         XCTAssertNil(restored.profileAvatarData)
+    }
+
+    func testAppearancePreferenceMigratesLegacyDarkMode() throws {
+        let suiteName = "NomadKitAppearanceTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        defaults.set(true, forKey: "user.prefersDarkMode")
+        let store = UserDataStore(defaults: defaults)
+        XCTAssertEqual(store.appearancePreference, .dark)
+
+        store.appearancePreference = .system
+        let restored = UserDataStore(defaults: defaults)
+        XCTAssertEqual(restored.appearancePreference, .system)
+    }
+
+    func testResidencyCountryMigratesFromExistingStay() throws {
+        try XCTSkipIf(ProcessInfo.processInfo.arguments.contains("-onboarding-reset"), "Debug reset arguments intentionally clear stay settings on initialization")
+        let suiteName = "NomadKitResidencyMigrationTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        defaults.set("JP", forKey: "user.currentCountryCode")
+        defaults.set(Date(timeIntervalSince1970: 1_700_000_000), forKey: "user.currentStayStartedAt")
+        defaults.set(Date(timeIntervalSince1970: 1_701_000_000), forKey: "user.allowedStayUntil")
+
+        let store = UserDataStore(defaults: defaults)
+
+        XCTAssertEqual(store.residencyCountryCode, "JP")
     }
 
     func testPassportImageRendersAtStoryResolution() throws {
@@ -165,6 +262,7 @@ final class NomadKitTests: XCTestCase {
         store.recordVisitedCountries(["FR", "DE"])
         XCTAssertEqual(store.travelStats.cityCount, 0)
         XCTAssertEqual(store.travelStats.countryCount, 2)
+        XCTAssertEqual(store.travelStats.worldCoveragePercent, 1)
         XCTAssertEqual(store.recordedCountryCodes, ["DE", "FR"])
 
         store.recordVisitedCountries(["FR"])
@@ -208,6 +306,33 @@ final class NomadKitTests: XCTestCase {
         XCTAssertEqual(visit.countryID, "CN")
         XCTAssertEqual(visit.coordinate?.latitude, 39.9042)
         XCTAssertEqual(store.travelStats, TravelStats(cityCount: 1, countryCount: 1, totalDays: 1))
+        XCTAssertEqual(store.travelStats.worldCoveragePercent, 1)
         XCTAssertEqual(CountryCatalog.stampAsset(for: visit.countryID), "StampCN")
+    }
+
+    func testStampAssetsUseISOCodeNamingConvention() {
+        XCTAssertEqual(CountryCatalog.stampAsset(for: "tw"), "StampTW")
+        XCTAssertEqual(CountryCatalog.stampAsset(for: " BD "), "StampBD")
+        XCTAssertNil(CountryCatalog.stampAsset(for: "invalid"))
+        XCTAssertEqual(CountryCatalog.name(for: "AL").en, "Albania")
+    }
+
+    func testToshikoVisaOutcomesAreNormalized() {
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "no_visa"), .visaFree)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "visa_waiver"), .visaFree)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "free_movement"), .visaFree)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "keta_exempt"), .visaFree)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "esta"), .eTA)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "nzeta"), .eTA)
+        XCTAssertEqual(VisaRequirementKind(toshikoOutcome: "evisitor"), .eTA)
+    }
+
+    func testPassportIndexStatusesAreNormalized() {
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "visa free"), .visaFree)
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "eta"), .eTA)
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "e-visa"), .eVisa)
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "visa on arrival"), .visaOnArrival)
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "visa required"), .visaRequired)
+        XCTAssertEqual(VisaRequirementKind(passportIndexStatus: "no admission"), .check)
     }
 }

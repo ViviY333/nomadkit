@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 private func onboardingString(_ key: String) -> String {
-    NSLocalizedString(key, tableName: "Onboarding", bundle: .main, comment: "")
+    String(localized: String.LocalizationValue(key), table: "Onboarding", bundle: .main, locale: .autoupdatingCurrent)
 }
 
 private enum OnboardingLayout {
@@ -20,7 +20,7 @@ struct OnboardingView: View {
     @State private var step: Step = ProcessInfo.processInfo.arguments.contains("-onboarding-location") ? .currentPlace : .journey
     @State private var history: [Step] = []
     @State private var stage: JourneyStage = .traveling
-    @State private var destinations: Set<Country> = []
+    @State private var plannedCountryCode = ""
     @State private var visitedCountries: Set<Country> = []
     @State private var components: Set<KitTool> = [.visa, .checklist]
     @State private var stayUntil = Calendar.current.date(byAdding: .day, value: 30, to: .now) ?? .now
@@ -53,9 +53,9 @@ struct OnboardingView: View {
 
         var detail: String {
             switch self {
-            case .preparing: "先把下一站需要的事准备好"
-            case .notTraveling: "记录足迹，也慢慢看看下一站"
-            case .traveling: "把当地生活和工作安排明白"
+            case .preparing: onboardingString("journey.preparing.detail")
+            case .notTraveling: onboardingString("journey.notTraveling.detail")
+            case .traveling: onboardingString("journey.traveling.detail")
             }
         }
     }
@@ -142,7 +142,7 @@ struct OnboardingView: View {
             case .visa: .nomadBlue
             case .exchange: .nomadYellow
             case .coworking: .nomadGreen
-            case .connectivity: .nomadInk
+            case .connectivity: .onboardingInk
             case .checklist: .nomadPink
             case .insurance: .nomadLavender
             case .weather: .nomadYellow
@@ -173,12 +173,12 @@ struct OnboardingView: View {
         case .journey:
             JourneyStep(selection: $stage, continueAction: advance)
         case .destination:
-            CountryPickerStep(
+            DestinationPickerStep(
                 title: onboardingString("destination.title"),
-                subtitle: "",
-                selection: $destinations,
+                subtitle: onboardingString("destination.subtitle"),
+                selection: $plannedCountryCode,
                 primaryTitle: onboardingString("continue"),
-                allowSkip: stage == .notTraveling,
+                allowSkip: false,
                 continueAction: advance
             )
         case .currentPlace:
@@ -192,7 +192,7 @@ struct OnboardingView: View {
         case .visited:
             VisitedCountriesStep(selection: $visitedCountries, continueAction: advance)
         case .ready:
-            KitReadyStep(stage: stage, destination: destinations.sorted { $0.englishName < $1.englishName }.first, visitedCount: visitedCountries.count, action: finish)
+            EmptyView()
         }
     }
 
@@ -204,9 +204,9 @@ struct OnboardingView: View {
 
     private var routeSteps: [Step] {
         switch stage {
-        case .traveling: [.journey, .currentPlace, .stayUntil, .tools, .ready]
-        case .preparing: [.journey, .currentPlace, .destination, .departureDate, .tools, .ready]
-        case .notTraveling: [.journey, .currentPlace, .destination, .tools, .ready]
+        case .traveling: [.journey, .currentPlace, .stayUntil, .tools]
+        case .preparing: [.journey, .destination, .departureDate, .tools]
+        case .notTraveling: [.journey, .destination, .tools]
         }
     }
 
@@ -214,7 +214,7 @@ struct OnboardingView: View {
         let next: Step
         switch step {
         case .journey:
-            next = .currentPlace
+            next = stage == .traveling ? .currentPlace : .destination
         case .currentPlace:
             switch stage {
             case .traveling: next = .stayUntil
@@ -228,7 +228,8 @@ struct OnboardingView: View {
         case .departureDate:
             next = .tools
         case .tools:
-            next = .ready
+            finish()
+            return
         case .visited:
             next = .ready
         case .ready:
@@ -269,15 +270,18 @@ struct OnboardingView: View {
     }
 
     private func finish() {
-        guard step == .ready else { return }
+        guard step == .tools else { return }
         userData.journeyStageID = stage.rawValue
-        userData.plannedCountryCodes = destinations.map(\.rawValue).sorted()
+        userData.plannedCountryCodes = plannedCountryCode.isEmpty ? [] : [plannedCountryCode]
+        userData.plannedCityID = ""
         if !visitedCountries.isEmpty {
             userData.recordVisitedCountries(visitedCountries.map(\.rawValue))
         }
         userData.preferredComponentIDs = components.map(\.rawValue).sorted()
-        userData.allowedStayUntil = useStayDate ? stayUntil : nil
-        userData.currentStayStartedAt = useStayDate ? stayStartedAt : nil
+        let hasCurrentStay = stage == .traveling && useStayDate
+        userData.allowedStayUntil = hasCurrentStay ? stayUntil : nil
+        userData.currentStayStartedAt = hasCurrentStay ? stayStartedAt : nil
+        userData.residencyCountryCode = hasCurrentStay ? userData.currentCountryCode : ""
 
         userData.onboardingCompleted = true
     }
@@ -309,7 +313,7 @@ private struct OnboardingStepChrome: View {
             HStack(spacing: 4) {
                 ForEach(0..<3, id: \.self) { index in
                     Capsule()
-                            .fill(Color.nomadInk.opacity(index == activeIndex ? 0.75 : 0.14))
+                            .fill(Color.onboardingInk.opacity(index == activeIndex ? 0.75 : 0.14))
                         .frame(width: index == activeIndex ? 26 : 18, height: 7)
                 }
             }
@@ -319,7 +323,7 @@ private struct OnboardingStepChrome: View {
                 if let skipAction {
                     Button(onboardingString("skip"), action: skipAction)
                         .font(.onboarding(14, weight: .semibold, relativeTo: .subheadline))
-                            .foregroundStyle(Color.nomadInk.opacity(0.42))
+                            .foregroundStyle(Color.onboardingInk.opacity(0.42))
                         .contentShape(Rectangle())
                 }
             }
@@ -381,6 +385,7 @@ private struct JourneyStep: View {
                     }
                 }
                 .frame(maxHeight: .infinity)
+                .offset(y: -20)
                 .clipped()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -401,8 +406,13 @@ private struct JourneyStep: View {
             }
             .onEnded { value in
                 let projected = value.predictedEndTranslation.width
-                if projected < -42 { moveSelection(by: 1) }
-                else if projected > 42 { moveSelection(by: -1) }
+                if projected < -42 {
+                    NomadHaptics.play(.selection)
+                    moveSelection(by: 1)
+                } else if projected > 42 {
+                    NomadHaptics.play(.selection)
+                    moveSelection(by: -1)
+                }
             }
     }
 
@@ -481,7 +491,7 @@ private struct JourneyStep: View {
 
             Text(stage.title)
                 .font(.onboarding(isSelected ? 24 : 13.5, weight: .medium, relativeTo: isSelected ? .title2 : .caption))
-                .foregroundStyle(Color(red: 0.04, green: 0.05, blue: 0.06))
+                .foregroundStyle(Color.onboardingInk)
                 .multilineTextAlignment(.center)
                 .lineLimit(isSelected ? 2 : 1)
                 .minimumScaleFactor(0.65)
@@ -581,7 +591,7 @@ private struct CurrentPlaceStep: View {
                 OnboardingTitle(title: onboardingString("location.title"), subtitle: "")
                 VStack(spacing: 14) {
                     HStack(spacing: 14) {
-                        Image(systemName: "location.fill").foregroundStyle(Color.nomadSky).frame(width: 42, height: 42).background(Color.nomadSky.opacity(0.12), in: Circle())
+                        Image(systemName: "location.fill").foregroundStyle(Color.onboardingInk).frame(width: 42, height: 42).background(Color.onboardingInk.opacity(0.12), in: Circle())
                         VStack(alignment: .leading, spacing: 3) {
                             Text(hasRequestedLocation ? (selectedCityName ?? onboardingString("location.detected")) : onboardingString("location.system"))
                                 .font(.onboarding(17, weight: .semibold, relativeTo: .headline))
@@ -591,12 +601,15 @@ private struct CurrentPlaceStep: View {
                         }
                         Spacer()
                         Image(systemName: hasRequestedLocation ? "checkmark.circle.fill" : "location.circle")
-                            .foregroundStyle(Color.nomadSky)
+                            .foregroundStyle(Color.onboardingInk)
                     }
                     .padding(16)
-                    .background(Color.nomadSky.opacity(0.075), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    .background(Color.onboardingInk.opacity(0.075), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                     .contentShape(Rectangle())
-                    .onTapGesture { Task { await locate() } }
+                    .onTapGesture {
+                        NomadHaptics.play(.tap)
+                        Task { await locate() }
+                    }
 
                     if let locationError {
                         VStack(alignment: .leading, spacing: 9) {
@@ -608,11 +621,12 @@ private struct CurrentPlaceStep: View {
                                     guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
                                     UIApplication.shared.open(settingsURL)
                                 } label: {
-                                    Label("打开系统设置", systemImage: "gearshape")
+                                    Label(onboardingString("location.openSettings"), systemImage: "gearshape")
                                         .font(.onboarding(13, weight: .semibold, relativeTo: .subheadline))
                                 }
                                 .buttonStyle(.bordered)
-                                .tint(Color.nomadSky)
+                                .nomadHapticTap()
+                                .tint(Color.onboardingInk)
                             }
                         }
                     }
@@ -657,7 +671,7 @@ private struct CurrentPlaceStep: View {
                                             .frame(height: 52)
                                             .contentShape(Rectangle())
                                         }
-                                        .buttonStyle(.plain)
+                                        .buttonStyle(NomadPlainButtonStyle())
                                     }
                                 }
                             }
@@ -669,7 +683,7 @@ private struct CurrentPlaceStep: View {
                             searchFocused = true
                         } label: {
                             HStack { Image(systemName: "magnifyingglass"); Text(onboardingString("location.change")); Spacer(); Image(systemName: "chevron.right") }
-                                .font(.onboarding(15, weight: .medium, relativeTo: .subheadline)).foregroundStyle(.primary).padding(16).background(.white, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                                .font(.onboarding(15, weight: .medium, relativeTo: .subheadline)).foregroundStyle(Color.onboardingInk).padding(16).background(.white, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                         }
                         .buttonStyle(PressableScaleButtonStyle())
                     }
@@ -688,7 +702,7 @@ private struct CurrentPlaceStep: View {
             selectedCityName = place.city
             withAnimation(.smooth(duration: 0.22)) { hasRequestedLocation = true }
         } catch {
-            locationError = error.localizedDescription
+            locationError = localizedLocationError(error, locale: Locale.autoupdatingCurrent)
             isSearching = true
             searchFocused = true
         }
@@ -720,7 +734,8 @@ private struct StayUntilStep: View {
                 OnboardingTitle(title: onboardingString("stay.title"), subtitle: "")
                 Toggle(onboardingString("stay.reminder"), isOn: $isEnabled)
                     .font(.subheadline.weight(.semibold))
-                    .tint(Color.nomadSky)
+                    .tint(Color.onboardingInk)
+                    .sensoryFeedback(.selection, trigger: isEnabled)
                     .padding(.top, OnboardingLayout.sectionSpacing)
                 if isEnabled {
                     VStack(spacing: 14) {
@@ -735,7 +750,7 @@ private struct StayUntilStep: View {
                     .transition(.opacity.combined(with: .move(edge: .top)))
                 } else {
                     HStack(spacing: 12) {
-                        Image(systemName: "bell.badge").foregroundStyle(Color.nomadSky)
+                        Image(systemName: "bell.badge").foregroundStyle(Color.onboardingInk)
                         Text(onboardingString("stay.later"))
                             .font(.subheadline).foregroundStyle(.secondary)
                     }
@@ -813,7 +828,7 @@ private struct ToolsStep: View {
                 .frame(height: max(proxy.size.height - 86, 0), alignment: .top)
                 .frame(maxHeight: .infinity, alignment: .top)
 
-                Button(onboardingString("continue"), action: continueAction)
+                Button(onboardingString("tools.enterHome"), action: continueAction)
                     .buttonStyle(OnboardingPrimaryButtonStyle())
                     .frame(maxWidth: 337)
             }
@@ -833,7 +848,7 @@ private struct ToolsStep: View {
                     .frame(width: 78, height: 78)
                     .background(Color.white, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .shadow(color: Color.nomadInk.opacity(0.08), radius: 12, y: 6)
+                    .shadow(color: Color.onboardingInk.opacity(0.08), radius: 12, y: 6)
                     .overlay(alignment: .topTrailing) {
                         selectionBadge(isSelected: selection.contains(tool))
                             .offset(x: 10, y: -7)
@@ -841,7 +856,7 @@ private struct ToolsStep: View {
 
                 Text(toolTitle(tool))
                     .font(.onboarding(14, weight: .semibold, relativeTo: .subheadline))
-                    .foregroundStyle(Color.nomadInk)
+                    .foregroundStyle(Color.onboardingInk)
                     .frame(width: 102)
                     .lineLimit(1)
             }
@@ -856,7 +871,7 @@ private struct ToolsStep: View {
     private func selectionBadge(isSelected: Bool) -> some View {
         ZStack {
             Circle()
-                .fill(isSelected ? Color.nomadInk : Color.nomadLavender.opacity(0.48))
+                .fill(isSelected ? Color.onboardingInk : Color.nomadLavender.opacity(0.48))
                 .overlay { Circle().stroke(.white, lineWidth: 2) }
                 .shadow(color: .black.opacity(0.08), radius: 3, y: 2)
             if isSelected {
@@ -897,7 +912,7 @@ private struct ToolArtwork: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color.nomadSurface)
+            .background(Color.onboardingSurface)
         case .coworking:
             artworkImage("OnboardingCoworking", contentMode: .fill)
         case .connectivity:
@@ -921,7 +936,7 @@ private struct ToolArtwork: View {
                 Image(systemName: "cloud.bolt.rain.fill")
                     .font(.system(size: 34))
                     .symbolRenderingMode(.palette)
-                    .foregroundStyle(Color.nomadInk, Color.nomadYellow, Color.nomadBlue)
+                    .foregroundStyle(Color.onboardingInk, Color.nomadYellow, Color.nomadBlue)
                     .offset(x: 43, y: 43)
             }
         }
@@ -969,7 +984,7 @@ struct VisitedCountriesStep: View {
                 VStack(spacing: 16) {
                     Text(onboardingString("visited.title"))
                         .font(.onboarding(28, weight: .semibold, relativeTo: .title))
-                        .foregroundStyle(Color.nomadInk)
+                        .foregroundStyle(Color.onboardingInk)
                 }
                 .padding(.top, OnboardingLayout.titleTop)
 
@@ -988,10 +1003,10 @@ struct VisitedCountriesStep: View {
 
                     HStack(alignment: .firstTextBaseline, spacing: 1) {
                         Text("\(selection.count)")
-                            .foregroundStyle(Color.nomadInk)
+                            .foregroundStyle(Color.onboardingInk)
                         Text("/200")
                             .font(.system(size: 12, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.nomadInk.opacity(0.5))
+                            .foregroundStyle(Color.onboardingInk.opacity(0.5))
                     }
                     .font(.system(size: 14, weight: .medium, design: .rounded))
                     if searchFocused {
@@ -1007,7 +1022,10 @@ struct VisitedCountriesStep: View {
                 .padding(.horizontal, 21)
                 .padding(.top, OnboardingLayout.sectionSpacing)
                 .contentShape(Rectangle())
-                .onTapGesture { searchFocused = true }
+                .onTapGesture {
+                    NomadHaptics.play(.tap)
+                    searchFocused = true
+                }
 
                 ScrollView {
                     LazyVStack(spacing: 0) {
@@ -1053,7 +1071,7 @@ struct VisitedCountriesStep: View {
 
                 Text(country.title)
                     .font(.onboarding(14, weight: .medium, relativeTo: .subheadline))
-                    .foregroundStyle(Color.nomadInk)
+                    .foregroundStyle(Color.onboardingInk)
                     .lineLimit(1)
                     .minimumScaleFactor(0.82)
 
@@ -1062,7 +1080,7 @@ struct VisitedCountriesStep: View {
                 if selection.contains(country) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundStyle(Color.nomadInk)
+                        .foregroundStyle(Color.onboardingInk)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -1089,6 +1107,115 @@ struct VisitedCountriesStep: View {
         } else if selection.count < 200 {
             selection.insert(country)
         }
+    }
+}
+
+private struct DestinationPickerStep: View {
+    let title: String
+    let subtitle: String
+    @Binding var selection: String
+    let primaryTitle: String
+    let allowSkip: Bool
+    let continueAction: () -> Void
+    @State private var searchText = ""
+    @Environment(\.locale) private var locale
+
+    private let popular = OnboardingView.Country.digitalNomadFavorites
+
+    private var countries: [OnboardingView.Country] {
+        OnboardingView.Country.allCases.filter { country in
+            searchText.isEmpty
+                || countryName(country).localizedCaseInsensitiveContains(searchText)
+                || country.englishName.localizedCaseInsensitiveContains(searchText)
+                || country.rawValue.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+
+    private var groupedCountries: [(key: String, value: [OnboardingView.Country])] {
+        let popularSet = Set(popular)
+        let remaining = searchText.isEmpty ? countries.filter { !popularSet.contains($0) } : countries
+        return Dictionary(grouping: remaining) { country in
+            String(countryName(country).prefix(1)).uppercased()
+        }
+        .map { (key: $0.key, value: $0.value.sorted { countryName($0) < countryName($1) }) }
+        .sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
+    }
+
+    var body: some View {
+        OnboardingFloatingStep(
+            buttonTitle: primaryTitle,
+            action: continueAction,
+            isEnabled: !selection.isEmpty || allowSkip
+        ) {
+            VStack(alignment: .leading, spacing: 0) {
+                OnboardingTitle(title: title, subtitle: subtitle)
+                HStack(spacing: 9) {
+                    Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
+                    TextField(onboardingString("countries.search"), text: $searchText)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                }
+                .frame(height: 46)
+                .padding(.top, OnboardingLayout.sectionSpacing)
+
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
+                        if searchText.isEmpty {
+                            Text(onboardingString("countries.popular"))
+                                .font(.onboarding(12, weight: .semibold, relativeTo: .caption))
+                                .foregroundStyle(.secondary)
+                                .padding(.vertical, 10)
+                            ForEach(popular) { country in
+                                countryRow(country)
+                            }
+                        }
+                        ForEach(groupedCountries, id: \.key) { group in
+                            Section {
+                                ForEach(group.value) { country in
+                                    countryRow(country)
+                                }
+                            } header: {
+                                Text(group.key)
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(.secondary)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.vertical, 10)
+                                    .background(Color.white)
+                            }
+                        }
+                    }
+                }
+                .padding(.top, 8)
+                .frame(maxHeight: .infinity)
+            }
+        }
+    }
+
+    private func countryName(_ country: OnboardingView.Country) -> String {
+        locale.localizedString(forRegionCode: country.rawValue) ?? country.englishName
+    }
+
+    private func countryRow(_ country: OnboardingView.Country) -> some View {
+        Button { selection = country.rawValue } label: {
+            HStack(spacing: 12) {
+                Text(country.flag).font(.title3)
+                Text(countryName(country))
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(Color.onboardingInk)
+                Spacer()
+                Image(systemName: selection == country.rawValue ? "checkmark.circle.fill" : "circle")
+                    .foregroundStyle(selection == country.rawValue ? Color.onboardingInk : Color.black.opacity(0.2))
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 2)
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(PressableScaleButtonStyle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(countryName(country))
+        .accessibilityIdentifier("onboarding.destination.\(country.rawValue)")
+        .accessibilityAddTraits(selection == country.rawValue ? .isSelected : [])
     }
 }
 
@@ -1172,10 +1299,10 @@ private struct CountryPickerStep: View {
         Button { toggle(country) } label: {
             HStack(spacing: 12) {
                 Text(country.flag).font(.title3)
-                Text(country.title).font(.subheadline.weight(.medium)).foregroundStyle(.primary)
+                Text(country.title).font(.subheadline.weight(.medium)).foregroundStyle(Color.onboardingInk)
                 Spacer()
                 Image(systemName: selection.contains(country) ? "checkmark.circle.fill" : "circle")
-                    .foregroundStyle(selection.contains(country) ? Color.nomadSky : Color.black.opacity(0.2))
+                    .foregroundStyle(selection.contains(country) ? Color.onboardingInk : Color.black.opacity(0.2))
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 2)
@@ -1203,14 +1330,14 @@ private struct KitReadyStep: View {
                 Spacer(minLength: 12)
                 ZStack {
                     RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(Color.nomadSurface)
+                        .fill(Color.onboardingSurface)
                         .frame(width: 226, height: 155)
-                        .overlay { RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(Color.nomadInk.opacity(0.2), lineWidth: 2) }
-                    Rectangle().fill(Color.nomadInk.opacity(0.24)).frame(width: 3, height: 154)
-                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.nomadInk.opacity(0.34), lineWidth: 5).frame(width: 82, height: 27).offset(y: -91)
+                        .overlay { RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(Color.onboardingInk.opacity(0.2), lineWidth: 2) }
+                    Rectangle().fill(Color.onboardingInk.opacity(0.24)).frame(width: 3, height: 154)
+                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.onboardingInk.opacity(0.34), lineWidth: 5).frame(width: 82, height: 27).offset(y: -91)
                     VStack(spacing: 6) {
-                        Image(systemName: "suitcase.rolling.fill").font(.system(size: 38)).foregroundStyle(Color.nomadInk)
-                        Text("NOMAD KIT").font(.vastago(11, weight: .bold, relativeTo: .caption2)).tracking(1.3).foregroundStyle(Color.nomadInk)
+                        Image(systemName: "suitcase.rolling.fill").font(.system(size: 38)).foregroundStyle(Color.onboardingInk)
+                        Text("NOMAD KIT").font(.vastago(11, weight: .bold, relativeTo: .caption2)).tracking(1.3).foregroundStyle(Color.onboardingInk)
                     }
                     .rotationEffect(.degrees(-3))
                     .offset(x: 54, y: 12)
@@ -1223,6 +1350,7 @@ private struct KitReadyStep: View {
                 .padding(.top, 44)
                 Text(readyTitle)
                     .font(.onboarding(28, weight: .semibold, relativeTo: .title))
+                    .foregroundStyle(Color.onboardingInk)
                     .multilineTextAlignment(.center)
                     .padding(.top, 46)
                 Spacer()
@@ -1272,7 +1400,7 @@ private struct OnboardingTitle: View {
         VStack(alignment: .center, spacing: 0) {
             Text(title)
                 .font(.onboarding(28, weight: .semibold, relativeTo: .title))
-                .foregroundStyle(Color.nomadInk)
+                .foregroundStyle(Color.onboardingInk)
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -1288,9 +1416,10 @@ private struct OnboardingPrimaryButtonStyle: ButtonStyle {
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .frame(height: 64)
-            .background(Color.nomadInk, in: Capsule())
+            .background(Color.onboardingInk, in: Capsule())
             .overlay { Capsule().stroke(.white.opacity(0.14), lineWidth: 0.75) }
-            .shadow(color: Color.nomadInk.opacity(0.22), radius: 12, y: 8)
+            .modifier(NomadPressFeedbackModifier(isPressed: configuration.isPressed))
+            .shadow(color: Color.onboardingInk.opacity(0.22), radius: 12, y: 8)
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
             .animation(.smooth(duration: 0.15), value: configuration.isPressed)
     }

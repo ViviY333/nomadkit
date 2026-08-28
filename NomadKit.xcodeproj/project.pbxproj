@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		062297E23CAC547B875ABE5B /* VisaLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7372F9C5D18EEAF63A1A1E /* VisaLibraryViewModel.swift */; };
-		0A1B2C3D4E5F678901234567 /* calanear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F789001234567 /* calanear.png */; };
-		0A1B2C3D4E5F678901234568 /* checklist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F789001234568 /* checklist.png */; };
-		0A1B2C3D4E5F678901234569 /* insurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F789001234569 /* insurance.png */; };
-		0A1B2C3D4E5F67890123456A /* secuiriy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F78900123456A /* secuiriy.png */; };
-		0A1B2C3D4E5F67890123456B /* traansport.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F78900123456B /* traansport.png */; };
+		0A29AB5D19936E6988E7CF2B /* earth-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 091486753910F0D839533260 /* earth-night.jpg */; };
 		0C5D76130F68F336B2D089D7 /* Subscription.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4638F1DD8AB4560B543CB6A /* Subscription.strings */; };
+		0F4D811EBB8EB066A9374B41 /* VisaAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0739D95365249B883CF29136 /* VisaAssessmentView.swift */; };
 		141FEF3755349ADC145FDF68 /* safety_checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */; };
 		20E33A3BF733D2B79B39D7E9 /* PACKING_PHOTO_SOURCES.md in Resources */ = {isa = PBXBuildFile; fileRef = E10897386B7E31BCDDF96F7C /* PACKING_PHOTO_SOURCES.md */; };
 		253B8ED63898A05D65DF4CB2 /* VisaArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DE4AA4AD00AD0ECECCC66 /* VisaArticle.swift */; };
@@ -29,15 +26,15 @@
 		46FE11B131D1FD145DBE0BB4 /* NomadKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754A2255F40388429B5C473 /* NomadKitTests.swift */; };
 		474E4702556FE1271AE8C6F5 /* sim.png in Resources */ = {isa = PBXBuildFile; fileRef = 91AD7D7848DC0339573B806E /* sim.png */; };
 		49ECA11ECB620BDBB6B426AB /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */; };
+		4AAE81688551BDC3E814F41C /* InteractionFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369018A5EEFB5D3B04B2C0C /* InteractionFeedback.swift */; };
 		4B8629C4C4EF1DE7D91992FB /* electronics.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A5C3BD77B339E1388602ABE /* electronics.png */; };
+		4D47DC02B96F5292D700A1C8 /* earth-blue-marble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A16480A5B7F593CD145EA1B3 /* earth-blue-marble.jpg */; };
 		5063F96DD19844521F35E7A7 /* VastagoGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6010E4672DB0EFB514343 /* VastagoGrotesk-Regular.otf */; };
 		54C58F659083D29A44E216F6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3979A353ED1D5AC365F98F2 /* OnboardingView.swift */; };
 		566C02B5F2F3C954A1A7D0C3 /* PassportShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */; };
 		5825C4E3D5C932E35A36A61B /* TravelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1148D7656CFD2D6994CA8 /* TravelProfile.swift */; };
 		583B1A942C90EAD58224D3E6 /* VastagoGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A104CF92F2DC14E39E9C7BAD /* VastagoGrotesk-Bold.otf */; };
 		5C403EEC2C261FF0594F4E82 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5661E43AFC523B58C436F21C /* cities.json */; };
-		A1B2C3D4E5F60718293A4B5C /* city_directory.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5D /* city_directory.json */; };
-		A1B2C3D4E5F60718293A4B5E /* city_directory.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5D /* city_directory.json */; };
 		5DBC48553A80FEB7A41F07A5 /* NomadTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFCA82118CDA5B7BB159AB6 /* NomadTypography.swift */; };
 		5E61BDAA04EAEB4E9B6EB202 /* todo list.png in Resources */ = {isa = PBXBuildFile; fileRef = C7CF482C857E116F5EC5A483 /* todo list.png */; };
 		618D1F924874662311C232DD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55127F45EC8743270147594B /* SettingsView.swift */; };
@@ -47,29 +44,33 @@
 		6BF486F0BD1673D576C367C7 /* visa_articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 13BAA8D188E62B3329CC58ED /* visa_articles.json */; };
 		6C1D5D27DE5D81BAFB55624B /* CitySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */; };
 		6E2B82803B856ADDA8E5094B /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F63667D660A1B23445523 /* TodayViewModel.swift */; };
+		79A1D1D56647639023C44862 /* secuiriy.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BABE27924A1361697DE07C6 /* secuiriy.png */; };
 		7E9C72F1E10B9DD4BA9100AB /* VisaAccessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7495DD7F4206B1CDD7A0A6CA /* VisaAccessService.swift */; };
+		85BC4517F747FE0BD020D3D3 /* globe.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1202008FAAF7B1AA92BD1B0D /* globe.bundle.js */; };
+		86B8FFF05D17B9487672801A /* calanear.png in Resources */ = {isa = PBXBuildFile; fileRef = BC371EA7E210EDEF9FB1827E /* calanear.png */; };
+		86F6068838C688F6EC08E230 /* night-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 04208672FBE2E8EE650D9559 /* night-sky.png */; };
 		89ABD9176A0CD05C1110B93F /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */; };
 		8B86F99664CA6768EAAF9EC0 /* kit icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = FD43721CCACF0D65631E1F19 /* kit icon.svg */; };
+		8D2E9E6B990196E142435B89 /* earth-water.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AE2E01D69553FE060571BD /* earth-water.png */; };
 		8DC329EE93F753174F9B7A83 /* nomad-globe.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */; };
 		91030EEC213573A6D83443BE /* clothes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7AE586FF1F1A68D5E515CA5 /* clothes.jpg */; };
 		93A97E194A205E003EC053D4 /* safety_checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */; };
+		944AFBFD56FCDB967F1AF60E /* NomadGlobeView.swift.backup in Resources */ = {isa = PBXBuildFile; fileRef = E5C28DA113B91B5335E6BEF3 /* NomadGlobeView.swift.backup */; };
 		96DC4AA92810914D26D86E4C /* NomadTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */; };
 		9EE8CDC982A82C9740BAA982 /* NomadKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B676B59199F1C42051F083EA /* NomadKitApp.swift */; };
-		A0B1C2D3E4F5678901234567 /* NomadGlobeGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A5678901234567 /* NomadGlobeGLView.swift */; };
-		A0B1C2D3E4F5678901234568 /* nomad-globe-gl.html in Resources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A5678901234568 /* nomad-globe-gl.html */; };
-		A0B1C2D3E4F5678901234569 /* globe.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A5678901234569 /* globe.bundle.js */; };
-		A0B1C2D3E4F567890123456A /* earth-blue-marble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A567890123456A /* earth-blue-marble.jpg */; };
-		A0B1C2D3E4F567890123456B /* night-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A567890123456B /* night-sky.png */; };
-		A0B1C2D3E4F567890123456C /* earth-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0C1D2E3F4A567890123456C /* earth-night.jpg */; };
+		A2538CC4BD12E0FDAD16164E /* NomadGlobeGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EACD5DD9BB6B00C31ED738 /* NomadGlobeGLView.swift */; };
 		A4024FE8D3573B49108F36DA /* PACKING_OBJECT_SOURCES.md in Resources */ = {isa = PBXBuildFile; fileRef = 00AA3737ED278CCBF8F6F173 /* PACKING_OBJECT_SOURCES.md */; };
 		A597D4AE90C38AC15FB9052B /* SubscriptionPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B23AFA1CF7A199DE4EF0C /* SubscriptionPaywallView.swift */; };
+		AA24C6A24367738E3D398174 /* insurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA204E471F23F2B45BFB9F1 /* insurance.png */; };
+		ACBBBF2F6157C59D32C69795 /* city_directory.json in Resources */ = {isa = PBXBuildFile; fileRef = B35133401A0376066F3A49C3 /* city_directory.json */; };
+		ACE01FA6AEC2B1733A3F5A80 /* nomad-globe-gl.html in Resources */ = {isa = PBXBuildFile; fileRef = ED2560095D80D08DECA81162 /* nomad-globe-gl.html */; };
 		AD8B20731DC80AFC18A5A7FF /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = 35A2BF4E414B17C38AEB974B /* badges.json */; };
+		B1EE469982B6B878B9BE6FD2 /* traansport.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BFF0C3502C9061650133DB /* traansport.png */; };
 		B2FA7EA6BC0D23E88F6104AA /* NomadKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC181F46EB087BED46D1ACA /* NomadKitUITests.swift */; };
 		B31337492EC7C9AEB775624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE981317298216D02FE72F8D /* Assets.xcassets */; };
 		B3C772F1FCCA03D96B6F6396 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5661E43AFC523B58C436F21C /* cities.json */; };
 		BF91AA875AE318B63EF790B5 /* cobe.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */; };
 		BFBA7BB0919FD9F73C5E43BA /* CITY_COVER_SOURCES.md in Resources */ = {isa = PBXBuildFile; fileRef = 32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */; };
-		C0D3C0D3C0D3C0D3C0D3C0D3 /* InteractionFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D3C0D3C0D3C0D3C0D3C0D4 /* InteractionFeedback.swift */; };
 		C1B9B424C68D0778E3A26513 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */; };
 		C324CB8CB5976A7E3082EE6A /* VisaLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBD849A43CD75414124333 /* VisaLibraryView.swift */; };
 		C53F15448390DE7835B41E02 /* NomadKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0300A8BCE9D69E946950C988 /* NomadKit.storekit */; };
@@ -80,16 +81,18 @@
 		CCAF0D644DF08520F4A9005B /* visa_articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 13BAA8D188E62B3329CC58ED /* visa_articles.json */; };
 		CDD0FF5667DE508161CF60F3 /* passport.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDBD7E7FC24390C301D12BB /* passport.png */; };
 		D07CC9C2C3CCA05A0BF550BC /* cobe-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F18FAA6D340FA4706ECB6ED /* cobe-map.png */; };
+		D09EED002CF0A161D583891B /* checklist.png in Resources */ = {isa = PBXBuildFile; fileRef = 510FBE8C6401B8CAF554EC47 /* checklist.png */; };
 		D70D497D49FEACFA68FD727D /* toiletries.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4F0FEC49700E6372871BCE /* toiletries.png */; };
 		D9F6160168F471AEA8F44F6C /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */; };
-		DDBCE19130348CB800674050 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBCE19030348CB800674050 /* Property List.plist */; };
 		DE626BA69B8B0CB69E538C7D /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4BD082686B5E1EE0FD8B63 /* logo.png */; };
 		E09EFAF0BACF97E0313C375B /* essentials.png in Resources */ = {isa = PBXBuildFile; fileRef = 9204AB00ADE0549C848A61D5 /* essentials.png */; };
 		E0ED5C5B26BD8DE3BA090477 /* NomadKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0300A8BCE9D69E946950C988 /* NomadKit.storekit */; };
 		E1F40F5449DFE5E65AC844BA /* SafetyChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */; };
+		E26B30A84E2DB121EDDFEEA4 /* nomad-globe-gl-source.html in Resources */ = {isa = PBXBuildFile; fileRef = A58323A316A090F7FA2DC764 /* nomad-globe-gl-source.html */; };
 		E3E42DD233C2979657793AD9 /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = 35A2BF4E414B17C38AEB974B /* badges.json */; };
 		E48DFCC72DD31A7A92D6D0C7 /* currency.png in Resources */ = {isa = PBXBuildFile; fileRef = FECE63A58D3D9F5D119FEF5F /* currency.png */; };
 		E55616C05B889825C356CF61 /* AddPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E709FBA275456FE7C71ED9 /* AddPlacesView.swift */; };
+		E861E58E5DEDE031F6BBF46E /* city_directory.json in Resources */ = {isa = PBXBuildFile; fileRef = B35133401A0376066F3A49C3 /* city_directory.json */; };
 		EC46769FE38FCA262D0AA6A6 /* NomadGlobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */; };
 		ED79A1C6EBB4D4B55CF29DAA /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DC07603E42163113305E2 /* SavedItemsView.swift */; };
 		EE4806D23A23DF8646F6B007 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3FF62FFD794EC718713AA86A /* PrivacyInfo.xcprivacy */; };
@@ -116,20 +119,19 @@
 
 /* Begin PBXFileReference section */
 		00AA3737ED278CCBF8F6F173 /* PACKING_OBJECT_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PACKING_OBJECT_SOURCES.md; sourceTree = "<group>"; };
-		0300A8BCE9D69E946950C988 /* NomadKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = NomadKit.storekit; sourceTree = "<group>"; };
+		0300A8BCE9D69E946950C988 /* NomadKit.storekit */ = {isa = PBXFileReference; path = NomadKit.storekit; sourceTree = "<group>"; };
+		04208672FBE2E8EE650D9559 /* night-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "night-sky.png"; sourceTree = "<group>"; };
 		04DE9A6758ED467D2D06214D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		0739D95365249B883CF29136 /* VisaAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaAssessmentView.swift; sourceTree = "<group>"; };
+		091486753910F0D839533260 /* earth-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-night.jpg"; sourceTree = "<group>"; };
 		0ADABE720FE12416FD78C125 /* NomadKitTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NomadKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1202008FAAF7B1AA92BD1B0D /* globe.bundle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = globe.bundle.js; sourceTree = "<group>"; };
 		13BAA8D188E62B3329CC58ED /* visa_articles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = visa_articles.json; sourceTree = "<group>"; };
 		1966BF7CC2D0B20F4ED37FDD /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
-		1A2B3C4D5E6F789001234567 /* calanear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calanear.png; sourceTree = "<group>"; };
-		1A2B3C4D5E6F789001234568 /* checklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist.png; sourceTree = "<group>"; };
-		1A2B3C4D5E6F789001234569 /* insurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = insurance.png; sourceTree = "<group>"; };
-		1A2B3C4D5E6F78900123456A /* secuiriy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secuiriy.png; sourceTree = "<group>"; };
-		1A2B3C4D5E6F78900123456B /* traansport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = traansport.png; sourceTree = "<group>"; };
 		1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySnapshot.swift; sourceTree = "<group>"; };
 		1BDF33B1FAFEF7ED321CDA0E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Subscription.strings"; sourceTree = "<group>"; };
 		1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyChecklist.swift; sourceTree = "<group>"; };
-		20281D9A251A430074385A5E /* kit icon -default.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kit icon -default.svg"; sourceTree = "<group>"; };
+		20281D9A251A430074385A5E /* kit icon -default.svg */ = {isa = PBXFileReference; path = "kit icon -default.svg"; sourceTree = "<group>"; };
 		204AD2761CDEAFB47B12E45A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Subscription.strings; sourceTree = "<group>"; };
 		22F1BB44A237CFCCABDA2ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportShareImage.swift; sourceTree = "<group>"; };
@@ -142,11 +144,11 @@
 		32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CITY_COVER_SOURCES.md; sourceTree = "<group>"; };
 		35A2BF4E414B17C38AEB974B /* badges.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = badges.json; sourceTree = "<group>"; };
 		376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadTheme.swift; sourceTree = "<group>"; };
-		3FF62FFD794EC718713AA86A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3FF62FFD794EC718713AA86A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F18FAA6D340FA4706ECB6ED /* cobe-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobe-map.png"; sourceTree = "<group>"; };
+		510FBE8C6401B8CAF554EC47 /* checklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist.png; sourceTree = "<group>"; };
 		55127F45EC8743270147594B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5661E43AFC523B58C436F21C /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
-		A1B2C3D4E5F60718293A4B5D /* city_directory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city_directory.json; sourceTree = "<group>"; };
 		58FA5D67CE2994F3D9938DAE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Onboarding.strings"; sourceTree = "<group>"; };
 		5A5C3BD77B339E1388602ABE /* electronics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = electronics.png; sourceTree = "<group>"; };
 		5BC1148D7656CFD2D6994CA8 /* TravelProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelProfile.swift; sourceTree = "<group>"; };
@@ -156,6 +158,8 @@
 		619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadGlobeView.swift; sourceTree = "<group>"; };
 		69569EF9EEACF2D72A405177 /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
 		6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = cobe.bundle.js; sourceTree = "<group>"; };
+		6BABE27924A1361697DE07C6 /* secuiriy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secuiriy.png; sourceTree = "<group>"; };
+		6CA204E471F23F2B45BFB9F1 /* insurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = insurance.png; sourceTree = "<group>"; };
 		7495DD7F4206B1CDD7A0A6CA /* VisaAccessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaAccessService.swift; sourceTree = "<group>"; };
 		75B03ADB9470F5B8345B3164 /* NomadKitUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NomadKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
@@ -163,42 +167,44 @@
 		804DC07603E42163113305E2 /* SavedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe.html"; sourceTree = "<group>"; };
 		8FCFAA6E0B9661A86C39A784 /* ChatGPT Image Aug 16, 2026, 11_38_46 AM (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatGPT Image Aug 16, 2026, 11_38_46 AM (1).png"; sourceTree = "<group>"; };
+		90EACD5DD9BB6B00C31ED738 /* NomadGlobeGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadGlobeGLView.swift; sourceTree = "<group>"; };
 		91AD7D7848DC0339573B806E /* sim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sim.png; sourceTree = "<group>"; };
 		9204AB00ADE0549C848A61D5 /* essentials.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = essentials.png; sourceTree = "<group>"; };
 		93E709FBA275456FE7C71ED9 /* AddPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlacesView.swift; sourceTree = "<group>"; };
 		9E1F63667D660A1B23445523 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		A104CF92F2DC14E39E9C7BAD /* VastagoGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		A16480A5B7F593CD145EA1B3 /* earth-blue-marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-blue-marble.jpg"; sourceTree = "<group>"; };
 		A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
-		A6876A3BAA3230D21EE54A32 /* NomadKits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadKits.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A58323A316A090F7FA2DC764 /* nomad-globe-gl-source.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe-gl-source.html"; sourceTree = "<group>"; };
+		A6876A3BAA3230D21EE54A32 /* NomadKit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NomadKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69E5AC45AF3FCBF51FA9B60 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A7AE586FF1F1A68D5E515CA5 /* clothes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clothes.jpg; sourceTree = "<group>"; };
 		AB6E9F000541281FBAFF8E58 /* home-city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-city.png"; sourceTree = "<group>"; };
 		ABB6010E4672DB0EFB514343 /* VastagoGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VastagoGrotesk-Regular.otf"; sourceTree = "<group>"; };
-		B0C1D2E3F4A5678901234567 /* NomadGlobeGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadGlobeGLView.swift; sourceTree = "<group>"; };
-		B0C1D2E3F4A5678901234568 /* nomad-globe-gl.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe-gl.html"; sourceTree = "<group>"; };
-		B0C1D2E3F4A5678901234569 /* globe.bundle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = globe.bundle.js; sourceTree = "<group>"; };
-		B0C1D2E3F4A567890123456A /* earth-blue-marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-blue-marble.jpg"; sourceTree = "<group>"; };
-		B0C1D2E3F4A567890123456B /* night-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "night-sky.png"; sourceTree = "<group>"; };
-		B0C1D2E3F4A567890123456C /* earth-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-night.jpg"; sourceTree = "<group>"; };
+		B35133401A0376066F3A49C3 /* city_directory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city_directory.json; sourceTree = "<group>"; };
 		B3979A353ED1D5AC365F98F2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B676B59199F1C42051F083EA /* NomadKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitApp.swift; sourceTree = "<group>"; };
+		BC371EA7E210EDEF9FB1827E /* calanear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calanear.png; sourceTree = "<group>"; };
 		BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
-		C0D3C0D3C0D3C0D3C0D3C0D4 /* InteractionFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionFeedback.swift; sourceTree = "<group>"; };
 		C7CF482C857E116F5EC5A483 /* todo list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo list.png"; sourceTree = "<group>"; };
 		D32AD63307B83862C22D064C /* timezone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timezone.png; sourceTree = "<group>"; };
-		DDBCE19030348CB800674050 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		E10897386B7E31BCDDF96F7C /* PACKING_PHOTO_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PACKING_PHOTO_SOURCES.md; sourceTree = "<group>"; };
+		E5C28DA113B91B5335E6BEF3 /* NomadGlobeView.swift.backup */ = {isa = PBXFileReference; path = NomadGlobeView.swift.backup; sourceTree = "<group>"; };
 		E754A2255F40388429B5C473 /* NomadKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitTests.swift; sourceTree = "<group>"; };
 		E7A4836F9BB3209C6C691DBD /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		E9BFF0C3502C9061650133DB /* traansport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = traansport.png; sourceTree = "<group>"; };
+		ED2560095D80D08DECA81162 /* nomad-globe-gl.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe-gl.html"; sourceTree = "<group>"; };
 		EEEDF96F47CC2BD941D9A89F /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
 		EF1B3F6A68940D3960CBD17B /* SubscriptionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStore.swift; sourceTree = "<group>"; };
 		F02A9760869E1C774F36ECAE /* nomad-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nomad-map.png"; sourceTree = "<group>"; };
 		F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = safety_checklist.json; sourceTree = "<group>"; };
+		F369018A5EEFB5D3B04B2C0C /* InteractionFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionFeedback.swift; sourceTree = "<group>"; };
+		F6AE2E01D69553FE060571BD /* earth-water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth-water.png"; sourceTree = "<group>"; };
 		F77E16EF6235252FF9D1960F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		F9178DDFE5B39C2DF521677E /* VISA_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VISA_COVER_SOURCES.md; sourceTree = "<group>"; };
 		FAEBD849A43CD75414124333 /* VisaLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaLibraryView.swift; sourceTree = "<group>"; };
-		FD43721CCACF0D65631E1F19 /* kit icon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kit icon.svg"; sourceTree = "<group>"; };
+		FD43721CCACF0D65631E1F19 /* kit icon.svg */ = {isa = PBXFileReference; path = "kit icon.svg"; sourceTree = "<group>"; };
 		FE981317298216D02FE72F8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FECE63A58D3D9F5D119FEF5F /* currency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currency.png; sourceTree = "<group>"; };
 		FEDBD7E7FC24390C301D12BB /* passport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passport.png; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			children = (
 				F77E16EF6235252FF9D1960F /* ChecklistView.swift */,
 				BEC1504ABBF8C830593B2AAE /* ChecklistViewModel.swift */,
+				0739D95365249B883CF29136 /* VisaAssessmentView.swift */,
 				FAEBD849A43CD75414124333 /* VisaLibraryView.swift */,
 				5C7372F9C5D18EEAF63A1A1E /* VisaLibraryViewModel.swift */,
 			);
@@ -280,8 +287,9 @@
 				93E709FBA275456FE7C71ED9 /* AddPlacesView.swift */,
 				BE0EA7A7075E42B555ACBD4B /* CheckInView.swift */,
 				77B4F3F551820F36DB0C6D47 /* CheckInViewModel.swift */,
+				90EACD5DD9BB6B00C31ED738 /* NomadGlobeGLView.swift */,
 				619C3266AA7C3F07AD67497E /* NomadGlobeView.swift */,
-				B0C1D2E3F4A5678901234567 /* NomadGlobeGLView.swift */,
+				E5C28DA113B91B5335E6BEF3 /* NomadGlobeView.swift.backup */,
 				262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */,
 			);
 			path = CheckIn;
@@ -304,7 +312,7 @@
 			children = (
 				35A2BF4E414B17C38AEB974B /* badges.json */,
 				5661E43AFC523B58C436F21C /* cities.json */,
-				A1B2C3D4E5F60718293A4B5D /* city_directory.json */,
+				B35133401A0376066F3A49C3 /* city_directory.json */,
 				F31758D99E75BD9C3BF7BA66 /* safety_checklist.json */,
 				13BAA8D188E62B3329CC58ED /* visa_articles.json */,
 			);
@@ -325,27 +333,27 @@
 		514348981E4E32B0042BE05F /* DesignAssets */ = {
 			isa = PBXGroup;
 			children = (
-				1A2B3C4D5E6F789001234567 /* calanear.png */,
-				1A2B3C4D5E6F789001234568 /* checklist.png */,
+				BC371EA7E210EDEF9FB1827E /* calanear.png */,
 				8FCFAA6E0B9661A86C39A784 /* ChatGPT Image Aug 16, 2026, 11_38_46 AM (1).png */,
+				510FBE8C6401B8CAF554EC47 /* checklist.png */,
 				A7AE586FF1F1A68D5E515CA5 /* clothes.jpg */,
 				FECE63A58D3D9F5D119FEF5F /* currency.png */,
 				5A5C3BD77B339E1388602ABE /* electronics.png */,
 				9204AB00ADE0549C848A61D5 /* essentials.png */,
 				E7A4836F9BB3209C6C691DBD /* globe.png */,
 				AB6E9F000541281FBAFF8E58 /* home-city.png */,
-				1A2B3C4D5E6F789001234569 /* insurance.png */,
+				6CA204E471F23F2B45BFB9F1 /* insurance.png */,
 				20281D9A251A430074385A5E /* kit icon -default.svg */,
 				FD43721CCACF0D65631E1F19 /* kit icon.svg */,
 				2E4BD082686B5E1EE0FD8B63 /* logo.png */,
 				F02A9760869E1C774F36ECAE /* nomad-map.png */,
 				FEDBD7E7FC24390C301D12BB /* passport.png */,
-				1A2B3C4D5E6F78900123456A /* secuiriy.png */,
+				6BABE27924A1361697DE07C6 /* secuiriy.png */,
 				91AD7D7848DC0339573B806E /* sim.png */,
 				D32AD63307B83862C22D064C /* timezone.png */,
-				1A2B3C4D5E6F78900123456B /* traansport.png */,
 				C7CF482C857E116F5EC5A483 /* todo list.png */,
 				7D4F0FEC49700E6372871BCE /* toiletries.png */,
+				E9BFF0C3502C9061650133DB /* traansport.png */,
 			);
 			path = DesignAssets;
 			sourceTree = "<group>";
@@ -399,7 +407,7 @@
 		A507628B3905AB28B2641C9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6876A3BAA3230D21EE54A32 /* NomadKits.app */,
+				A6876A3BAA3230D21EE54A32 /* NomadKit.app */,
 				0ADABE720FE12416FD78C125 /* NomadKitTests.xctest */,
 				75B03ADB9470F5B8345B3164 /* NomadKitUITests.xctest */,
 			);
@@ -419,12 +427,14 @@
 			children = (
 				4F18FAA6D340FA4706ECB6ED /* cobe-map.png */,
 				6BA80F322BCD4B4D817EB42C /* cobe.bundle.js */,
-				B0C1D2E3F4A5678901234569 /* globe.bundle.js */,
-				B0C1D2E3F4A567890123456A /* earth-blue-marble.jpg */,
-				B0C1D2E3F4A567890123456C /* earth-night.jpg */,
-				B0C1D2E3F4A567890123456B /* night-sky.png */,
+				A16480A5B7F593CD145EA1B3 /* earth-blue-marble.jpg */,
+				091486753910F0D839533260 /* earth-night.jpg */,
+				F6AE2E01D69553FE060571BD /* earth-water.png */,
+				1202008FAAF7B1AA92BD1B0D /* globe.bundle.js */,
+				04208672FBE2E8EE650D9559 /* night-sky.png */,
+				A58323A316A090F7FA2DC764 /* nomad-globe-gl-source.html */,
+				ED2560095D80D08DECA81162 /* nomad-globe-gl.html */,
 				8E2A5CC712BE5528D0EA38E4 /* nomad-globe.html */,
-				B0C1D2E3F4A5678901234568 /* nomad-globe-gl.html */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -453,7 +463,6 @@
 		E071DD9DEC73A3BE2E822BBC = {
 			isa = PBXGroup;
 			children = (
-				DDBCE19030348CB800674050 /* Property List.plist */,
 				458A5969DC3BFE4FB9428FD0 /* NomadKit */,
 				9FAF13479653D44BEA91BB2C /* NomadKitTests */,
 				A79DEA8035EF5A75486E29F9 /* NomadKitUITests */,
@@ -464,7 +473,7 @@
 		FD48FA461B28843785576639 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				C0D3C0D3C0D3C0D3C0D3C0D4 /* InteractionFeedback.swift */,
+				F369018A5EEFB5D3B04B2C0C /* InteractionFeedback.swift */,
 				376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */,
 				5DFCA82118CDA5B7BB159AB6 /* NomadTypography.swift */,
 				69569EF9EEACF2D72A405177 /* SharedComponents.swift */,
@@ -490,7 +499,7 @@
 			packageProductDependencies = (
 			);
 			productName = NomadKit;
-			productReference = A6876A3BAA3230D21EE54A32 /* NomadKits.app */;
+			productReference = A6876A3BAA3230D21EE54A32 /* NomadKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2B31FE79A7FE8E627ABD420F /* NomadKitTests */ = {
@@ -582,7 +591,7 @@
 				C53F15448390DE7835B41E02 /* NomadKit.storekit in Resources */,
 				AD8B20731DC80AFC18A5A7FF /* badges.json in Resources */,
 				B3C772F1FCCA03D96B6F6396 /* cities.json in Resources */,
-				A1B2C3D4E5F60718293A4B5E /* city_directory.json in Resources */,
+				E861E58E5DEDE031F6BBF46E /* city_directory.json in Resources */,
 				93A97E194A205E003EC053D4 /* safety_checklist.json in Resources */,
 				6BF486F0BD1673D576C367C7 /* visa_articles.json in Resources */,
 			);
@@ -593,11 +602,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B31337492EC7C9AEB775624D /* Assets.xcassets in Resources */,
-				0A1B2C3D4E5F678901234567 /* calanear.png in Resources */,
-				0A1B2C3D4E5F678901234568 /* checklist.png in Resources */,
 				BFBA7BB0919FD9F73C5E43BA /* CITY_COVER_SOURCES.md in Resources */,
 				C563DA964E8C56E9DA8776BB /* ChatGPT Image Aug 16, 2026, 11_38_46 AM (1).png in Resources */,
 				F61465B2FA702760F9FA0F0D /* Localizable.xcstrings in Resources */,
+				944AFBFD56FCDB967F1AF60E /* NomadGlobeView.swift.backup in Resources */,
 				E0ED5C5B26BD8DE3BA090477 /* NomadKit.storekit in Resources */,
 				3AFFB6B29183BDD90254C3DE /* Onboarding.strings in Resources */,
 				A4024FE8D3573B49108F36DA /* PACKING_OBJECT_SOURCES.md in Resources */,
@@ -610,36 +618,39 @@
 				5063F96DD19844521F35E7A7 /* VastagoGrotesk-Regular.otf in Resources */,
 				314119B4FF7383744E3D5BAE /* VastagoGrotesk-SemiBold.otf in Resources */,
 				E3E42DD233C2979657793AD9 /* badges.json in Resources */,
+				86B8FFF05D17B9487672801A /* calanear.png in Resources */,
+				D09EED002CF0A161D583891B /* checklist.png in Resources */,
 				5C403EEC2C261FF0594F4E82 /* cities.json in Resources */,
-				A1B2C3D4E5F60718293A4B5C /* city_directory.json in Resources */,
+				ACBBBF2F6157C59D32C69795 /* city_directory.json in Resources */,
 				91030EEC213573A6D83443BE /* clothes.jpg in Resources */,
 				D07CC9C2C3CCA05A0BF550BC /* cobe-map.png in Resources */,
 				BF91AA875AE318B63EF790B5 /* cobe.bundle.js in Resources */,
-				A0B1C2D3E4F5678901234569 /* globe.bundle.js in Resources */,
-				A0B1C2D3E4F567890123456A /* earth-blue-marble.jpg in Resources */,
-				A0B1C2D3E4F567890123456B /* night-sky.png in Resources */,
-				A0B1C2D3E4F567890123456C /* earth-night.jpg in Resources */,
 				E48DFCC72DD31A7A92D6D0C7 /* currency.png in Resources */,
-				0A1B2C3D4E5F678901234569 /* insurance.png in Resources */,
+				4D47DC02B96F5292D700A1C8 /* earth-blue-marble.jpg in Resources */,
+				0A29AB5D19936E6988E7CF2B /* earth-night.jpg in Resources */,
+				8D2E9E6B990196E142435B89 /* earth-water.png in Resources */,
 				4B8629C4C4EF1DE7D91992FB /* electronics.png in Resources */,
 				E09EFAF0BACF97E0313C375B /* essentials.png in Resources */,
-				DDBCE19130348CB800674050 /* Property List.plist in Resources */,
+				85BC4517F747FE0BD020D3D3 /* globe.bundle.js in Resources */,
 				425B2FF6BC9DD4F5FA637B0C /* globe.png in Resources */,
 				CB73A324C42D850CA0A4C724 /* home-city.png in Resources */,
+				AA24C6A24367738E3D398174 /* insurance.png in Resources */,
 				3304D484F94367516FB904CD /* kit icon -default.svg in Resources */,
 				8B86F99664CA6768EAAF9EC0 /* kit icon.svg in Resources */,
 				DE626BA69B8B0CB69E538C7D /* logo.png in Resources */,
+				86F6068838C688F6EC08E230 /* night-sky.png in Resources */,
+				E26B30A84E2DB121EDDFEEA4 /* nomad-globe-gl-source.html in Resources */,
+				ACE01FA6AEC2B1733A3F5A80 /* nomad-globe-gl.html in Resources */,
 				8DC329EE93F753174F9B7A83 /* nomad-globe.html in Resources */,
-				A0B1C2D3E4F5678901234568 /* nomad-globe-gl.html in Resources */,
 				65FEBCE35B773F95B27D454D /* nomad-map.png in Resources */,
 				CDD0FF5667DE508161CF60F3 /* passport.png in Resources */,
 				141FEF3755349ADC145FDF68 /* safety_checklist.json in Resources */,
-				0A1B2C3D4E5F67890123456A /* secuiriy.png in Resources */,
+				79A1D1D56647639023C44862 /* secuiriy.png in Resources */,
 				474E4702556FE1271AE8C6F5 /* sim.png in Resources */,
 				26DDF3DA19319F0D47142646 /* timezone.png in Resources */,
-				0A1B2C3D4E5F67890123456B /* traansport.png in Resources */,
 				5E61BDAA04EAEB4E9B6EB202 /* todo list.png in Resources */,
 				D70D497D49FEACFA68FD727D /* toiletries.png in Resources */,
+				B1EE469982B6B878B9BE6FD2 /* traansport.png in Resources */,
 				CCAF0D644DF08520F4A9005B /* visa_articles.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,12 +684,12 @@
 				3B89CFF188B5861AEF20F1EE /* ChecklistView.swift in Sources */,
 				49ECA11ECB620BDBB6B426AB /* ChecklistViewModel.swift in Sources */,
 				6C1D5D27DE5D81BAFB55624B /* CitySnapshot.swift in Sources */,
+				4AAE81688551BDC3E814F41C /* InteractionFeedback.swift in Sources */,
 				C1B9B424C68D0778E3A26513 /* MockDataService.swift in Sources */,
+				A2538CC4BD12E0FDAD16164E /* NomadGlobeGLView.swift in Sources */,
 				EC46769FE38FCA262D0AA6A6 /* NomadGlobeView.swift in Sources */,
-				A0B1C2D3E4F5678901234567 /* NomadGlobeGLView.swift in Sources */,
 				9EE8CDC982A82C9740BAA982 /* NomadKitApp.swift in Sources */,
 				96DC4AA92810914D26D86E4C /* NomadTheme.swift in Sources */,
-				C0D3C0D3C0D3C0D3C0D3C0D3 /* InteractionFeedback.swift in Sources */,
 				5DBC48553A80FEB7A41F07A5 /* NomadTypography.swift in Sources */,
 				54C58F659083D29A44E216F6 /* OnboardingView.swift in Sources */,
 				566C02B5F2F3C954A1A7D0C3 /* PassportShareImage.swift in Sources */,
@@ -696,6 +707,7 @@
 				274B63371F96F425F8634933 /* UserDataStore.swift in Sources */,
 				7E9C72F1E10B9DD4BA9100AB /* VisaAccessService.swift in Sources */,
 				253B8ED63898A05D65DF4CB2 /* VisaArticle.swift in Sources */,
+				0F4D811EBB8EB066A9374B41 /* VisaAssessmentView.swift in Sources */,
 				C324CB8CB5976A7E3082EE6A /* VisaLibraryView.swift in Sources */,
 				062297E23CAC547B875ABE5B /* VisaLibraryViewModel.swift in Sources */,
 			);
@@ -751,7 +763,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKits.app/NomadKits";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Release;
 		};
@@ -759,9 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_TEAM = D8YA5U2CHV;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "NomadKit-Info.plist";
@@ -775,10 +785,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
-				PRODUCT_MODULE_NAME = NomadKit;
-				PRODUCT_NAME = NomadKits;
+				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -795,7 +804,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKits.app/NomadKits";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Debug;
 		};
@@ -803,9 +812,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_TEAM = D8YA5U2CHV;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "NomadKit-Info.plist";
@@ -819,10 +826,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
-				PRODUCT_MODULE_NAME = NomadKit;
-				PRODUCT_NAME = NomadKits;
+				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -122,15 +122,17 @@ struct VisaArticleView: View {
     @Environment(\.locale) private var locale
     @Environment(SubscriptionStore.self) private var subscriptionStore
     @State private var showsAssessmentPaywall = false
-    @State private var showsAssessmentPlaceholder = false
+    @State private var showsAssessment = false
+    @State private var assessmentResult: VisaAssessmentResult?
+    @State private var hasUsedFreeAssessment = UserDefaults.standard.bool(forKey: "visa.assessment.freeUsed")
 
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: NomadSpacing.xLarge) {
                 VisaArticleHero(article: article)
-                VisaAssessmentEntryCard(article: article) {
-                    if subscriptionStore.hasProAccess {
-                        showsAssessmentPlaceholder = true
+                VisaAssessmentEntryCard(article: article, hasResult: assessmentResult != nil, hasUsedFreeAssessment: hasUsedFreeAssessment, hasProAccess: subscriptionStore.hasProAccess) {
+                    if subscriptionStore.hasProAccess || !hasUsedFreeAssessment {
+                        showsAssessment = true
                     } else {
                         showsAssessmentPaywall = true
                     }
@@ -157,23 +159,25 @@ struct VisaArticleView: View {
         .navigationTitle(article.country.value(for: locale))
         .navigationBarTitleDisplayMode(.inline)
         .nomadInteractiveBackGesture()
+        .onAppear {
+            if assessmentResult == nil,
+               let data = UserDefaults.standard.data(forKey: "visa.assessment.\(article.countryCode)"),
+               let saved = try? JSONDecoder().decode(VisaAssessmentResult.self, from: data) {
+                assessmentResult = saved
+            }
+        }
         .sheet(isPresented: $showsAssessmentPaywall) {
             SubscriptionPaywallView(entryPoint: .visaAssessment) {
                 showsAssessmentPaywall = false
             }
         }
-        .sheet(isPresented: $showsAssessmentPlaceholder) {
+        .sheet(isPresented: $showsAssessment) {
             NavigationStack {
-                ContentUnavailableView(
-                    locale.identifier.hasPrefix("zh") ? "准备度评估即将开放" : "Readiness assessment coming soon",
-                    systemImage: "checklist.checked",
-                    description: Text(locale.identifier.hasPrefix("zh") ? "问卷内容将在后续版本加入。" : "The questionnaire will be added in a future update.")
-                )
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button(locale.identifier.hasPrefix("zh") ? "完成" : "Done") {
-                            showsAssessmentPlaceholder = false
-                        }
+                VisaAssessmentView(article: article) { result in
+                    assessmentResult = result
+                    if !subscriptionStore.hasProAccess {
+                        UserDefaults.standard.set(true, forKey: "visa.assessment.freeUsed")
+                        hasUsedFreeAssessment = true
                     }
                 }
             }
@@ -183,6 +187,9 @@ struct VisaArticleView: View {
 
 private struct VisaAssessmentEntryCard: View {
     let article: VisaArticle
+    let hasResult: Bool
+    let hasUsedFreeAssessment: Bool
+    let hasProAccess: Bool
     let action: () -> Void
     @Environment(\.locale) private var locale
 
@@ -197,16 +204,17 @@ private struct VisaAssessmentEntryCard: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 6) {
-                        Text(locale.identifier.hasPrefix("zh") ? "准备度评估" : "Readiness assessment")
+                        Text(hasResult ? (locale.identifier.hasPrefix("zh") ? "查看最近测试结果" : "View latest readiness result") : (locale.identifier.hasPrefix("zh") ? "签证准备度测试" : "Visa readiness test"))
                             .font(.headline)
-                        Text("PRO")
+                        if !hasResult && hasUsedFreeAssessment && !hasProAccess { Text("PRO")
                             .font(.caption2.weight(.bold))
                             .padding(.horizontal, 7)
                             .padding(.vertical, 3)
                             .background(Color.nomadInk, in: Capsule())
                             .foregroundStyle(.white)
+                        }
                     }
-                    Text(locale.identifier.hasPrefix("zh") ? "回答几个问题，查看你还缺哪些条件和材料。" : "Answer a few questions to find missing conditions and documents.")
+                    Text(hasResult ? (locale.identifier.hasPrefix("zh") ? "基于最近一次测试结果。" : "Based on your latest assessment.") : (locale.identifier.hasPrefix("zh") ? "回答 5 个问题，查看你的准备度和材料缺口。" : "Answer 5 questions to see your readiness and missing documents."))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)

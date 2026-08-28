@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1430"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      runPostActionsOnFailure = "NO">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -15,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1558E2855403C1BC5AA89CF0"
-               BuildableName = "NomadKits.app"
+               BuildableName = "NomadKit.app"
                BlueprintName = "NomadKit"
                ReferencedContainer = "container:NomadKit.xcodeproj">
             </BuildableReference>
@@ -26,22 +27,17 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      onlyGenerateCoverageForSpecifiedTargets = "NO">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1558E2855403C1BC5AA89CF0"
-            BuildableName = "NomadKits.app"
+            BuildableName = "NomadKit.app"
             BlueprintName = "NomadKit"
             ReferencedContainer = "container:NomadKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-onboarding-reset"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -55,7 +51,8 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "940B76125C8F313EF919A802"
@@ -65,6 +62,12 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-onboarding-reset"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -81,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1558E2855403C1BC5AA89CF0"
-            BuildableName = "NomadKits.app"
+            BuildableName = "NomadKit.app"
             BlueprintName = "NomadKit"
             ReferencedContainer = "container:NomadKit.xcodeproj">
          </BuildableReference>
@@ -107,7 +110,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1558E2855403C1BC5AA89CF0"
-            BuildableName = "NomadKits.app"
+            BuildableName = "NomadKit.app"
             BlueprintName = "NomadKit"
             ReferencedContainer = "container:NomadKit.xcodeproj">
          </BuildableReference>

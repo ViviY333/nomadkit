@@ -15,7 +15,6 @@ struct VisaLibraryView: View {
             } else {
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: NomadSpacing.xLarge) {
-                        VisaLibraryHeader()
                         ForEach(viewModel.articles) { article in
                             NavigationLink {
                                 VisaArticleView(article: article)
@@ -36,16 +35,6 @@ struct VisaLibraryView: View {
         .navigationTitle(locale.identifier.hasPrefix("zh") ? "数字游民签证" : "Digital Nomad Visas")
         .navigationBarTitleDisplayMode(.inline)
         .nomadInteractiveBackGesture()
-    }
-}
-
-private struct VisaLibraryHeader: View {
-    @Environment(\.locale) private var locale
-    var body: some View {
-        Text(appLocalized("visa.header.title", locale: locale))
-            .font(.system(.title3, design: .rounded, weight: .bold))
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.top, NomadSpacing.small)
     }
 }
 
@@ -72,7 +61,7 @@ private struct VisaArticleCard: View {
                     .minimumScaleFactor(0.9)
             }
             .padding(.horizontal, 18)
-            .padding(.bottom, 20)
+            .padding(.bottom, 32)
         }
         .frame(height: 193)
         .clipShape(RoundedRectangle(cornerRadius: 24))

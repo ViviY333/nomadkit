@@ -130,7 +130,7 @@ struct VisaArticleView: View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: NomadSpacing.xLarge) {
                 VisaArticleHero(article: article)
-                VisaAssessmentEntryCard(article: article, hasResult: assessmentResult != nil, hasUsedFreeAssessment: hasUsedFreeAssessment, hasProAccess: subscriptionStore.hasProAccess) {
+                VisaAssessmentEntryCard(hasResult: assessmentResult != nil, hasUsedFreeAssessment: hasUsedFreeAssessment, hasProAccess: subscriptionStore.hasProAccess) {
                     if subscriptionStore.hasProAccess || !hasUsedFreeAssessment {
                         showsAssessment = true
                     } else {
@@ -186,7 +186,6 @@ struct VisaArticleView: View {
 }
 
 private struct VisaAssessmentEntryCard: View {
-    let article: VisaArticle
     let hasResult: Bool
     let hasUsedFreeAssessment: Bool
     let hasProAccess: Bool
@@ -198,9 +197,9 @@ private struct VisaAssessmentEntryCard: View {
             HStack(spacing: NomadSpacing.medium) {
                 Image(systemName: "checklist.checked")
                     .font(.title2.weight(.semibold))
-                    .foregroundStyle(Color.tone(article.tone))
+                    .foregroundStyle(Color.nomadBlue)
                     .frame(width: 46, height: 46)
-                    .background(Color.tone(article.tone).opacity(0.12), in: RoundedRectangle(cornerRadius: 8))
+                    .background(Color.nomadBlue.opacity(0.14), in: RoundedRectangle(cornerRadius: 8))
 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 6) {
@@ -214,10 +213,6 @@ private struct VisaAssessmentEntryCard: View {
                             .foregroundStyle(.white)
                         }
                     }
-                    Text(hasResult ? (locale.identifier.hasPrefix("zh") ? "基于最近一次测试结果。" : "Based on your latest assessment.") : (locale.identifier.hasPrefix("zh") ? "回答 5 个问题，查看你的准备度和材料缺口。" : "Answer 5 questions to see your readiness and missing documents."))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: "chevron.right")
@@ -225,7 +220,11 @@ private struct VisaAssessmentEntryCard: View {
                     .foregroundStyle(.secondary)
             }
             .padding(NomadSpacing.large)
-            .background(Color.nomadSurface, in: RoundedRectangle(cornerRadius: 8))
+            .background(Color.nomadBlue.opacity(0.10), in: RoundedRectangle(cornerRadius: 8))
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.nomadBlue.opacity(0.18), lineWidth: 1)
+            }
         }
         .buttonStyle(PressableScaleButtonStyle())
         .accessibilityIdentifier("visa.assessment.entry")
@@ -256,6 +255,7 @@ private struct VisaArticleHero: View {
             .padding(.bottom, 12)
         }
         .frame(height: 270)
+        .frame(maxWidth: .infinity)
         .clipShape(RoundedRectangle(cornerRadius: 26))
     }
 }

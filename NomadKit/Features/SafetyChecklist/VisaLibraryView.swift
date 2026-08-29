@@ -236,27 +236,31 @@ private struct VisaArticleHero: View {
     @Environment(\.locale) private var locale
 
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            VisaArticleImage(article: article)
-            LinearGradient(colors: [.black.opacity(0.78), .black.opacity(0.12), .clear], startPoint: .bottom, endPoint: .top)
-            VStack(alignment: .leading, spacing: 8) {
-                Label(article.country.value(for: locale), systemImage: article.symbol)
-                    .font(.subheadline.weight(.bold))
-                    .foregroundStyle(.white.opacity(0.84))
-                Text(article.title.value(for: locale))
-                    .font(.system(.title, design: .rounded, weight: .bold))
-                    .foregroundStyle(.white)
-                    .fixedSize(horizontal: false, vertical: true)
-                Label(String.localizedStringWithFormat(appLocalized("visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(.white.opacity(0.8))
+        GeometryReader { proxy in
+            ZStack(alignment: .bottomLeading) {
+                VisaArticleImage(article: article)
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                LinearGradient(colors: [.black.opacity(0.78), .black.opacity(0.12), .clear], startPoint: .bottom, endPoint: .top)
+                VStack(alignment: .leading, spacing: 8) {
+                    Label(article.country.value(for: locale), systemImage: article.symbol)
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(.white.opacity(0.84))
+                    Text(article.title.value(for: locale))
+                        .font(.system(.title, design: .rounded, weight: .bold))
+                        .foregroundStyle(.white)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Label(String.localizedStringWithFormat(appLocalized("visa.readTime", locale: locale), article.readTimeMinutes), systemImage: "clock")
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(.white.opacity(0.8))
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 12)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 12)
+            .frame(width: proxy.size.width, height: proxy.size.height)
+            .clipShape(RoundedRectangle(cornerRadius: 26))
         }
-        .frame(height: 270)
         .frame(maxWidth: .infinity)
-        .clipShape(RoundedRectangle(cornerRadius: 26))
+        .frame(height: 270)
     }
 }
 

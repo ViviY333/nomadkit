@@ -27,7 +27,7 @@ targets:
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
         INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: NomadKit uses your location to show your current city and nearby essentials.
-        TARGETED_DEVICE_FAMILY: 1
+        TARGETED_DEVICE_FAMILY: "1,2"
         DEVELOPMENT_TEAM: D8YA5U2CHV
     scheme:
       storeKitConfiguration: NomadKit/Resources/NomadKit.storekit
@@ -59,7 +59,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.tests
         GENERATE_INFOPLIST_FILE: YES
-        TARGETED_DEVICE_FAMILY: 1
+        TARGETED_DEVICE_FAMILY: "1,2"
   NomadKitUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -71,4 +71,4 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nomadkit.uitests
         GENERATE_INFOPLIST_FILE: YES
-        TARGETED_DEVICE_FAMILY: 1
+        TARGETED_DEVICE_FAMILY: "1,2"

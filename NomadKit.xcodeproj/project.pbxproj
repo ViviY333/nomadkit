@@ -762,7 +762,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Release;
@@ -789,7 +789,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
 				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -805,7 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Debug;
@@ -832,7 +832,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
 				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -973,7 +973,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NomadKit;
 			};
 			name = Release;
@@ -990,7 +990,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NomadKit;
 			};
 			name = Debug;

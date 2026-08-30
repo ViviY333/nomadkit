@@ -119,7 +119,7 @@
 
 /* Begin PBXFileReference section */
 		00AA3737ED278CCBF8F6F173 /* PACKING_OBJECT_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PACKING_OBJECT_SOURCES.md; sourceTree = "<group>"; };
-		0300A8BCE9D69E946950C988 /* NomadKit.storekit */ = {isa = PBXFileReference; path = NomadKit.storekit; sourceTree = "<group>"; };
+		0300A8BCE9D69E946950C988 /* NomadKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = NomadKit.storekit; sourceTree = "<group>"; };
 		04208672FBE2E8EE650D9559 /* night-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "night-sky.png"; sourceTree = "<group>"; };
 		04DE9A6758ED467D2D06214D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		0739D95365249B883CF29136 /* VisaAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaAssessmentView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		1BB7BE2E9BE6E91D132C770F /* CitySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySnapshot.swift; sourceTree = "<group>"; };
 		1BDF33B1FAFEF7ED321CDA0E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Subscription.strings"; sourceTree = "<group>"; };
 		1D9A143BF2249018B4D7C0EC /* SafetyChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyChecklist.swift; sourceTree = "<group>"; };
-		20281D9A251A430074385A5E /* kit icon -default.svg */ = {isa = PBXFileReference; path = "kit icon -default.svg"; sourceTree = "<group>"; };
+		20281D9A251A430074385A5E /* kit icon -default.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kit icon -default.svg"; sourceTree = "<group>"; };
 		204AD2761CDEAFB47B12E45A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Subscription.strings; sourceTree = "<group>"; };
 		22F1BB44A237CFCCABDA2ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		262A85C1A01A9C6CD1F8E4CD /* PassportShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportShareImage.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		32D3CEB942CCC5D10683AF67 /* CITY_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CITY_COVER_SOURCES.md; sourceTree = "<group>"; };
 		35A2BF4E414B17C38AEB974B /* badges.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = badges.json; sourceTree = "<group>"; };
 		376A5BEB718DF7658FBE1F0A /* NomadTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadTheme.swift; sourceTree = "<group>"; };
-		3FF62FFD794EC718713AA86A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3FF62FFD794EC718713AA86A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F18FAA6D340FA4706ECB6ED /* cobe-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobe-map.png"; sourceTree = "<group>"; };
 		510FBE8C6401B8CAF554EC47 /* checklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist.png; sourceTree = "<group>"; };
 		55127F45EC8743270147594B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		A16480A5B7F593CD145EA1B3 /* earth-blue-marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-blue-marble.jpg"; sourceTree = "<group>"; };
 		A42F5178D75AC0E78FA0B2B0 /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
 		A58323A316A090F7FA2DC764 /* nomad-globe-gl-source.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "nomad-globe-gl-source.html"; sourceTree = "<group>"; };
-		A6876A3BAA3230D21EE54A32 /* NomadKit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NomadKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6876A3BAA3230D21EE54A32 /* NomadKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69E5AC45AF3FCBF51FA9B60 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A7AE586FF1F1A68D5E515CA5 /* clothes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clothes.jpg; sourceTree = "<group>"; };
 		AB6E9F000541281FBAFF8E58 /* home-city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-city.png"; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		C7CF482C857E116F5EC5A483 /* todo list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo list.png"; sourceTree = "<group>"; };
 		D32AD63307B83862C22D064C /* timezone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timezone.png; sourceTree = "<group>"; };
 		E10897386B7E31BCDDF96F7C /* PACKING_PHOTO_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PACKING_PHOTO_SOURCES.md; sourceTree = "<group>"; };
-		E5C28DA113B91B5335E6BEF3 /* NomadGlobeView.swift.backup */ = {isa = PBXFileReference; path = NomadGlobeView.swift.backup; sourceTree = "<group>"; };
+		E5C28DA113B91B5335E6BEF3 /* NomadGlobeView.swift.backup */ = {isa = PBXFileReference; lastKnownFileType = text; path = NomadGlobeView.swift.backup; sourceTree = "<group>"; };
 		E754A2255F40388429B5C473 /* NomadKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadKitTests.swift; sourceTree = "<group>"; };
 		E7A4836F9BB3209C6C691DBD /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		E9BFF0C3502C9061650133DB /* traansport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = traansport.png; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		F77E16EF6235252FF9D1960F /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		F9178DDFE5B39C2DF521677E /* VISA_COVER_SOURCES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VISA_COVER_SOURCES.md; sourceTree = "<group>"; };
 		FAEBD849A43CD75414124333 /* VisaLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaLibraryView.swift; sourceTree = "<group>"; };
-		FD43721CCACF0D65631E1F19 /* kit icon.svg */ = {isa = PBXFileReference; path = "kit icon.svg"; sourceTree = "<group>"; };
+		FD43721CCACF0D65631E1F19 /* kit icon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kit icon.svg"; sourceTree = "<group>"; };
 		FE981317298216D02FE72F8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FECE63A58D3D9F5D119FEF5F /* currency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currency.png; sourceTree = "<group>"; };
 		FEDBD7E7FC24390C301D12BB /* passport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passport.png; sourceTree = "<group>"; };
@@ -762,7 +762,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Release;
@@ -772,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 106;
 				DEVELOPMENT_TEAM = D8YA5U2CHV;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "NomadKit-Info.plist";
@@ -784,6 +785,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
 				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
@@ -803,7 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.tests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NomadKit.app/NomadKit";
 			};
 			name = Debug;
@@ -813,6 +815,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 106;
 				DEVELOPMENT_TEAM = D8YA5U2CHV;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "NomadKit-Info.plist";
@@ -825,6 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "vvstudio.co.Nomad-toolkit";
 				PRODUCT_NAME = NomadKit;
 				SDKROOT = iphoneos;
@@ -969,7 +973,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = NomadKit;
 			};
 			name = Release;
@@ -986,7 +990,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nomadkit.uitests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = NomadKit;
 			};
 			name = Debug;
